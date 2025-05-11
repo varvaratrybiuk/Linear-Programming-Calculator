@@ -8,6 +8,11 @@ namespace Methods.Solvers
         private SimplexTable _table;
         SimplexTable ILinearSolver.Table { get => _table; set => _table = value; }
 
+        public void Pivot()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Solve()
         {
             throw new NotImplementedException();

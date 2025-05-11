@@ -6,6 +6,7 @@ namespace Methods.Interfaces
     {
         SimplexTable Table { get; set; }
         void Solve();
+        void Pivot();
         SimplexTable GetSolution();
     }
 }
