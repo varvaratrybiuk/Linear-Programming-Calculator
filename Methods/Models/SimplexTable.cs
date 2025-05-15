@@ -9,6 +9,8 @@ namespace Methods.Models
         public Fraction[,] Values { get; set; }
         public Fraction[] DeltaRow { get; set; }
 
+        public List<string> TetaRow { get; set; }
+
     }
 }
 

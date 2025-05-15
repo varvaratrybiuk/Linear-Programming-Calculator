@@ -1,17 +1,17 @@
 ﻿using Fractions;
-using Methods.Contracts;
 using Methods.Enums;
 using Methods.Interfaces;
+using Methods.MathObjects;
 using Methods.Models;
 using System.Data;
+using System.Globalization;
 
 namespace Methods.Solvers
 {
-    // Рефакторинг!
     public class SimplexSolver(LinearProgrammingProblem problem) : ILinearSolver
     {
-        private SimplexTable _table;
-        private readonly LinearProgrammingProblem _problem = problem;
+        private SimplexTable? _table;
+        private LinearProgrammingProblem _problem = problem;
         private const double M = int.MaxValue;
         public SimplexTable Table { get => _table; set => _table = value; }
 
@@ -33,13 +33,68 @@ namespace Methods.Solvers
             while (true)
             {
                 CalculateReducedCosts();
-                if (IsOptimal()) break;
                 if (IsUnbounded()) throw new InvalidOperationException("Немає розв'язку!");
+                if (IsOptimal()) break;
                 Pivot();
             }
+            // Видалення штучних змінних
+            RemoveArtificialVariables();
 
             Console.WriteLine("я ВИРІШИЛА");
         }
+
+        // Видалення штучних змінних
+        private void RemoveArtificialVariables()
+        {
+            int artificialVariablesCount = _problem.ArtificialVariableCoefficients.Count;
+
+            if (artificialVariablesCount <= 0)
+                return;
+
+            var allKeys = _table.ColumnVariables.Keys.ToList();
+
+            var keysToRemove = allKeys.Skip(allKeys.Count - artificialVariablesCount).ToList();
+            var indexesToRemove = keysToRemove
+                .Select(key => allKeys.IndexOf(key))
+                .OrderByDescending(i => i)
+                .ToList();
+
+            foreach (var key in keysToRemove)
+            {
+                _table.ColumnVariables.Remove(key);
+            }
+
+            int rows = _table.Values.GetLength(0);
+            int cols = _table.Values.GetLength(1) - artificialVariablesCount;
+            var newValues = new Fraction[rows, cols];
+
+            for (int i = 0; i < rows; i++)
+            {
+                int newCol = 0;
+                for (int j = 0; j < _table.Values.GetLength(1); j++)
+                {
+                    if (!indexesToRemove.Contains(j))
+                    {
+                        newValues[i, newCol++] = _table.Values[i, j];
+                    }
+                }
+            }
+
+            _table.Values = newValues;
+
+            var newDelta = new Fraction[cols];
+            int newDeltaIndex = 0;
+            for (int i = 0; i < _table.DeltaRow.Length; i++)
+            {
+                if (!indexesToRemove.Contains(i))
+                {
+                    newDelta[newDeltaIndex++] = _table.DeltaRow[i];
+                }
+            }
+
+            _table.DeltaRow = newDelta;
+        }
+
         // Додавання вільних та штучних змін
         private void ProcessAuxiliaryVariables(bool isSlack)
         {
@@ -52,13 +107,13 @@ namespace Methods.Solvers
                     case true:
                         if (constType != ConstraintType.Equal)
                         {
-                            AddAuxiliaryVariable(_problem.Constraints, constType, i, true);
+                            AddAuxiliaryVariable(_problem.Constraints, constType, i, isSlack);
                         }
                         break;
                     case false:
                         if (constType == ConstraintType.GreaterThanOrEqual || constType == ConstraintType.Equal)
                         {
-                            AddAuxiliaryVariable(_problem.Constraints, constType, i, false);
+                            AddAuxiliaryVariable(_problem.Constraints, constType, i, isSlack);
                         }
                         break;
                 }
@@ -66,8 +121,7 @@ namespace Methods.Solvers
             }
         }
 
-
-        private void AddAuxiliaryVariable(List<Contracts.Constraint> constraints, ConstraintType type, int index, bool isSlack)
+        private void AddAuxiliaryVariable(List<MathObjects.Constraint> constraints, ConstraintType type, int index, bool isSlack)
         {
             for (int i = 0; i < constraints.Count; i++)
             {
@@ -78,10 +132,10 @@ namespace Methods.Solvers
                         switch (type)
                         {
                             case ConstraintType.GreaterThanOrEqual:
-                                constraints[i].Coefficients.Add(-1);
+                                constraints[i].Coefficients.Add("-1");
                                 break;
                             case ConstraintType.LessThanOrEqual:
-                                constraints[i].Coefficients.Add(1);
+                                constraints[i].Coefficients.Add("1");
                                 break;
                         }
                         continue;
@@ -89,15 +143,15 @@ namespace Methods.Solvers
                     else
                     {
                         if (type == ConstraintType.GreaterThanOrEqual || type == ConstraintType.Equal)
-                            constraints[i].Coefficients.Add(1);
+                            constraints[i].Coefficients.Add("1");
                     }
                 }
-                constraints[i].Coefficients.Add(0);
+                constraints[i].Coefficients.Add("0");
             }
             if (isSlack)
-                _problem.SlackVariableCoefficients?.Add(0);
+                _problem.SlackVariableCoefficients?.Add("0");
             else
-                _problem.ArtificialVariableCoefficients?.Add(_problem.IsMaximization ? -M : M);
+                _problem.ArtificialVariableCoefficients?.Add(_problem.IsMaximization ? (-M).ToString() : M.ToString());
         }
 
         // Ініціалізація початкової симплекс таблиці
@@ -131,7 +185,7 @@ namespace Methods.Solvers
 
                 for (int j = 0; j < totalColumns; j++)
                 {
-                    if (_problem.Constraints[i].Coefficients[j] == 1 || _problem.Constraints[i].Coefficients[j] == -1)
+                    if (_problem.Constraints[i].Coefficients[j] == "1" || _problem.Constraints[i].Coefficients[j] == "-1")
                     {
                         AddTableRow(i, j);
                         usedRows.Add(i);
@@ -153,13 +207,13 @@ namespace Methods.Solvers
                 {
                     if (usedRows.Contains(i)) continue;
 
-                    if (_problem.Constraints[i].Coefficients[j] == 1)
+                    if (_problem.Constraints[i].Coefficients[j] == "1")
                     {
                         bool isUnitColumn = true;
 
                         for (int k = 0; k < _problem.Constraints.Count; k++)
                         {
-                            if (k != i && _problem.Constraints[k].Coefficients[j] != 0)
+                            if (k != i && _problem.Constraints[k].Coefficients[j] != "0")
                             {
                                 isUnitColumn = false;
                                 break;
@@ -182,15 +236,15 @@ namespace Methods.Solvers
             int totalColumns = _problem.VariablesCount;
 
             _table.RowVariables.Add($"x{basicVarIndex + 1}", GetObjectiveCoefficient(basicVarIndex).ToString());
-            _table.Values[rowIndex, 0] = new Fraction(_problem.Constraints[constraintIndex].RightHandSide);
+            _table.Values[rowIndex, 0] = Fraction.FromString(_problem.Constraints[constraintIndex].RightHandSide);
 
             for (int j = 0; j < totalColumns; j++)
             {
-                _table.Values[rowIndex, j + 1] = new Fraction(_problem.Constraints[constraintIndex].Coefficients[j]);
+                _table.Values[rowIndex, j + 1] = Fraction.FromString(_problem.Constraints[constraintIndex].Coefficients[j]);
             }
         }
 
-        private double GetObjectiveCoefficient(int index)
+        private string GetObjectiveCoefficient(int index)
         {
             if (index < _problem.ObjectiveFunctionCoefficients.Count)
                 return _problem.ObjectiveFunctionCoefficients[index];
@@ -240,14 +294,14 @@ namespace Methods.Solvers
                     .Select(row => row.Value)
                     .Any(value => double.Parse(value) == M || double.Parse(value) == -M) &&
                 (_problem.IsMaximization
-                    ? !_table.DeltaRow.Any(value => value < 0)
-                    : !_table.DeltaRow.Any(value => value > 0)))
+                    ? !_table.DeltaRow.Skip(1).Any(n => n < 0)
+                    : !_table.DeltaRow.Skip(1).Any(n => n > 0)))
             {
                 return true;
             }
             return false;
         }
-        
+
         // Пошук оптимального значення
         public void Pivot()
         {
@@ -262,14 +316,14 @@ namespace Methods.Solvers
 
             // Визначення напрямного рядка та напрямного елемента
             int pivotRow = -1;
-            Fraction minRatio = new Fraction(double.MaxValue);
+            Fraction minRatio = new Fraction(double.MaxValue).Reduce();
             for (int i = 0; i < basicVariablesCount; i++)
             {
                 Fraction a = _table.Values[i, pivotCol];
                 Fraction b = _table.Values[i, 0];
                 if (a > 0)
                 {
-                    Fraction ratio = b / a;
+                    Fraction ratio = (b / a).Reduce();
                     if (ratio < minRatio)
                     {
                         minRatio = ratio;
@@ -312,13 +366,18 @@ namespace Methods.Solvers
         {
             foreach (var constraint in _problem.Constraints)
             {
-                if (constraint.RightHandSide < 0)
+                double rhs = double.Parse(constraint.RightHandSide, CultureInfo.InvariantCulture);
+
+                if (rhs < 0)
                 {
-                    constraint.RightHandSide *= -1;
+                    rhs *= -1;
+                    constraint.RightHandSide = rhs.ToString("0.####", CultureInfo.InvariantCulture);
 
                     for (int i = 0; i < constraint.Coefficients.Count; i++)
                     {
-                        constraint.Coefficients[i] *= -1;
+                        double coeff = double.Parse(constraint.Coefficients[i], CultureInfo.InvariantCulture);
+                        coeff *= -1;
+                        constraint.Coefficients[i] = coeff.ToString("0.####", CultureInfo.InvariantCulture);
                     }
 
                     constraint.Type = constraint.Type switch

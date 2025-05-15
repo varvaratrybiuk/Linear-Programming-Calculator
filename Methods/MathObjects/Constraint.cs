@@ -1,11 +1,11 @@
 ﻿using Methods.Enums;
 
-namespace Methods.Contracts
+namespace Methods.MathObjects
 {
     public class Constraint
     {
-        public List<double> Coefficients { get; set; }
+        public List<string> Coefficients { get; set; }
         public ConstraintType Type { get; set; }
-        public double RightHandSide { get; set; }
+        public string RightHandSide { get; set; }
     }
 }
