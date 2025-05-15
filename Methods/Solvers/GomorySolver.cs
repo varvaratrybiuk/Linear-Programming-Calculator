@@ -92,7 +92,7 @@ namespace Methods.Solvers
 
         private void CalculateReducedCosts()
         {
-            int rowCount = _problem.Constraints.Count;
+            int rowCount = _table.RowVariables.Count;
             int columnCount = _table.ColumnVariables.Count;
 
             _table.DeltaRow = new Fraction[columnCount];

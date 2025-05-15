@@ -279,7 +279,7 @@ namespace Methods.Solvers
                 }
                 Fraction cj = 0;
                 Fraction.TryParse(_table.ColumnVariables[columnVar], out cj);
-                _table.DeltaRow[j] = delta - cj;
+                _table.DeltaRow[j] = (delta - cj).Reduce();
             }
         }
         private bool IsOptimal()
@@ -352,12 +352,14 @@ namespace Methods.Solvers
                 for (int j = 0; j < totalColumns; j++)
                 {
                     _table.Values[i, j] -= factor * _table.Values[pivotRow, j] / pivotElement;
+                    _table.Values[i, j] = _table.Values[i, j].Reduce();
                 }
             }
 
             for (int j = 0; j < totalColumns; j++)
             {
                 _table.Values[pivotRow, j] /= pivotElement;
+                _table.Values[pivotRow, j] = _table.Values[pivotRow, j].Reduce();
             }
         }
 
