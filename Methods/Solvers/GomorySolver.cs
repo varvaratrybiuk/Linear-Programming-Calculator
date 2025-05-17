@@ -195,7 +195,7 @@ namespace Methods.Solvers
             {
                 var coeff = rowValues[j];
                 int wholePart = (int)(coeff.Numerator / coeff.Denominator);
-                if (coeff.IsNegative && coeff.Denominator!= 1)
+                if (coeff.IsNegative && coeff.Denominator != 1)
                     wholePart = -1;
                 Fraction fractionalPart = coeff - wholePart;
                 cut.Add(-fractionalPart);
