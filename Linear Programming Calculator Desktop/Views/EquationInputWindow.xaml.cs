@@ -1,5 +1,6 @@
 ﻿using Methods.Enums;
 using Methods.MathObjects;
+using Methods.Solvers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -41,6 +42,8 @@ namespace Linear_Programming_Calculator_Desktop
         {
             Application.Current.Shutdown();
         }
+
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             GenerateObjectiveSection();
@@ -90,7 +93,7 @@ namespace Linear_Programming_Calculator_Desktop
                 _objectiveFunctionValues[textBox] = string.Empty;
                 panel.Children.Add(textBox);
                 panel.Children.Add(label);
-   
+
 
                 if (i != _variables)
                 {
@@ -190,7 +193,7 @@ namespace Linear_Programming_Calculator_Desktop
                 {
                     Width = 60,
                     Height = 30,
-                    ItemsSource = new[] { "<=", ">=", "=" },
+                    ItemsSource = new[] { "≤", "≥", "=" },
                     SelectedIndex = 0,
                     Margin = new Thickness(10, 0, 5, 0),
                     VerticalAlignment = VerticalAlignment.Center,
@@ -225,7 +228,7 @@ namespace Linear_Programming_Calculator_Desktop
                 Content = variablesName + " - цілі",
             };
 
-            variablesName += ">= 0";
+            variablesName += "≥ 0";
 
             var exampleText = new TextBlock
             {
@@ -277,7 +280,7 @@ namespace Linear_Programming_Calculator_Desktop
             }
         }
 
-        private void solve_Click(object sender, RoutedEventArgs e)
+        private async void solve_Click(object sender, RoutedEventArgs e)
         {
             EnsureTextBoxesHaveValues(_objectiveFunctionValues);
             EnsureTextBoxesHaveValues(_constraintValues);
@@ -301,13 +304,19 @@ namespace Linear_Programming_Calculator_Desktop
                 constraint.Type = _constraintSigns.Values.ElementAt(constrIndex);
                 constraints.Add(constraint);
             }
-               
+
             var problem = new LinearProgrammingProblem
             {
                 IsMaximization = _isMaximization,
                 ObjectiveFunctionCoefficients = _objectiveFunctionValues.Values.ToList(),
                 Constraints = constraints
             };
+
+            var _solver = new SimplexSolver(problem);
+            await Task.Run(() => _solver.Solve());
+            var newResultWindow = new ResultsWindow(_solver.simplexHistory, problem);
+            newResultWindow.Show();
+            Hide();
 
         }
 

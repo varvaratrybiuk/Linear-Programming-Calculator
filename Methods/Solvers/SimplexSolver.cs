@@ -10,10 +10,13 @@ namespace Methods.Solvers
 {
     public class SimplexSolver(LinearProgrammingProblem problem) : ILinearSolver
     {
+
+        public SimplexHistory simplexHistory { get; set; } = new SimplexHistory();
+        public SimplexTable Table { get => _table; set => _table = value; }
+
         private SimplexTable? _table;
         private LinearProgrammingProblem _problem = problem;
         private const double M = int.MaxValue;
-        public SimplexTable Table { get => _table; set => _table = value; }
 
         public SimplexTable GetSolution()
         {
@@ -22,11 +25,18 @@ namespace Methods.Solvers
 
         public void Solve()
         {
+            simplexHistory.InitialLinearProgrammingProblem = (LinearProgrammingProblem)_problem.Clone();
             // Приведення до канонічного вигляду
             ConvertToCanonicalForm();
             // Додавання вільних змінних та штучних змінних
             ProcessAuxiliaryVariables(isSlack: true);
+            simplexHistory.FreeVariableProblem = (LinearProgrammingProblem)_problem.Clone();
             ProcessAuxiliaryVariables(isSlack: false);
+            if (_problem.ArtificialVariableCoefficients?.Count != 0)
+            {
+                simplexHistory.ArtificialProblemTable = (LinearProgrammingProblem)_problem.Clone();
+            }
+
             // Заповнення першої таблиці
             InitializeTableau();
             // Пошук оптимального рішення, якщо це можливо
@@ -93,6 +103,7 @@ namespace Methods.Solvers
             }
 
             _table.DeltaRow = newDelta;
+            simplexHistory.Steps.Add(new SimplexStep() { Table = (SimplexTable)_table.Clone() });
         }
 
         // Додавання вільних та штучних змін
@@ -143,7 +154,10 @@ namespace Methods.Solvers
                     else
                     {
                         if (type == ConstraintType.GreaterThanOrEqual || type == ConstraintType.Equal)
+                        {
                             constraints[i].Coefficients.Add("1");
+                            continue;
+                        }
                     }
                 }
                 constraints[i].Coefficients.Add("0");
@@ -224,6 +238,7 @@ namespace Methods.Solvers
                         {
                             AddTableRow(i, j);
                             usedRows.Add(i);
+                            simplexHistory.InitialBasis[$"x{j + 1}"] = _problem.Constraints[i].RightHandSide;
                             break;
                         }
                     }
@@ -332,8 +347,15 @@ namespace Methods.Solvers
                 }
             }
             if (pivotRow == -1) throw new InvalidOperationException("Немає розв'язку! Неможливо визначити напрямний рядок!");
-            // Перерахунок симплекс таблиці
 
+            simplexHistory.Steps.Add(new SimplexStep()
+            {
+                PivotColumn = pivotCol,
+                PivotRow = pivotRow,
+                Table = (SimplexTable)_table.Clone(),
+            });
+
+            // Перерахунок симплекс таблиці
             // Заміна напрямленого рядка
             var newKey = $"x{pivotCol}";
             var newValue = _table.ColumnVariables[$"A{pivotCol}"];
