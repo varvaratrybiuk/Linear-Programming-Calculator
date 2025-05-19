@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Linear_Programming_Calculator_Desktop"
         mc:Ignorable="d"
-        Title="Задачі лінійного програмування" Closed="Window_Closed" SizeToContent="Width" ResizeMode="CanMinimize" Height="450" Loaded="Window_Loaded" Width="800" Background="#F2F9F9F9">
+        Title="Задачі лінійного програмування" Closed="Window_Closed" SizeToContent="Width" Height="450" Loaded="Window_Loaded" Width="800" Background="#F2F9F9F9">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

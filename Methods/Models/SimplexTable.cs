@@ -8,7 +8,7 @@ namespace Methods.Models
         public Dictionary<string, string> ColumnVariables { get; set; }
         public Fraction[,] Values { get; set; }
         public Fraction[]? DeltaRow { get; set; }
-        public List<string> TetaRow { get; set; }
+        public List<string> ThetaRow { get; set; }
 
         public object Clone()
         {
@@ -18,28 +18,8 @@ namespace Methods.Models
                 ColumnVariables = ColumnVariables != null ? new Dictionary<string, string>(ColumnVariables) : new Dictionary<string, string>(),
                 Values = (Fraction[,])Values.Clone(),
                 DeltaRow = DeltaRow != null ? DeltaRow.Select(f => new Fraction(f.Numerator, f.Denominator)).ToArray() : null,
-                TetaRow = TetaRow != null ? new List<string>(TetaRow) : new List<string>()
+                ThetaRow = ThetaRow != null ? new List<string>(ThetaRow) : new List<string>()
             };
-        }
-
-        private Fraction[,] CloneFractionArray(Fraction[,] source)
-        {
-            if (source == null)
-                return null;
-
-            int rows = source.GetLength(0);
-            int cols = source.GetLength(1);
-            var clone = new Fraction[rows, cols];
-
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < cols; j++)
-                {
-                    clone[i, j] = new Fraction(source[i, j].Numerator, source[i, j].Denominator);
-                }
-            }
-
-            return clone;
         }
     }
 }

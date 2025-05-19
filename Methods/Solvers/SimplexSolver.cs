@@ -11,7 +11,7 @@ namespace Methods.Solvers
     public class SimplexSolver(LinearProgrammingProblem problem) : ILinearSolver
     {
 
-        public SimplexHistory simplexHistory { get; set; } = new SimplexHistory();
+        public SimplexHistory SimplexHistory { get; set; } = new SimplexHistory();
         public SimplexTable Table { get => _table; set => _table = value; }
 
         private SimplexTable? _table;
@@ -25,16 +25,16 @@ namespace Methods.Solvers
 
         public void Solve()
         {
-            simplexHistory.InitialLinearProgrammingProblem = (LinearProgrammingProblem)_problem.Clone();
+            SimplexHistory.InitialLinearProgrammingProblem = (LinearProgrammingProblem)_problem.Clone();
             // Приведення до канонічного вигляду
             ConvertToCanonicalForm();
             // Додавання вільних змінних та штучних змінних
             ProcessAuxiliaryVariables(isSlack: true);
-            simplexHistory.FreeVariableProblem = (LinearProgrammingProblem)_problem.Clone();
+            SimplexHistory.FreeVariableProblem = (LinearProgrammingProblem)_problem.Clone();
             ProcessAuxiliaryVariables(isSlack: false);
             if (_problem.ArtificialVariableCoefficients?.Count != 0)
             {
-                simplexHistory.ArtificialProblemTable = (LinearProgrammingProblem)_problem.Clone();
+                SimplexHistory.ArtificialProblemTable = (LinearProgrammingProblem)_problem.Clone();
             }
 
             // Заповнення першої таблиці
@@ -43,14 +43,23 @@ namespace Methods.Solvers
             while (true)
             {
                 CalculateReducedCosts();
-                if (IsUnbounded()) throw new InvalidOperationException("Немає розв'язку!");
-                if (IsOptimal()) break;
+                if (IsUnbounded())
+                {
+                    SimplexHistory.Steps.Add(new SimplexStep()
+                    {
+                        PivotColumn = -1,
+                        PivotRow = -1,
+                        Table = (SimplexTable)_table.Clone(),
+                    });
+                    throw new InvalidOperationException("Немає розв'язку! Штучні змінні не вивелися з базису!");
+                }
+                if (IsOptimal())
+                    break;
                 Pivot();
             }
             // Видалення штучних змінних
             RemoveArtificialVariables();
-
-            Console.WriteLine("я ВИРІШИЛА");
+            SimplexHistory.OptimalTable = (SimplexTable)_table.Clone();
         }
 
         // Видалення штучних змінних
@@ -103,7 +112,6 @@ namespace Methods.Solvers
             }
 
             _table.DeltaRow = newDelta;
-            simplexHistory.Steps.Add(new SimplexStep() { Table = (SimplexTable)_table.Clone() });
         }
 
         // Додавання вільних та штучних змін
@@ -238,7 +246,7 @@ namespace Methods.Solvers
                         {
                             AddTableRow(i, j);
                             usedRows.Add(i);
-                            simplexHistory.InitialBasis[$"x{j + 1}"] = _problem.Constraints[i].RightHandSide;
+                            SimplexHistory.InitialBasis[$"x{j + 1}"] = _problem.Constraints[i].RightHandSide;
                             break;
                         }
                     }
@@ -346,14 +354,14 @@ namespace Methods.Solvers
                     }
                 }
             }
-            if (pivotRow == -1) throw new InvalidOperationException("Немає розв'язку! Неможливо визначити напрямний рядок!");
 
-            simplexHistory.Steps.Add(new SimplexStep()
+            SimplexHistory.Steps.Add(new SimplexStep()
             {
                 PivotColumn = pivotCol,
                 PivotRow = pivotRow,
                 Table = (SimplexTable)_table.Clone(),
             });
+            if (pivotRow == -1) throw new InvalidOperationException("Немає розв'язку! Неможливо визначити напрямний рядок!");
 
             // Перерахунок симплекс таблиці
             // Заміна напрямленого рядка

@@ -1,4 +1,5 @@
-﻿using Methods.Enums;
+﻿using Fractions;
+using Methods.Enums;
 using Methods.MathObjects;
 using Methods.Models;
 using System.Text;
@@ -13,72 +14,43 @@ namespace Linear_Programming_Calculator_Desktop
     /// </summary>
     public partial class ResultsWindow : Window
     {
+
+
         private SimplexHistory _history;
-        private LinearProgrammingProblem _problem;
-        public ResultsWindow(SimplexHistory history, LinearProgrammingProblem problem)
+
+        private string _errorMessage;
+        private List<GomoryHistory>? _gomoryHistory;
+
+
+        public ResultsWindow(SimplexHistory simplexHistory, string errorMessage, List<GomoryHistory>? gomoryHistory)
         {
             InitializeComponent();
-            _history = history;
-            _problem = problem;
+            _history = simplexHistory;
+            _errorMessage = errorMessage;
+            _gomoryHistory = gomoryHistory;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            ShowSolution(_history);
-        }
-
-        private void Window_Closed(object sender, EventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
-        private void ShowSolution(SimplexHistory history)
-        {
             try
             {
                 SolutionPanel.Children.Clear();
-
-                AddSectionToSolutionPanel("Математична модель", RenderProblem(history.InitialLinearProgrammingProblem));
-                AddSectionToSolutionPanel($"Вводимо {history.FreeVariableProblem.SlackVariableCoefficients.Count} вільні змінні", 
-                    RenderProblem(history.FreeVariableProblem));
-
-                if (history.ArtificialProblemTable != null)
+                var isIntegerProblem = _gomoryHistory != null ? true : false;
+                AddSectionToSolutionPanel("Математична модель", RenderProblem(_history.InitialLinearProgrammingProblem, isIntegerProblem));
+                ShowSimplexSolution();
+                if (_gomoryHistory != null)
                 {
-                    AddSectionToSolutionPanel($"Вводимо {history.ArtificialProblemTable.ArtificialVariableCoefficients.Count} штучні змінні",
-                        RenderProblem(history.ArtificialProblemTable));
-                }
-
-                var basisText = string.Join(", ", history.InitialBasis.Select(kvp => $"{kvp.Key} = {kvp.Value}"));
-                AddSectionToSolutionPanel("Отримуємо початковий допустимий базисний розв’язок задачі", basisText);
-
-                for (int stepIndex = 0; stepIndex < history.Steps.Count; stepIndex++)
-                {
-                    SolutionPanel.Children.Add(CreateHeader("Будуємо відповідну симплекс-таблицю"));
-                    if (stepIndex == history.Steps.Count - 1)
+                    SolutionPanel.Children.Add(CreateHeader("Пошук цілочисельного розв’язку (метод Гоморі)"));
+                    if (_gomoryHistory.Count > 0)
                     {
-                        var LastTableGrid = CreateSimplexTable(history.Steps[stepIndex].Table, null, null);
-                        SolutionPanel.Children.Add(LastTableGrid);
-                        continue;
+                        SolutionPanel.Children.Add(CreateMathBlock(GenerateSolutionSummaryString(_history.OptimalTable) + " - не є цілочисельним"));
+                        ShowGomorySolution();
                     }
-                    var tableGrid = CreateSimplexTable(history.Steps[stepIndex].Table, history.Steps[stepIndex].PivotRow, history.Steps[stepIndex].PivotColumn);
-                    SolutionPanel.Children.Add(CreateMathBlock($"Напрямний стовпець: A{history.Steps[stepIndex].PivotColumn}." +
-                        $"\nНапрямнтй рядок: {history.Steps[stepIndex].Table.RowVariables.ElementAt(history.Steps[stepIndex].PivotRow).Key}." +
-                        $"\nНапрямний елемент: {history.Steps[stepIndex].Table.RowVariables.ElementAt(history.Steps[stepIndex].PivotRow).Key}{history.Steps[stepIndex].PivotColumn}."));
-                    SolutionPanel.Children.Add(tableGrid);
+                    else
+                    {
+                        SolutionPanel.Children.Add(CreateMathBlock(GenerateSolutionSummaryString(_history.OptimalTable) + " - є цілочисельним"));
+                    }
                 }
-
-                SolutionPanel.Children.Add(CreateHeader("Відповідь"));
-                string mathString = "";
-                var solution = history.Steps.LastOrDefault();
-                for (int i = 0; i < _problem.ObjectiveFunctionCoefficients.Count; i++)
-                {
-                    string key = $"x{i + 1}";
-                    int rowIndex = solution.Table.RowVariables.Keys.ToList().IndexOf(key);
-                    var value = rowIndex >= 0 ? solution.Table.Values[rowIndex, 0] : Fractions.Fraction.Zero;
-                    mathString += $"x{i + 1} = {value.ToString()}, ";
-                }
-                mathString += $"F{(_problem.IsMaximization ? "max" : "min")} = {solution.Table.DeltaRow[0]}";
-                SolutionPanel.Children.Add(CreateMathBlock(mathString));
             }
             catch (Exception ex)
             {
@@ -91,6 +63,153 @@ namespace Linear_Programming_Calculator_Desktop
                 });
             }
         }
+
+        private void ShowGomorySolution()
+        {
+            for (int i = 0; i < _gomoryHistory.Count; i++)
+            {
+                var history = _gomoryHistory[i];
+                AddSectionToSolutionPanel($"Крок {i + 1} методу Гоморі", string.Empty);
+                var max = history.MaxValue;
+                AddSectionToSolutionPanel("Найбільше дробове значення серед змінних",
+                    $"x{max.Item1 + 1} = {max.Item2}");
+
+                var cut = history.Cut;
+                string cutElements = string.Empty;
+                foreach (var c in cut.Elements)
+                {
+                    if (c.Value.Item2.Denominator != 1)
+                        cutElements += $"\n{c.Key} = {c.Value.Item2} - ({c.Value.Item1}) = {c.Value.Item2 - c.Value.Item1}";
+                }
+                AddSectionToSolutionPanel("Визначимо дробові частини:", cutElements);
+                var lhsParts = new List<string>();
+                var rhsParts = new List<string>();
+                Fraction constantTerm = Fraction.Zero;
+
+                for (int k = 1; k < cut.Elements.Count; k++)
+                {
+                    var element = cut.Elements.ElementAt(k);
+                    var variableIndex = k;
+                    var coeff = element.Value.Item2;
+                    if (coeff.Denominator != 1)
+                        lhsParts.Add($"{coeff - element.Value.Item1}x{variableIndex}");
+                }
+
+                var constant = cut.Elements.ElementAt(0).Value.Item2 - cut.Elements.ElementAt(0).Value.Item1;
+
+                var inequality = $"{string.Join(" + ", lhsParts)} ≥ {constant}";
+                AddSectionToSolutionPanel("Запишемо правильне відсічення:", inequality);
+                int artificialIndex = cut.Elements.Count;
+                var equality = $"{string.Join(" + ", lhsParts)} - x{artificialIndex} = {constant}";
+                AddSectionToSolutionPanel("Приводимо до рівності:", equality);
+
+                rhsParts.Add($"x{artificialIndex}");
+
+                for (int k = 1; k < cut.Elements.Count; k++)
+                {
+                    var element = cut.Elements.ElementAt(k);
+                    var coeff = element.Value.Item2;
+                    if (coeff.Denominator != 1)
+                        rhsParts.Add($"- {coeff - element.Value.Item1}x{k}");
+                }
+
+                var rhsExpression = $"{constant * -1} = {string.Join(" ", rhsParts)}";
+                AddSectionToSolutionPanel("Перетворимо:", rhsExpression);
+
+                for (int j = 0; j < history.Steps.Count; j++)
+                {
+                    var step = history.Steps[j];
+                    SolutionPanel.Children.Add(CreateHeader("Будуємо відповідну симплекс-таблицю"));
+
+                    var table = CreateSimplexTable(step.Table,
+                        j == history.Steps.Count - 1 ? null : step.PivotRow,
+                        j == history.Steps.Count - 1 ? null : step.PivotColumn, showTheta: true);
+
+                    if (j < history.Steps.Count - 1)
+                    {
+                        var pivotRowName = step.Table.RowVariables.Keys.ElementAt(step.PivotRow);
+                        AddSectionToSolutionPanel("Визначаємо",
+                            $"Напрямний рядок: {pivotRowName}.\n" +
+                            $"Напрямний стовпець: A{step.PivotColumn}.\n" +
+                            $"Напрямний елемент: {pivotRowName}{step.PivotColumn}.");
+                    }
+
+                    SolutionPanel.Children.Add(table);
+                }
+                SolutionPanel.Children.Add(CreateHeader("Отримали оптимальний розв'язок задачі"));
+                if (i == _gomoryHistory.Count - 1)
+                {
+                    SolutionPanel.Children.Add(CreateMathBlock(GenerateSolutionSummaryString(history.Steps[history.Steps.Count - 1].Table)));
+                    break;
+                }
+                var result = GenerateSolutionSummaryString(history.Steps[history.Steps.Count - 1].Table) + "- не є цілочисельним";
+                SolutionPanel.Children.Add(CreateMathBlock(result));
+
+            }
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void ShowSimplexSolution()
+        {
+
+            AddSectionToSolutionPanel($"Вводимо {_history.FreeVariableProblem?.SlackVariableCoefficients?.Count} вільні змінні", 
+                RenderProblem(_history.FreeVariableProblem, isEqual: true));
+
+            if (_history.ArtificialProblemTable != null)
+                AddSectionToSolutionPanel($"Вводимо {_history.ArtificialProblemTable?.ArtificialVariableCoefficients?.Count} штучні змінні", 
+                    RenderProblem(_history.ArtificialProblemTable, isEqual: true));
+
+            var basisText = string.Join(", ", _history.InitialBasis.Select(kvp => $"{kvp.Key} = {kvp.Value}"));
+            AddSectionToSolutionPanel("Отримуємо початковий допустимий базисний розв’язок задачі", basisText);
+
+            for (int stepIndex = 0; stepIndex < _history.Steps.Count; stepIndex++)
+            {
+                SolutionPanel.Children.Add(CreateHeader("Будуємо відповідну симплекс-таблицю"));
+
+                var tableGrid = CreateSimplexTable(_history.Steps[stepIndex].Table, _history.Steps[stepIndex].PivotRow, _history.Steps[stepIndex].PivotColumn);
+                if (_history.Steps[stepIndex].PivotColumn != -1 && _history.Steps[stepIndex].PivotRow != -1)
+                    SolutionPanel.Children.Add(CreateMathBlock($"Напрямний стовпець: A{_history.Steps[stepIndex].PivotColumn}." +
+                    $"\nНапрямнтй рядок: {_history.Steps[stepIndex].Table.RowVariables.ElementAt(_history.Steps[stepIndex].PivotRow).Key}." +
+                    $"\nНапрямний елемент: {_history.Steps[stepIndex].Table.RowVariables.ElementAt(_history.Steps[stepIndex].PivotRow).Key}{_history.Steps[stepIndex].PivotColumn}."));
+                SolutionPanel.Children.Add(tableGrid);
+            }
+            if (_history.OptimalTable != null)
+            {
+                SolutionPanel.Children.Add(CreateHeader("Будуємо відповідну симплекс-таблицю"));
+                var LastTableGrid = CreateSimplexTable(_history.OptimalTable, null, null);
+                SolutionPanel.Children.Add(LastTableGrid);
+
+                SolutionPanel.Children.Add(CreateHeader("Отримали оптимальний розв'язок задачі"));
+                SolutionPanel.Children.Add(CreateMathBlock(GenerateSolutionSummaryString(_history.OptimalTable)));
+            }
+            SolutionPanel.Children.Add(new TextBlock
+            {
+                Text = $"{_errorMessage}",
+                Foreground = Brushes.Red,
+                FontWeight = FontWeights.Bold,
+                Margin = new Thickness(5)
+            });
+
+        }
+        private string GenerateSolutionSummaryString(SimplexTable solution)
+        {
+            string mathString = "";
+
+            for (int i = 0; i < _history.InitialLinearProgrammingProblem.ObjectiveFunctionCoefficients.Count; i++)
+            {
+                string key = $"x{i + 1}";
+                int rowIndex = solution.RowVariables.Keys.ToList().IndexOf(key);
+                var value = rowIndex >= 0 ? solution.Values[rowIndex, 0] : Fraction.Zero;
+                mathString += $"x{i + 1} = {value}, ";
+            }
+
+            mathString += $"F{(_history.InitialLinearProgrammingProblem.IsMaximization ? "max" : "min")} = {solution.DeltaRow[0]}";
+            return mathString;
+        }
         private void AddSectionToSolutionPanel(string header, string latex)
         {
             SolutionPanel.Children.Add(CreateHeader(header));
@@ -102,7 +221,7 @@ namespace Linear_Programming_Calculator_Desktop
             Text = text,
             FontSize = 16,
             FontWeight = FontWeights.Bold,
-            Margin = new Thickness(10, 20, 10, 5)
+            Margin = new Thickness(5)
         };
 
         private TextBlock CreateMathBlock(string text) => new TextBlock
@@ -112,7 +231,7 @@ namespace Linear_Programming_Calculator_Desktop
             Margin = new Thickness(10)
         };
 
-        private string RenderProblem(LinearProgrammingProblem? problem)
+        private string RenderProblem(LinearProgrammingProblem? problem, bool isIntegerProblem = false, bool isEqual = false)
         {
             if (problem == null) return string.Empty;
 
@@ -133,21 +252,28 @@ namespace Linear_Programming_Calculator_Desktop
             foreach (var c in problem.Constraints)
             {
                 var line = string.Join(" + ", c.Coefficients.Select((coef, i) => $"{coef}x{i + 1}"));
-                var sign = c.Type switch
+                var sign = "=";
+                if (!isEqual)
                 {
-                    ConstraintType.LessThanOrEqual => "≤",
-                    ConstraintType.Equal => "=",
-                    ConstraintType.GreaterThanOrEqual => "≥",
-                    _ => "?"
-                };
+                    sign = c.Type switch
+                    {
+                        ConstraintType.LessThanOrEqual => "≤",
+                        ConstraintType.Equal => "=",
+                        ConstraintType.GreaterThanOrEqual => "≥",
+                        _ => "?"
+                    };
+                }
+                
                 sb.AppendLine($"{line} {sign} {c.RightHandSide}");
             }
 
             sb.AppendLine(string.Join(", ", variables.Select(v => $"{v} ≥ 0")));
+            if (isIntegerProblem)
+                sb.AppendLine(string.Join(", ", variables) + " — цілі");
             return sb.ToString();
         }
 
-        private Border CreateSimplexTable(SimplexTable table, int? pivotRow, int? pivotCol)
+        private Border CreateSimplexTable(SimplexTable table, int? pivotRow, int? pivotCol, bool showTheta = false)
         {
             var border = new Border
             {
@@ -161,7 +287,7 @@ namespace Linear_Programming_Calculator_Desktop
             };
             border.Child = grid;
 
-            int rows = table.Values.GetLength(0) + 3;
+            int rows = table.Values.GetLength(0) + 4 + (showTheta ? 2 : 0);
             int cols = table.Values.GetLength(1) + 2;
 
             for (int i = 0; i < cols; i++) grid.ColumnDefinitions.Add(new ColumnDefinition());
@@ -198,7 +324,7 @@ namespace Linear_Programming_Calculator_Desktop
                     else if (pivotRow == i || pivotCol == j)
                         cell.Background = new SolidColorBrush(Color.FromRgb(0xF5, 0xDE, 0xB3));
                     else
-                        cell.Background = Background = Brushes.Transparent;
+                        cell.Background = Brushes.Transparent;
 
                     Grid.SetRow(cell, i + 2);
                     Grid.SetColumn(cell, j + 2);
@@ -206,11 +332,20 @@ namespace Linear_Programming_Calculator_Desktop
                 }
             }
 
-            AddCell(grid, "∆", rows - 1, 1);
+            AddCell(grid, "∆", rows - 2, 1);
             for (int i = 0; i < table.DeltaRow.Length; i++)
             {
                 var value = table.DeltaRow[i].ToString();
-                AddCell(grid, value, rows - 1, i + 2);
+                AddCell(grid, value, rows - 2, i + 2);
+            }
+            if (showTheta)
+            {
+                AddCell(grid, "θ", rows - 1, 1);
+                for (int i = 0; i < table.ThetaRow.Count; i++)
+                {
+                    string thetaValue = table.ThetaRow[i];
+                    AddCell(grid, thetaValue, rows - 1, i + 3);
+                }
             }
 
             return border;

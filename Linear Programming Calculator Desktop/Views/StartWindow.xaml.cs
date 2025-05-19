@@ -61,6 +61,7 @@ namespace Linear_Programming_Calculator_Desktop
                 var window = new EquationInputWindow(variableCount, constraintCount);
                 window.Show();
                 Hide();
+
             }
         }
     }

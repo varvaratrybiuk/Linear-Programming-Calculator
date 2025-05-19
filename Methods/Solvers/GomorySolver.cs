@@ -7,10 +7,13 @@ namespace Methods.Solvers
 {
     public class GomorySolver(SimplexTable table, LinearProgrammingProblem problem) : ILinearSolver
     {
+        public SimplexTable Table { get => _table; set => _table = value; }
+        public List<GomoryHistory> GomoryHistory { get; set; } = [];
+        private int _historyStep = -1;
+
         private SimplexTable _table = table;
         private LinearProgrammingProblem _problem = problem;
-        private Dictionary<string, Fraction> result = new Dictionary<string, Fraction>();
-        SimplexTable ILinearSolver.Table { get => _table; set => _table = value; }
+        private Dictionary<string, Fraction> _result = [];
 
         public void Pivot()
         {
@@ -34,7 +37,7 @@ namespace Methods.Solvers
             // Напрямний стовпець
             var pivotCol = -1;
             Fraction minTeta = Fraction.PositiveInfinity;
-            _table.TetaRow = new List<string>();
+            _table.ThetaRow = new List<string>();
 
             for (int j = 1; j < _table.Values.GetLength(1); j++)
             {
@@ -43,7 +46,7 @@ namespace Methods.Solvers
                 if (element < 0)
                 {
                     var teta = Fraction.Abs(_table.DeltaRow[j] / element);
-                    _table.TetaRow.Add(teta.ToString());
+                    _table.ThetaRow.Add(teta.ToString());
 
                     if (teta < minTeta)
                     {
@@ -53,14 +56,21 @@ namespace Methods.Solvers
                 }
                 else
                 {
-                    _table.TetaRow.Add("-");
+                    _table.ThetaRow.Add("-");
                 }
             }
 
             if (pivotCol == -1)
             {
-                throw new InvalidOperationException("Немає розв'язку!");
+                throw new InvalidOperationException("Немає розв'язку! Неможливо визначити напрямний стовпець!");
             }
+
+            GomoryHistory[_historyStep].Steps.Add(new SimplexStep()
+            {
+                PivotColumn = pivotCol,
+                PivotRow = pivotRow,
+                Table = (SimplexTable)_table.Clone(),
+            });
 
             // Заміна напрямленого рядка
             var newKey = $"x{pivotCol}";
@@ -88,6 +98,7 @@ namespace Methods.Solvers
                 _table.Values[pivotRow, j] /= pivotElement;
             }
             CalculateReducedCosts();
+
         }
 
         private void CalculateReducedCosts()
@@ -120,29 +131,26 @@ namespace Methods.Solvers
         }
         public void Solve()
         {
-            // Перевірка на цілочисельність
-            // Шукаємо найбільше ДРОБОВЕ значення, яке лежить в межах від 0 до 1
-            // Створюємо відсічення
-            // Додаємо у нашу симплекс таблицю нове відсічення (наш напрямний рядок)
-            // Розраховуємо min {^/Aij} наш стовпець (значення повинні бути від'ємні тільки для них розраховуємо)
-            // Якщо є від'ємні в A0, то треба перераховувати
-            // Перевірка чи у вибраному стовпці є дробові значення, якщо немає (Немає розв'язку)
-            // Перераховуємо все
-            // Розрахунок індексного рядка
-            // Перевірка A0, щоб не було від'єних
-            // Знову
             while (!IsIntegerOptimalSolutionFound() || !isOptimal())
             {
                 if (isOptimal())
                 {
-                    if (IsUnbounded()) throw new InvalidOperationException("Немає розв'язку!");
+                    if (IsUnbounded()) throw new InvalidOperationException("Немає розв'язку! В рядку немає жодного дробовога значення!");
                     var fractionalRow = FindMostFractionalRow();
+                    _historyStep++;
+                    GomoryHistory.Add(new GomoryHistory()
+                    {
+                        MaxValue = new Tuple<int, Fraction>(fractionalRow, _result.Values.ToList()[fractionalRow])
+                    });
                     var cutRow = BuildGomoryCutRow(fractionalRow);
                     AddCuttingPlaneRow(cutRow);
                 }
                 Pivot();
+                GomoryHistory[_historyStep].Steps.Add(new SimplexStep()
+                {
+                    Table = (SimplexTable)_table.Clone(),
+                });
             }
-            Console.WriteLine("я ВИРІШИЛА");
         }
         private bool IsUnbounded()
         {
@@ -163,7 +171,7 @@ namespace Methods.Solvers
         {
             int fractionalRowIndex = -1;
             Fraction maxFraction = 0;
-            var values = result.Values.ToList();
+            var values = _result.Values.ToList();
 
             for (int i = 0; i < values.Count; i++)
             {
@@ -182,6 +190,7 @@ namespace Methods.Solvers
         }
         private List<Fraction> BuildGomoryCutRow(int fractionalRowIndex)
         {
+            var newBranchCut = new BranchCut();
             // Отримуємо рядок
             var rowValues = new List<Fraction>();
             for (int j = 0; j < _table.Values.GetLength(1); j++)
@@ -198,9 +207,12 @@ namespace Methods.Solvers
                 if (coeff.IsNegative && coeff.Denominator != 1)
                     wholePart = -1;
                 Fraction fractionalPart = coeff - wholePart;
+                newBranchCut.Elements[$"y{fractionalRowIndex + 1}{j}"] = new Tuple<Fraction, Fraction>(wholePart, coeff);
                 cut.Add(-fractionalPart);
             }
             cut.Add(1);
+            newBranchCut.CutExpression = new List<Fraction>(cut);
+            GomoryHistory[_historyStep].Cut = newBranchCut;
             return cut;
         }
         private void AddCuttingPlaneRow(List<Fraction> cutRow)
@@ -243,21 +255,8 @@ namespace Methods.Solvers
         }
         private bool IsIntegerOptimalSolutionFound()
         {
-            // Винести в окремий методи
-            for (int i = 0; i < _problem.ObjectiveFunctionCoefficients.Count; i++)
-            {
-                string variableName = $"x{i + 1}";
-                if (_table.RowVariables.ContainsKey(variableName))
-                {
-                    var row = _table.RowVariables[variableName];
-                    int index = _table.RowVariables.Keys.ToList().IndexOf(variableName);
-                    var value = _table.Values[index, 0];
-                    result[variableName] = value;
-                    continue;
-                }
-                result[variableName] = 0;
-            }
-            foreach (var variableValue in result.Values)
+            ExtractBaseVariables();
+            foreach (var variableValue in _result.Values)
             {
                 decimal valueAsDecimal = (decimal)variableValue;
                 if (Math.Abs(valueAsDecimal - Math.Round(valueAsDecimal)) > 1e-6m)
@@ -265,6 +264,23 @@ namespace Methods.Solvers
             }
             return true;
 
+        }
+
+        private void ExtractBaseVariables()
+        {
+            for (int i = 0; i < _problem.ObjectiveFunctionCoefficients.Count; i++)
+            {
+                string variableName = $"x{i + 1}";
+                if (table.RowVariables.ContainsKey(variableName))
+                {
+                    int index = _table.RowVariables.Keys.ToList().IndexOf(variableName);
+                    _result[variableName] = _table.Values[index, 0];
+                }
+                else
+                {
+                    _result[variableName] = new Fraction(0);
+                }
+            }
         }
         private bool isOptimal()
         {

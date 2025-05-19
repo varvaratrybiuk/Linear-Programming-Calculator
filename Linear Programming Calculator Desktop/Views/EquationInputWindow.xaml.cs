@@ -16,6 +16,7 @@ namespace Linear_Programming_Calculator_Desktop
         private int _constraints;
         private bool _isMaximization = true;
         private Button _solve;
+        private CheckBox _integerCheck;
         private Dictionary<TextBox, string> _objectiveFunctionValues = new Dictionary<TextBox, string>();
         private Dictionary<TextBox, string> _constraintValues = new Dictionary<TextBox, string>();
         private Dictionary<TextBox, string> _bValues = new Dictionary<TextBox, string>();
@@ -227,6 +228,7 @@ namespace Linear_Programming_Calculator_Desktop
             {
                 Content = variablesName + " - цілі",
             };
+            _integerCheck = integerCheck;
 
             variablesName += "≥ 0";
 
@@ -311,10 +313,25 @@ namespace Linear_Programming_Calculator_Desktop
                 ObjectiveFunctionCoefficients = _objectiveFunctionValues.Values.ToList(),
                 Constraints = constraints
             };
+            var solver = new SimplexSolver(problem);
+            GomorySolver? gomory = null;
+            Window newResultWindow = null;
+            try
+            {
+                solver.Solve();
+                if (_integerCheck!.IsChecked == true)
+                {
+                    gomory = new GomorySolver(solver.GetSolution(), problem);
+                    gomory.Solve();
+                }
+                newResultWindow = new ResultsWindow(solver.SimplexHistory, string.Empty, gomory?.GomoryHistory);
+            }
+            catch (InvalidOperationException ex)
+            {
+                var errorMessage = ex.Message;
+                newResultWindow = new ResultsWindow(solver.SimplexHistory, errorMessage, gomory?.GomoryHistory);
+            }
 
-            var _solver = new SimplexSolver(problem);
-            await Task.Run(() => _solver.Solve());
-            var newResultWindow = new ResultsWindow(_solver.simplexHistory, problem);
             newResultWindow.Show();
             Hide();
 
