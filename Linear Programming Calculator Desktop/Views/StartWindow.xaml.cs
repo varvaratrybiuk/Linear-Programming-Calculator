@@ -26,7 +26,12 @@ namespace Linear_Programming_Calculator_Desktop
                 variablesErrorLabel.Content = "Поле обов'язкове";
                 isVariablesValid = false;
             }
-            else if (!int.TryParse(variables.Text, out _))
+            else if (int.TryParse(variables.Text, out int variableCount) && variableCount < 2)
+            {
+                variablesErrorLabel.Content = "Кількість змінних повинна бути більше 1";
+                isVariablesValid = false;
+            }
+            else if(!int.TryParse(variables.Text, out _))
             {
                 variablesErrorLabel.Content = "Введіть ціле число";
                 isVariablesValid = false;
@@ -42,6 +47,12 @@ namespace Linear_Programming_Calculator_Desktop
                 constraintsErrorLabel.Content = "Введіть ціле число";
                 isConstraintsValid = false;
             }
+            else if (int.TryParse(constraints.Text, out int constraintCount) && constraintCount < 2)
+            {
+                constraintsErrorLabel.Content = "Кількість умов-обмежень повинна бути більше 1";
+                isConstraintsValid = false;
+            }
+ 
 
             generate.IsEnabled = isVariablesValid && isConstraintsValid;
         }
@@ -61,7 +72,6 @@ namespace Linear_Programming_Calculator_Desktop
                 var window = new EquationInputWindow(variableCount, constraintCount);
                 window.Show();
                 Hide();
-
             }
         }
     }

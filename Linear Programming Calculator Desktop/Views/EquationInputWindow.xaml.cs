@@ -162,7 +162,6 @@ namespace Linear_Programming_Calculator_Desktop
 
                 for (int i = 1; i <= _variables; i++)
                 {
-
                     var label = new Label
                     {
                         Content = $"x{i}",
@@ -247,6 +246,14 @@ namespace Linear_Programming_Calculator_Desktop
                 Margin = new Thickness(5),
                 TextAlignment = TextAlignment.Center,
             };
+            var editButton = new Button
+            {
+                Content = "Змінити задачу",
+                Name = "edit",
+                Width = 100,
+                Height = 30
+            };
+            editButton.Click += edit_Click;
 
             var button = new Button
             {
@@ -261,7 +268,15 @@ namespace Linear_Programming_Calculator_Desktop
             ConstraintPanel.Children.Add(exampleText);
             ConstraintPanel.Children.Add(integerCheck);
             TopPanel.Children.Add(button);
+            TopPanel.Children.Add(editButton);
             TopPanel.Children.Add(textBlock);
+        }
+
+        private void edit_Click(object sender, RoutedEventArgs e)
+        {
+            var startWindow = new StartWindow();
+            startWindow.Show();
+            Hide();
         }
 
         private void signCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -287,8 +302,43 @@ namespace Linear_Programming_Calculator_Desktop
             EnsureTextBoxesHaveValues(_objectiveFunctionValues);
             EnsureTextBoxesHaveValues(_constraintValues);
             EnsureTextBoxesHaveValues(_bValues);
-            var constraints = new List<Constraint>();
 
+            var constraints = new List<Constraint>();
+            GetVariablesFromConstraints(constraints);
+
+            var problem = new LinearProgrammingProblem
+            {
+                IsMaximization = _isMaximization,
+                ObjectiveFunctionCoefficients = _objectiveFunctionValues.Values.ToList(),
+                Constraints = constraints
+            };
+
+            var solver = new SimplexSolver(problem);
+            GomorySolver? gomory = null;
+            Window? newResultWindow;
+
+            try
+            {
+                solver.Solve();
+                if (_integerCheck!.IsChecked == true)
+                {
+                    gomory = new GomorySolver(solver.GetSolution(), problem);
+                    gomory.Solve();
+                }
+                newResultWindow = new ResultsWindow(this, solver.SimplexHistory, gomory?.GomoryHistory);
+            }
+            catch (InvalidOperationException ex)
+            {
+                var errorMessage = ex.Message;
+                newResultWindow = new ResultsWindow(this, solver.SimplexHistory, gomory?.GomoryHistory, errorMessage: errorMessage);
+            }
+
+            newResultWindow.Show();
+            Hide();
+
+        }
+        private void GetVariablesFromConstraints(List<Constraint> constr)
+        {
             for (int constrIndex = 0; constrIndex < _constraints; constrIndex++)
             {
                 var constraint = new Constraint();
@@ -304,39 +354,9 @@ namespace Linear_Programming_Calculator_Desktop
                 constraint.RightHandSide = bTb;
 
                 constraint.Type = _constraintSigns.Values.ElementAt(constrIndex);
-                constraints.Add(constraint);
+                constr.Add(constraint);
             }
-
-            var problem = new LinearProgrammingProblem
-            {
-                IsMaximization = _isMaximization,
-                ObjectiveFunctionCoefficients = _objectiveFunctionValues.Values.ToList(),
-                Constraints = constraints
-            };
-            var solver = new SimplexSolver(problem);
-            GomorySolver? gomory = null;
-            Window newResultWindow = null;
-            try
-            {
-                solver.Solve();
-                if (_integerCheck!.IsChecked == true)
-                {
-                    gomory = new GomorySolver(solver.GetSolution(), problem);
-                    gomory.Solve();
-                }
-                newResultWindow = new ResultsWindow(solver.SimplexHistory, string.Empty, gomory?.GomoryHistory);
-            }
-            catch (InvalidOperationException ex)
-            {
-                var errorMessage = ex.Message;
-                newResultWindow = new ResultsWindow(solver.SimplexHistory, errorMessage, gomory?.GomoryHistory);
-            }
-
-            newResultWindow.Show();
-            Hide();
-
         }
-
         private void EnsureTextBoxesHaveValues(Dictionary<TextBox, string> dictionary)
         {
             foreach (var kvp in dictionary.Keys.ToList())

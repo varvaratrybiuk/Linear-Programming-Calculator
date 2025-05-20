@@ -14,17 +14,16 @@ namespace Linear_Programming_Calculator_Desktop
     /// </summary>
     public partial class ResultsWindow : Window
     {
-
-
         private SimplexHistory _history;
-
         private string _errorMessage;
         private List<GomoryHistory>? _gomoryHistory;
+        private EquationInputWindow _quationInputWindow;
 
 
-        public ResultsWindow(SimplexHistory simplexHistory, string errorMessage, List<GomoryHistory>? gomoryHistory)
+        public ResultsWindow(EquationInputWindow quationInputWindow, SimplexHistory simplexHistory, List<GomoryHistory>? gomoryHistory, string errorMessage = "")
         {
             InitializeComponent();
+            _quationInputWindow = quationInputWindow;
             _history = simplexHistory;
             _errorMessage = errorMessage;
             _gomoryHistory = gomoryHistory;
@@ -34,23 +33,11 @@ namespace Linear_Programming_Calculator_Desktop
         {
             try
             {
-                SolutionPanel.Children.Clear();
-                var isIntegerProblem = _gomoryHistory != null ? true : false;
-                AddSectionToSolutionPanel("Математична модель", RenderProblem(_history.InitialLinearProgrammingProblem, isIntegerProblem));
-                ShowSimplexSolution();
-                if (_gomoryHistory != null)
-                {
-                    SolutionPanel.Children.Add(CreateHeader("Пошук цілочисельного розв’язку (метод Гоморі)"));
-                    if (_gomoryHistory.Count > 0)
-                    {
-                        SolutionPanel.Children.Add(CreateMathBlock(GenerateSolutionSummaryString(_history.OptimalTable) + " - не є цілочисельним"));
-                        ShowGomorySolution();
-                    }
-                    else
-                    {
-                        SolutionPanel.Children.Add(CreateMathBlock(GenerateSolutionSummaryString(_history.OptimalTable) + " - є цілочисельним"));
-                    }
-                }
+                var buttons = InitializeButtons();
+                ButtonPanel.Children.Add(buttons.editProblem);
+                ButtonPanel.Children.Add(buttons.newProblem);
+
+                BuildSolution();
             }
             catch (Exception ex)
             {
@@ -64,6 +51,58 @@ namespace Linear_Programming_Calculator_Desktop
             }
         }
 
+        private (Button editProblem, Button newProblem) InitializeButtons()
+        {
+            var editProblem = new Button()
+            {
+                Content = "Редагувати задачу",
+                Name = "edit",
+                Width = 120,
+                Height = 30
+            };
+
+            editProblem.Click += (s, e) =>
+            {
+                _quationInputWindow.Show();
+                Hide();
+            };
+
+            var newProblem = new Button()
+            {
+                Content = "Нова задача",
+                Name = "newProblem",
+                Width = 100,
+                Height = 30
+            };
+
+            newProblem.Click += (s, e) =>
+            {
+                var startWindow = new StartWindow();
+                startWindow.Show();
+                Hide();
+            };
+            return (editProblem, newProblem);
+        }
+        private void BuildSolution()
+        {
+            SolutionPanel.Children.Clear();
+            var isIntegerProblem = _gomoryHistory != null ? true : false;
+            AddSectionToSolutionPanel("Математична модель", RenderProblem(_history.InitialLinearProgrammingProblem, isIntegerProblem));
+            ShowSimplexSolution();
+            if (_gomoryHistory != null)
+            {
+                SolutionPanel.Children.Add(CreateHeader("Пошук цілочисельного розв’язку (метод Гоморі)"));
+                if (_gomoryHistory.Count > 0)
+                {
+                    SolutionPanel.Children.Add(CreateMathBlock(GenerateSolutionSummaryString(_history.OptimalTable) + " - не є цілочисельним"));
+                    ShowGomorySolution();
+                }
+                else
+                {
+                    SolutionPanel.Children.Add(CreateMathBlock(GenerateSolutionSummaryString(_history.OptimalTable) + " - є цілочисельним"));
+                }
+            }
+        }
         private void ShowGomorySolution()
         {
             for (int i = 0; i < _gomoryHistory.Count; i++)
@@ -72,58 +111,23 @@ namespace Linear_Programming_Calculator_Desktop
                 AddSectionToSolutionPanel($"Крок {i + 1} методу Гоморі", string.Empty);
                 var max = history.MaxValue;
                 AddSectionToSolutionPanel("Найбільше дробове значення серед змінних",
-                    $"x{max.Item1 + 1} = {max.Item2}");
+                    $"x{max.Item1} = {max.Item2}");
 
-                var cut = history.Cut;
-                string cutElements = string.Empty;
-                foreach (var c in cut.Elements)
-                {
-                    if (c.Value.Item2.Denominator != 1)
-                        cutElements += $"\n{c.Key} = {c.Value.Item2} - ({c.Value.Item1}) = {c.Value.Item2 - c.Value.Item1}";
-                }
-                AddSectionToSolutionPanel("Визначимо дробові частини:", cutElements);
-                var lhsParts = new List<string>();
-                var rhsParts = new List<string>();
-                Fraction constantTerm = Fraction.Zero;
-
-                for (int k = 1; k < cut.Elements.Count; k++)
-                {
-                    var element = cut.Elements.ElementAt(k);
-                    var variableIndex = k;
-                    var coeff = element.Value.Item2;
-                    if (coeff.Denominator != 1)
-                        lhsParts.Add($"{coeff - element.Value.Item1}x{variableIndex}");
-                }
-
-                var constant = cut.Elements.ElementAt(0).Value.Item2 - cut.Elements.ElementAt(0).Value.Item1;
-
-                var inequality = $"{string.Join(" + ", lhsParts)} ≥ {constant}";
-                AddSectionToSolutionPanel("Запишемо правильне відсічення:", inequality);
-                int artificialIndex = cut.Elements.Count;
-                var equality = $"{string.Join(" + ", lhsParts)} - x{artificialIndex} = {constant}";
-                AddSectionToSolutionPanel("Приводимо до рівності:", equality);
-
-                rhsParts.Add($"x{artificialIndex}");
-
-                for (int k = 1; k < cut.Elements.Count; k++)
-                {
-                    var element = cut.Elements.ElementAt(k);
-                    var coeff = element.Value.Item2;
-                    if (coeff.Denominator != 1)
-                        rhsParts.Add($"- {coeff - element.Value.Item1}x{k}");
-                }
-
-                var rhsExpression = $"{constant * -1} = {string.Join(" ", rhsParts)}";
-                AddSectionToSolutionPanel("Перетворимо:", rhsExpression);
+                AddGomoryCut(history);
 
                 for (int j = 0; j < history.Steps.Count; j++)
                 {
                     var step = history.Steps[j];
                     SolutionPanel.Children.Add(CreateHeader("Будуємо відповідну симплекс-таблицю"));
 
-                    var table = CreateSimplexTable(step.Table,
-                        j == history.Steps.Count - 1 ? null : step.PivotRow,
-                        j == history.Steps.Count - 1 ? null : step.PivotColumn, showTheta: true);
+                    bool isLastStep = j == history.Steps.Count - 1;
+
+                    var table = CreateSimplexTable(
+                        step.Table,
+                        isLastStep ? null : step.PivotRow,
+                        isLastStep ? null : step.PivotColumn,
+                        showTheta: !isLastStep
+                    );
 
                     if (j < history.Steps.Count - 1)
                     {
@@ -137,15 +141,62 @@ namespace Linear_Programming_Calculator_Desktop
                     SolutionPanel.Children.Add(table);
                 }
                 SolutionPanel.Children.Add(CreateHeader("Отримали оптимальний розв'язок задачі"));
+
                 if (i == _gomoryHistory.Count - 1)
                 {
                     SolutionPanel.Children.Add(CreateMathBlock(GenerateSolutionSummaryString(history.Steps[history.Steps.Count - 1].Table)));
                     break;
                 }
+
                 var result = GenerateSolutionSummaryString(history.Steps[history.Steps.Count - 1].Table) + "- не є цілочисельним";
                 SolutionPanel.Children.Add(CreateMathBlock(result));
 
             }
+        }
+
+        private void AddGomoryCut(GomoryHistory history)
+        {
+            var cut = history.Cut;
+            string cutElements = string.Empty;
+            foreach (var c in cut.Elements)
+            {
+                if (c.Value.Item2.Denominator != 1)
+                    cutElements += $"\n{c.Key} = {c.Value.Item2} - ({c.Value.Item1}) = {c.Value.Item2 - c.Value.Item1}";
+            }
+            AddSectionToSolutionPanel("Визначимо дробові частини:", cutElements);
+            var lhsParts = new List<string>();
+            var rhsParts = new List<string>();
+            Fraction constantTerm = Fraction.Zero;
+
+            for (int k = 1; k < cut.Elements.Count; k++)
+            {
+                var element = cut.Elements.ElementAt(k);
+                var variableIndex = k;
+                var coeff = element.Value.Item2;
+                if (coeff.Denominator != 1)
+                    lhsParts.Add($"{coeff - element.Value.Item1}x{variableIndex}");
+            }
+
+            var constant = cut.Elements.ElementAt(0).Value.Item2 - cut.Elements.ElementAt(0).Value.Item1;
+
+            var inequality = $"{string.Join(" + ", lhsParts)} ≥ {constant}";
+            AddSectionToSolutionPanel("Запишемо правильне відсічення:", inequality);
+            int artificialIndex = cut.Elements.Count;
+            var equality = $"{string.Join(" + ", lhsParts)} - x{artificialIndex} = {constant}";
+            AddSectionToSolutionPanel("Приводимо до рівності:", equality);
+
+            rhsParts.Add($"x{artificialIndex}");
+
+            for (int k = 1; k < cut.Elements.Count; k++)
+            {
+                var element = cut.Elements.ElementAt(k);
+                var coeff = element.Value.Item2;
+                if (coeff.Denominator != 1)
+                    rhsParts.Add($"- {coeff - element.Value.Item1}x{k}");
+            }
+
+            var rhsExpression = $"{constant * -1} = {string.Join(" ", rhsParts)}";
+            AddSectionToSolutionPanel("Перетворимо:", rhsExpression);
         }
 
         private void Window_Closed(object sender, EventArgs e)

@@ -2,6 +2,7 @@
 using Methods.Interfaces;
 using Methods.MathObjects;
 using Methods.Models;
+using System;
 
 namespace Methods.Solvers
 {
@@ -13,7 +14,7 @@ namespace Methods.Solvers
 
         private SimplexTable _table = table;
         private LinearProgrammingProblem _problem = problem;
-        private Dictionary<string, Fraction> _result = [];
+        private Dictionary<Tuple<int, string>, Fraction> _result = [];
 
         public void Pivot()
         {
@@ -138,9 +139,12 @@ namespace Methods.Solvers
                     if (IsUnbounded()) throw new InvalidOperationException("Немає розв'язку! В рядку немає жодного дробовога значення!");
                     var fractionalRow = FindMostFractionalRow();
                     _historyStep++;
+
+                    var variableName = _table.RowVariables.Keys.ToList()[fractionalRow];
+                    var readableName = variableName.Replace("x", " ");
                     GomoryHistory.Add(new GomoryHistory()
                     {
-                        MaxValue = new Tuple<int, Fraction>(fractionalRow, _result.Values.ToList()[fractionalRow])
+                        MaxValue = new Tuple<int, Fraction>(int.Parse(readableName), _result.Where(k => k.Key.Item1 == fractionalRow).Select(k => k.Value).First())
                     });
                     var cutRow = BuildGomoryCutRow(fractionalRow);
                     AddCuttingPlaneRow(cutRow);
@@ -172,6 +176,7 @@ namespace Methods.Solvers
             int fractionalRowIndex = -1;
             Fraction maxFraction = 0;
             var values = _result.Values.ToList();
+            var keys = _result.Keys.ToList();
 
             for (int i = 0; i < values.Count; i++)
             {
@@ -182,7 +187,7 @@ namespace Methods.Solvers
                 if (fractionalPart > maxFraction)
                 {
                     maxFraction = fractionalPart;
-                    fractionalRowIndex = i;
+                    fractionalRowIndex = keys[i].Item1;
                 }
             }
 
@@ -207,7 +212,9 @@ namespace Methods.Solvers
                 if (coeff.IsNegative && coeff.Denominator != 1)
                     wholePart = -1;
                 Fraction fractionalPart = coeff - wholePart;
-                newBranchCut.Elements[$"y{fractionalRowIndex + 1}{j}"] = new Tuple<Fraction, Fraction>(wholePart, coeff);
+                var variableName = _table.RowVariables.Keys.ToList()[fractionalRowIndex];
+                var readableName = variableName.Replace("x", " ");
+                newBranchCut.Elements[$"y{readableName}{j}"] = new Tuple<Fraction, Fraction>(wholePart, coeff);
                 cut.Add(-fractionalPart);
             }
             cut.Add(1);
@@ -274,11 +281,11 @@ namespace Methods.Solvers
                 if (table.RowVariables.ContainsKey(variableName))
                 {
                     int index = _table.RowVariables.Keys.ToList().IndexOf(variableName);
-                    _result[variableName] = _table.Values[index, 0];
+                    _result[new Tuple<int,string>(index, variableName)] = _table.Values[index, 0];
                 }
                 else
                 {
-                    _result[variableName] = new Fraction(0);
+                    _result[new Tuple<int, string>(-1, variableName)] = new Fraction(0);
                 }
             }
         }

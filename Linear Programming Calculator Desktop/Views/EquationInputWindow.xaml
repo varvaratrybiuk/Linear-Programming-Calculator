@@ -19,12 +19,12 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <StackPanel x:Name="TopPanel" Grid.Row="0" Margin="10"/>
 
+            <StackPanel x:Name="TopPanel" Grid.Row="0" Margin="10"/>
             <Border Grid.Row="1" Background="#FFFFF0" CornerRadius="5" BorderThickness="1" BorderBrush="#FFD966" Padding="10">
                 <StackPanel x:Name="ConstraintPanel"/>
             </Border>
-
+            
         </Grid>
     </ScrollViewer>
 </Window>
