@@ -129,7 +129,7 @@ namespace Linear_Programming_Calculator_Desktop
                         showTheta: !isLastStep
                     );
 
-                    if (j < history.Steps.Count - 1)
+                    if (step.PivotRow != -1 && step.PivotColumn != -1)
                     {
                         var pivotRowName = step.Table.RowVariables.Keys.ElementAt(step.PivotRow);
                         AddSectionToSolutionPanel("Визначаємо",
@@ -161,8 +161,9 @@ namespace Linear_Programming_Calculator_Desktop
             foreach (var c in cut.Elements)
             {
                 if (c.Value.Item2.Denominator != 1)
-                    cutElements += $"\n{c.Key} = {c.Value.Item2} - ({c.Value.Item1}) = {c.Value.Item2 - c.Value.Item1}";
+                    cutElements += $"\n{c.Key} = {c.Value.Item2} - {(c.Value.Item1.IsNegative ? $"({c.Value.Item1})" : $"{c.Value.Item1}")} = {c.Value.Item2 - c.Value.Item1}";
             }
+
             AddSectionToSolutionPanel("Визначимо дробові частини:", cutElements);
             var lhsParts = new List<string>();
             var rhsParts = new List<string>();
@@ -207,11 +208,11 @@ namespace Linear_Programming_Calculator_Desktop
         private void ShowSimplexSolution()
         {
 
-            AddSectionToSolutionPanel($"Вводимо {_history.FreeVariableProblem?.SlackVariableCoefficients?.Count} вільні змінні", 
+            AddSectionToSolutionPanel($"Вводимо {_history.FreeVariableProblem?.SlackVariableCoefficients?.Count} вільн. змінні", 
                 RenderProblem(_history.FreeVariableProblem, isEqual: true));
 
             if (_history.ArtificialProblemTable != null)
-                AddSectionToSolutionPanel($"Вводимо {_history.ArtificialProblemTable?.ArtificialVariableCoefficients?.Count} штучні змінні", 
+                AddSectionToSolutionPanel($"Вводимо {_history.ArtificialProblemTable?.ArtificialVariableCoefficients?.Count} штучн. змінні", 
                     RenderProblem(_history.ArtificialProblemTable, isEqual: true));
 
             var basisText = string.Join(", ", _history.InitialBasis.Select(kvp => $"{kvp.Key} = {kvp.Value}"));
@@ -279,7 +280,7 @@ namespace Linear_Programming_Calculator_Desktop
         {
             Text = text,
             TextWrapping = TextWrapping.Wrap,
-            Margin = new Thickness(10)
+            Margin = new Thickness(5)
         };
 
         private string RenderProblem(LinearProgrammingProblem? problem, bool isIntegerProblem = false, bool isEqual = false)
@@ -296,13 +297,22 @@ namespace Linear_Programming_Calculator_Desktop
             var variables = Enumerable.Range(1, allVariables.Count).Select(i => $"x{i}").ToList();
 
             sb.Append("F(" + string.Join(", ", variables) + ") = ");
-            sb.Append(string.Join(" + ", allVariables.Select((c, i) => $"{c}x{i + 1}")));
+            sb.Append(string.Join(" + ", allVariables.Select((c, i) =>
+            {
+                var coeffStr = c.StartsWith("-") ? $"({c})" : c;
+                return $"{coeffStr}x{i + 1}";
+            })));
+
             sb.Append(problem.IsMaximization ? " → max" : " → min");
+            sb.AppendLine();
             sb.AppendLine();
 
             foreach (var c in problem.Constraints)
             {
-                var line = string.Join(" + ", c.Coefficients.Select((coef, i) => $"{coef}x{i + 1}"));
+                var line = string.Join(" + ", c.Coefficients.Select((coef, i) => {
+                    var coeffStr = coef.StartsWith("-") ? $"({coef})" : coef;
+                    return $"{coeffStr}x{i + 1}";
+                }));
                 var sign = "=";
                 if (!isEqual)
                 {

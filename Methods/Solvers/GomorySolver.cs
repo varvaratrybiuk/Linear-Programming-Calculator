@@ -152,6 +152,8 @@ namespace Methods.Solvers
                 Pivot();
                 GomoryHistory[_historyStep].Steps.Add(new SimplexStep()
                 {
+                    PivotColumn = -1,
+                    PivotRow = -1,
                     Table = (SimplexTable)_table.Clone(),
                 });
             }
