@@ -322,7 +322,7 @@ namespace Linear_Programming_Calculator_Desktop
                 solver.Solve();
                 if (_integerCheck!.IsChecked == true)
                 {
-                    gomory = new GomorySolver(solver.GetSolution(), problem);
+                    gomory = new GomorySolver(solver.Table, problem);
                     gomory.Solve();
                 }
                 newResultWindow = new ResultsWindow(this, solver.SimplexHistory, gomory?.GomoryHistory);

@@ -302,9 +302,5 @@ namespace Methods.Solvers
             }
             return true;
         }
-        SimplexTable ILinearSolver.GetSolution()
-        {
-            return _table;
-        }
     }
 }

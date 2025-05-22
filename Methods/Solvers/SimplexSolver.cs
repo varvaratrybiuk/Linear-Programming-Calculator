@@ -18,11 +18,6 @@ namespace Methods.Solvers
         private LinearProgrammingProblem _problem = problem;
         private const double M = int.MaxValue;
 
-        public SimplexTable GetSolution()
-        {
-            return _table;
-        }
-
         public void Solve()
         {
             SimplexHistory.InitialLinearProgrammingProblem = (LinearProgrammingProblem)_problem.Clone();
