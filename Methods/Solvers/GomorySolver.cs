@@ -2,7 +2,6 @@
 using Methods.Interfaces;
 using Methods.MathObjects;
 using Methods.Models;
-using System;
 
 namespace Methods.Solvers
 {
@@ -283,7 +282,7 @@ namespace Methods.Solvers
                 if (table.RowVariables.ContainsKey(variableName))
                 {
                     int index = _table.RowVariables.Keys.ToList().IndexOf(variableName);
-                    _result[new Tuple<int,string>(index, variableName)] = _table.Values[index, 0];
+                    _result[new Tuple<int, string>(index, variableName)] = _table.Values[index, 0];
                 }
                 else
                 {

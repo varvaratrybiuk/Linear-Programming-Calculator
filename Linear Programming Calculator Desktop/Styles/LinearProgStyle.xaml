@@ -8,7 +8,7 @@
     </Style>
     <Style TargetType="Button">
         <Setter Property="Background" Value="#FFFF8F"/>
-        <Setter Property="Padding" Value="8,4"/>
+        <Setter Property="Padding" Value="10,4"/>
         <Setter Property="Margin" Value="5"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="BorderBrush" Value="#FFD700"/>

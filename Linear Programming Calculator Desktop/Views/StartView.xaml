@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="Linear_Programming_Calculator_Desktop.Views.StartView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Linear_Programming_Calculator_Desktop.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="250" d:DesignWidth="370">
+    <UserControl.Resources>
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="../Styles/LinearProgStyle.xaml"/>
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+    </UserControl.Resources>
+    
+        <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <TextBlock VerticalAlignment="Center" Text="Кількість змінних:" Grid.Row="1" Grid.Column="1"/>
+            <TextBox 
+            Text="{Binding Variables, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" 
+            Grid.Row="1" Grid.Column="2"/>
+        <TextBlock Foreground="Red" Grid.Row="2" Grid.Column="2" 
+                   Text="{Binding (Validation.Errors)[0].ErrorContent, 
+                                  RelativeSource={RelativeSource PreviousData}}" />
+
+        <TextBlock VerticalAlignment="Center" Text="Кількість обмежень:" Grid.Row="3" Grid.Column="1"/>
+            <TextBox 
+            Text="{Binding Constraints, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" 
+           Grid.Row="3" Grid.Column="2"/>
+        <TextBlock Foreground="Red" Grid.Row="4" Grid.Column="2"
+                   Text="{Binding (Validation.Errors)[0].ErrorContent, 
+                                  RelativeSource={RelativeSource PreviousData}}" />
+
+        <Button Content="Згенерувати приклад" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3"
+                Command="{Binding GenerateExampleCommand}" 
+                Width="200" 
+                Height="35"
+                Margin="0,10,0,0"/>
+    </Grid>
+    
+</UserControl>
