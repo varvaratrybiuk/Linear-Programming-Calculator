@@ -1,6 +1,5 @@
 ﻿using Methods.Enums;
 using System.Globalization;
-using System.Windows.Controls;
 using System.Windows.Data;
 
 namespace Linear_Programming_Calculator_Desktop.Converters
@@ -23,7 +22,7 @@ namespace Linear_Programming_Calculator_Desktop.Converters
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is not ComboBoxItem comboBoxItem || comboBoxItem.Content is not string sign)
+            if (value is not string sign)
                 throw new ArgumentException("Недійсний тип символу для конвертації.");
 
             return sign switch

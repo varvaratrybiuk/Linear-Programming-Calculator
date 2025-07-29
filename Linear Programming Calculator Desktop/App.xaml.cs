@@ -1,7 +1,7 @@
-﻿using Linear_Programming_Calculator_Desktop.Services;
+﻿using Linear_Programming_Calculator_Desktop.DTOs;
+using Linear_Programming_Calculator_Desktop.Services;
 using Linear_Programming_Calculator_Desktop.Stores;
 using Linear_Programming_Calculator_Desktop.ViewModels;
-using Methods.Models;
 using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
 
@@ -18,6 +18,7 @@ namespace Linear_Programming_Calculator_Desktop
             var services = new ServiceCollection();
 
             services.AddSingleton<NavigationStore>();
+            services.AddSingleton<IProblemFormatterService, ProblemFormatterService>();
 
             services.AddSingleton<MainViewModel>();
             services.AddSingleton((s) => new MainWindow()
@@ -27,8 +28,6 @@ namespace Linear_Programming_Calculator_Desktop
 
             services.AddScoped<EquationInputViewModel>();
             services.AddScoped<StartViewModel>();
-            //services.AddScoped<FieldViewModel>();
-            //services.AddScoped<ConstraintViewModel>();
             services.AddScoped<ResultsViewModel>();
 
             services.AddSingleton<INavigator, NavigationService<StartViewModel>>(sp =>
@@ -45,8 +44,8 @@ namespace Linear_Programming_Calculator_Desktop
                 )
             );
 
-            services.AddScoped<INavigator<(SimplexHistory, List<GomoryHistory>?, string?)>>(sp =>
-               new NavigationService<(SimplexHistory sHistory, List<GomoryHistory>? gHistory, string? errorMessage), ResultsViewModel>(
+            services.AddScoped<INavigator<LinearProgramResultDto>>(sp =>
+               new NavigationService<LinearProgramResultDto, ResultsViewModel>(
                    sp.GetRequiredService<NavigationStore>(),
                    parameters => ActivatorUtilities.CreateInstance<ResultsViewModel>(sp, parameters)
                )

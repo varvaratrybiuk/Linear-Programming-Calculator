@@ -1,18 +1,19 @@
 ﻿using System.Globalization;
+using System.Windows;
 using System.Windows.Data;
 
 namespace Linear_Programming_Calculator_Desktop.Converters
 {
-    public class IsMaximizationConverter : IValueConverter
+    public class NullToVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return value is bool index && index == false;
+            return string.IsNullOrEmpty(value?.ToString()) ? Visibility.Collapsed : Visibility.Visible;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return (int)value == 0 ? true : false;
+            throw new NotImplementedException();
         }
     }
 }

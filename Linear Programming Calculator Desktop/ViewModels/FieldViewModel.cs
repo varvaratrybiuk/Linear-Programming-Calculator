@@ -8,8 +8,9 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
         public required string Label { get; set; }
 
         [ObservableProperty]
+        [NotifyDataErrorInfo]
         [NumericOnly]
-        private double _value;
+        private string _value = "0";
 
     }
 }

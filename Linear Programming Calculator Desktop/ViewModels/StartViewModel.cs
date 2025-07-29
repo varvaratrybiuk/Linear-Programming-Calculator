@@ -8,17 +8,20 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
     public partial class StartViewModel(INavigator<(int variables, int constraints)> navigationService) : ObservableValidator
     {
         [ObservableProperty]
+        [NotifyDataErrorInfo]
         [ValidVariableCount(2)]
-        private int _variables;
+        private string _variables = "2";
 
         [ObservableProperty]
+        [NotifyDataErrorInfo]
         [ValidVariableCount(2)]
-        private int _constraints;
+        private string _constraints = "2";
 
         private readonly INavigator<(int variables, int constraints)> _navigationService = navigationService;
 
-        [RelayCommand]
-        public void GenerateExample() => _navigationService.Navigate((Variables, Constraints));
+        [RelayCommand(CanExecute = nameof(CanGenerateProblem))]
+        public void GenerateProblem() => _navigationService.Navigate((int.Parse(Variables), int.Parse(Constraints)));
 
+        private bool CanGenerateProblem() => !HasErrors;
     }
 }

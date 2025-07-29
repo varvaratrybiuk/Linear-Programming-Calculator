@@ -4,9 +4,145 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Linear_Programming_Calculator_Desktop.Views"
+             xmlns:m ="clr-namespace:Linear_Programming_Calculator_Desktop.Models"
+             xmlns:conv="clr-namespace:Linear_Programming_Calculator_Desktop.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+    
+    
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <conv:NullToVisibilityConverter x:Key="nullToVisibilityConverter"/>
+
+            <DataTemplate x:Key="SimplexTableTemplate">
+                    <Border BorderThickness="2"
+                        BorderBrush="#FFD966"
+                        CornerRadius="5"
+                        Margin="10">
+                    <ItemsControl ItemsSource="{Binding Cells}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Rows="{Binding TotalRows}" Columns="{Binding TotalCols}" Background="#FFFFF0"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Text}"
+                                   Background="{Binding Background}"
+                                   TextAlignment="Center"
+                                   Padding="5"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Border>
+            </DataTemplate>
+
+            <DataTemplate x:Key="MathBlock">
+                <StackPanel Margin="10">
+                    <TextBlock Text="{Binding FormattedObjectiveFunction}" FontFamily="Consolas" TextWrapping="Wrap" />
+                    <ItemsControl ItemsSource="{Binding FormattedConstraints}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" FontFamily="Consolas" TextWrapping="Wrap"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <TextBlock Margin="0,12,0,0"
+                       Text="{Binding DomainText}"
+                       FontStyle="Italic"
+                       Foreground="Gray"/>
+                    <TextBlock Margin="0,6,0,0"
+                       Text="{Binding IntegerNote}"
+                       FontWeight="SemiBold"
+                       Foreground="RoyalBlue"
+                       Visibility="{Binding IntegerNote, Converter={StaticResource nullToVisibilityConverter}}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/LinearProgStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <ScrollViewer MaxHeight="600">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Margin="5" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="Нова задача"
+            Command="{Binding NewProblemCommand}"
+            Grid.Column="0" Width="100"/>
+                <Button Content="Змінити задачу"
+            Command="{Binding EditProblemCommand}"
+            Grid.Column="2" Height="25" Width="100"/>
+            </Grid>
+
+            <StackPanel Grid.Row="1" Margin="10" Orientation="Vertical">
+                <TextBlock Text="Математична модель" FontWeight="DemiBold"/>
+                <ContentControl Content="{Binding MathModelBlock}" 
+                    ContentTemplate="{StaticResource MathBlock}" />
+
+                <TextBlock Text="Вводимо вільні змінні" FontWeight="DemiBold" />
+                <ContentControl Content="{Binding FreeVariableBlock}" 
+                    ContentTemplate="{StaticResource MathBlock}" />
+
+                <StackPanel Visibility="{Binding ArtificialVariableBlock, Converter={StaticResource nullToVisibilityConverter}}">
+                    <TextBlock Text="Вводимо штучні змінні" FontWeight="DemiBold"/>
+                    <ContentControl Content="{Binding ArtificialVariableBlock}" 
+                  ContentTemplate="{StaticResource MathBlock}" />
+                </StackPanel>
+
+                <TextBlock Text="Отримуємо початковий допустимий базисний розв’язок задачі" FontWeight="DemiBold" />
+                <TextBlock Margin="10" Text="{Binding InitialBasisText}"/>
+
+                <ItemsControl ItemsSource="{Binding SimplexTables}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="10">
+                                <TextBlock Text="Будуємо симплекс-таблицю" FontWeight="Bold" FontSize="16" Margin="0,0,0,5" />
+                                <TextBlock>
+                                    <TextBlock.Text>
+                                        <Binding Path="Step.PivotColumn" StringFormat="Напрямний стовпець: A{0}" />
+                                    </TextBlock.Text>
+                                </TextBlock>
+                                <TextBlock>
+                                    <TextBlock.Text>
+                                        <Binding Path="Step.PivotRow" StringFormat="Напрямний рядок: x{0}" />
+                                    </TextBlock.Text>
+                                </TextBlock>
+                                <TextBlock>
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat="Напрямний елемент: x{0}{1}">
+                                            <Binding Path="Step.PivotRow"/>
+                                            <Binding Path="Step.PivotColumn"/>
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                                <ContentControl Content="{Binding}"
+                                ContentTemplate="{StaticResource SimplexTableTemplate}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <StackPanel Margin="10">
+                    <TextBlock Text="Отримали оптимальний розв'язок задачі" FontWeight="Bold" FontSize="16" Margin="0,0,0,5" />
+                    <ContentControl Content="{Binding OptimalResult}"
+                                ContentTemplate="{StaticResource SimplexTableTemplate}" />
+                </StackPanel>
+
+                <TextBlock Text="{Binding ErrorMessage}"
+                 Foreground="Red"
+                 FontWeight="Bold"
+                 Margin="10"/>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
 </UserControl>

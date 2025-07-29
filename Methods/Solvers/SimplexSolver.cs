@@ -29,7 +29,7 @@ namespace Methods.Solvers
             ProcessAuxiliaryVariables(isSlack: false);
             if (_problem.ArtificialVariableCoefficients?.Count != 0)
             {
-                SimplexHistory.ArtificialProblemTable = (LinearProgrammingProblem)_problem.Clone();
+                SimplexHistory.ArtificialProblemProblem = (LinearProgrammingProblem)_problem.Clone();
             }
 
             // Заповнення першої таблиці

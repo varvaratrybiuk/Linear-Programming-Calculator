@@ -6,6 +6,7 @@
         <Setter Property="ResizeMode" Value="CanMinimize"/>
         <Setter Property="Foreground" Value="#333"/>
     </Style>
+    
     <Style TargetType="Button">
         <Setter Property="Background" Value="#FFFF8F"/>
         <Setter Property="Padding" Value="10,4"/>
@@ -29,14 +30,14 @@
                             <Setter Property="Background" Value="#FCF55F"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Background" Value="#F5DEB3"/>
+                            <Setter Property="Background" Value="#C2B280"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
-                
             </Setter.Value>
         </Setter>
     </Style>
+    
     <Style TargetType="TextBox">
         <Setter Property="Background" Value="#FFFEE8"/>
         <Setter Property="Foreground" Value="#333"/>
@@ -46,6 +47,11 @@
         <Setter Property="Padding" Value="4"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Validation.ErrorTemplate">
+            <Setter.Value>
+                <ControlTemplate/>
+            </Setter.Value>
+        </Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
@@ -66,6 +72,10 @@
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="Border" Property="Opacity" Value="0.5"/>
+                        </Trigger>
+                        <Trigger Property="Validation.HasError" Value="True">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="#FA5F55"/>
+                            <Setter TargetName="Border" Property="Background"  Value="#73FAA0A0"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

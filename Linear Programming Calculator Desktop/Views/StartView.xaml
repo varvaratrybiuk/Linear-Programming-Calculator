@@ -4,8 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Linear_Programming_Calculator_Desktop.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="250" d:DesignWidth="370">
+             mc:Ignorable="d" >
     <UserControl.Resources>
             <ResourceDictionary>
                 <ResourceDictionary.MergedDictionaries>
@@ -14,7 +13,7 @@
             </ResourceDictionary>
     </UserControl.Resources>
     
-        <Grid>
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="auto"/>
@@ -33,21 +32,22 @@
         <TextBlock VerticalAlignment="Center" Text="Кількість змінних:" Grid.Row="1" Grid.Column="1"/>
             <TextBox 
             Text="{Binding Variables, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" 
+                x:Name="VariableInput"
             Grid.Row="1" Grid.Column="2"/>
         <TextBlock Foreground="Red" Grid.Row="2" Grid.Column="2" 
                    Text="{Binding (Validation.Errors)[0].ErrorContent, 
-                                  RelativeSource={RelativeSource PreviousData}}" />
+                                   ElementName=VariableInput}" />
 
         <TextBlock VerticalAlignment="Center" Text="Кількість обмежень:" Grid.Row="3" Grid.Column="1"/>
-            <TextBox 
+        <TextBox  x:Name="ConstraintInput"
             Text="{Binding Constraints, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" 
            Grid.Row="3" Grid.Column="2"/>
         <TextBlock Foreground="Red" Grid.Row="4" Grid.Column="2"
                    Text="{Binding (Validation.Errors)[0].ErrorContent, 
-                                  RelativeSource={RelativeSource PreviousData}}" />
+                                  ElementName=ConstraintInput}" />
 
-        <Button Content="Згенерувати приклад" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3"
-                Command="{Binding GenerateExampleCommand}" 
+        <Button Content="Згенерувати приклад" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2"
+                Command="{Binding GenerateProblemCommand}" 
                 Width="200" 
                 Height="35"
                 Margin="0,10,0,0"/>
