@@ -10,12 +10,10 @@ namespace Methods.Solvers
 {
     public class SimplexSolver(LinearProgrammingProblem problem) : ILinearSolver
     {
-
         public SimplexHistory SimplexHistory { get; set; } = new SimplexHistory();
-        public SimplexTable Table { get => _table; set => _table = value; }
+        public SimplexTable Table { get; set; } = new();
 
-        private SimplexTable? _table;
-        private LinearProgrammingProblem _problem = problem;
+        private readonly LinearProgrammingProblem _problem = problem;
         private const double M = int.MaxValue;
 
         public void Solve()
@@ -44,7 +42,7 @@ namespace Methods.Solvers
                     {
                         PivotColumn = -1,
                         PivotRow = -1,
-                        Table = (SimplexTable)_table.Clone(),
+                        Table = (SimplexTable)Table.Clone(),
                     });
                     throw new InvalidOperationException("Немає розв'язку! Штучні змінні не вивелися з базису!");
                 }
@@ -54,18 +52,18 @@ namespace Methods.Solvers
             }
             // Видалення штучних змінних
             RemoveArtificialVariables();
-            SimplexHistory.OptimalTable = (SimplexTable)_table.Clone();
+            SimplexHistory.OptimalTable = (SimplexTable)Table.Clone();
         }
 
         // Видалення штучних змінних
         private void RemoveArtificialVariables()
         {
-            int artificialVariablesCount = _problem.ArtificialVariableCoefficients.Count;
+            int artificialVariablesCount = _problem.ArtificialVariableCoefficients?.Count ?? 0;
 
             if (artificialVariablesCount <= 0)
                 return;
 
-            var allKeys = _table.ColumnVariables.Keys.ToList();
+            var allKeys = Table.ColumnVariables.Keys.ToList();
 
             var keysToRemove = allKeys.Skip(allKeys.Count - artificialVariablesCount).ToList();
             var indexesToRemove = keysToRemove
@@ -75,38 +73,38 @@ namespace Methods.Solvers
 
             foreach (var key in keysToRemove)
             {
-                _table.ColumnVariables.Remove(key);
+                Table.ColumnVariables.Remove(key);
             }
 
-            int rows = _table.Values.GetLength(0);
-            int cols = _table.Values.GetLength(1) - artificialVariablesCount;
+            int rows = Table.Values.GetLength(0);
+            int cols = Table.Values.GetLength(1) - artificialVariablesCount;
             var newValues = new Fraction[rows, cols];
 
             for (int i = 0; i < rows; i++)
             {
                 int newCol = 0;
-                for (int j = 0; j < _table.Values.GetLength(1); j++)
+                for (int j = 0; j < Table.Values.GetLength(1); j++)
                 {
                     if (!indexesToRemove.Contains(j))
                     {
-                        newValues[i, newCol++] = _table.Values[i, j];
+                        newValues[i, newCol++] = Table.Values[i, j];
                     }
                 }
             }
 
-            _table.Values = newValues;
+            Table.Values = newValues;
 
             var newDelta = new Fraction[cols];
             int newDeltaIndex = 0;
-            for (int i = 0; i < _table.DeltaRow.Length; i++)
+            for (int i = 0; i < Table.DeltaRow!.Length; i++)
             {
                 if (!indexesToRemove.Contains(i))
                 {
-                    newDelta[newDeltaIndex++] = _table.DeltaRow[i];
+                    newDelta[newDeltaIndex++] = Table.DeltaRow[i];
                 }
             }
 
-            _table.DeltaRow = newDelta;
+            Table.DeltaRow = newDelta;
         }
 
         // Додавання вільних та штучних змін
@@ -176,23 +174,23 @@ namespace Methods.Solvers
         {
             int totalColumns = _problem.VariablesCount;
             int baseVariableCount = _problem.ObjectiveFunctionCoefficients.Count;
-            _table = new SimplexTable
+            Table = new SimplexTable
             {
                 RowVariables = [],
                 ColumnVariables = [],
                 Values = new Fraction[_problem.Constraints.Count, totalColumns + 1]
             };
 
-            _table.ColumnVariables.Add("A0", "-");
+            Table.ColumnVariables.Add("A0", "-");
             for (int i = 0; i < totalColumns; i++)
             {
                 string variableName = $"A{i + 1}";
                 string coefficient = GetObjectiveCoefficient(i).ToString();
-                _table.ColumnVariables.Add(variableName, coefficient);
+                Table.ColumnVariables.Add(variableName, coefficient);
             }
 
             // Знаходимо початковий допустимий базисний розв’язок
-            List<int> usedRows = new();
+            List<int> usedRows = [];
             TryAssignBasicVariableColumns(usedRows);
 
             // Заповнюємо таблицю
@@ -250,15 +248,15 @@ namespace Methods.Solvers
         }
         private void AddTableRow(int constraintIndex, int basicVarIndex)
         {
-            int rowIndex = _table.RowVariables.Count;
+            int rowIndex = Table.RowVariables.Count;
             int totalColumns = _problem.VariablesCount;
 
-            _table.RowVariables.Add($"x{basicVarIndex + 1}", GetObjectiveCoefficient(basicVarIndex).ToString());
-            _table.Values[rowIndex, 0] = Fraction.FromString(_problem.Constraints[constraintIndex].RightHandSide);
+            Table.RowVariables.Add($"x{basicVarIndex + 1}", GetObjectiveCoefficient(basicVarIndex).ToString());
+            Table.Values[rowIndex, 0] = Fraction.FromString(_problem.Constraints[constraintIndex].RightHandSide);
 
             for (int j = 0; j < totalColumns; j++)
             {
-                _table.Values[rowIndex, j + 1] = Fraction.FromString(_problem.Constraints[constraintIndex].Coefficients[j]);
+                Table.Values[rowIndex, j + 1] = Fraction.FromString(_problem.Constraints[constraintIndex].Coefficients[j]);
             }
         }
 
@@ -275,11 +273,11 @@ namespace Methods.Solvers
         private void CalculateReducedCosts()
         {
             int rowCount = _problem.Constraints.Count;
-            int columnCount = _table.ColumnVariables.Count;
+            int columnCount = Table.ColumnVariables.Count;
 
-            _table.DeltaRow = new Fraction[columnCount];
+            Table.DeltaRow = new Fraction[columnCount];
 
-            var columnKeys = _table.ColumnVariables.Keys.ToList();
+            var columnKeys = Table.ColumnVariables.Keys.ToList();
 
             for (int j = 0; j < columnCount; j++)
             {
@@ -288,32 +286,31 @@ namespace Methods.Solvers
 
                 for (int i = 0; i < rowCount; i++)
                 {
-                    string rowVar = _table.RowVariables.Keys.ElementAt(i);
-                    Fraction cb = Fraction.FromString(_table.RowVariables[rowVar]);
+                    string rowVar = Table.RowVariables.Keys.ElementAt(i);
+                    Fraction cb = Fraction.FromString(Table.RowVariables[rowVar]);
 
-                    Fraction aij = _table.Values[i, j];
+                    Fraction aij = Table.Values[i, j];
 
                     delta += cb * aij;
                 }
-                Fraction cj = 0;
-                Fraction.TryParse(_table.ColumnVariables[columnVar], out cj);
-                _table.DeltaRow[j] = (delta - cj).Reduce();
+                Fraction.TryParse(Table.ColumnVariables[columnVar], out Fraction cj);
+                Table.DeltaRow[j] = (delta - cj).Reduce();
             }
         }
         private bool IsOptimal()
         {
-            return _problem.IsMaximization ? !_table.DeltaRow.Skip(1).Any(n => n < 0) : !_table.DeltaRow.Skip(1).Any(n => n > 0);
+            return _problem.IsMaximization ? !Table.DeltaRow!.Skip(1).Any(n => n < 0) : !Table.DeltaRow!.Skip(1).Any(n => n > 0);
         }
         private bool IsUnbounded()
         {
             int rowIndex = _problem.Constraints.Count;
             // Штучні змінні не вивелися
-            if (_table.RowVariables
+            if (Table.RowVariables
                     .Select(row => row.Value)
                     .Any(value => double.Parse(value) == M || double.Parse(value) == -M) &&
                 (_problem.IsMaximization
-                    ? !_table.DeltaRow.Skip(1).Any(n => n < 0)
-                    : !_table.DeltaRow.Skip(1).Any(n => n > 0)))
+                    ? !Table.DeltaRow!.Skip(1).Any(n => n < 0)
+                    : !Table.DeltaRow!.Skip(1).Any(n => n > 0)))
             {
                 return true;
             }
@@ -326,7 +323,7 @@ namespace Methods.Solvers
             int basicVariablesCount = _problem.Constraints.Count; // к-сть умов обмежень
             // Визначення напрямного стовпця
             int offset = 1;
-            Fraction[] deltaSlice = _table.DeltaRow.Skip(offset).ToArray();
+            Fraction[] deltaSlice = Table.DeltaRow!.Skip(offset).ToArray();
 
             int pivotCol = _problem.IsMaximization
                 ? Array.IndexOf(deltaSlice, deltaSlice.Min()) + offset
@@ -337,8 +334,8 @@ namespace Methods.Solvers
             Fraction minRatio = new Fraction(double.MaxValue).Reduce();
             for (int i = 0; i < basicVariablesCount; i++)
             {
-                Fraction a = _table.Values[i, pivotCol];
-                Fraction b = _table.Values[i, 0];
+                Fraction a = Table.Values[i, pivotCol];
+                Fraction b = Table.Values[i, 0];
                 if (a > 0)
                 {
                     Fraction ratio = (b / a).Reduce();
@@ -354,37 +351,37 @@ namespace Methods.Solvers
             {
                 PivotColumn = pivotCol,
                 PivotRow = pivotRow,
-                Table = (SimplexTable)_table.Clone(),
+                Table = (SimplexTable)Table.Clone(),
             });
             if (pivotRow == -1) throw new InvalidOperationException("Немає розв'язку! Неможливо визначити напрямний рядок!");
 
             // Перерахунок симплекс таблиці
             // Заміна напрямленого рядка
             var newKey = $"x{pivotCol}";
-            var newValue = _table.ColumnVariables[$"A{pivotCol}"];
+            var newValue = Table.ColumnVariables[$"A{pivotCol}"];
 
-            var oldKey = _table.RowVariables.ElementAt(pivotRow).Key;
-            _table.RowVariables.Remove(oldKey);
-            _table.RowVariables[newKey] = newValue;
+            var oldKey = Table.RowVariables.ElementAt(pivotRow).Key;
+            Table.RowVariables.Remove(oldKey);
+            Table.RowVariables[newKey] = newValue;
 
             // Перерахунок
-            Fraction pivotElement = _table.Values[pivotRow, pivotCol];
-            int totalColumns = _table.ColumnVariables.Count;
+            Fraction pivotElement = Table.Values[pivotRow, pivotCol];
+            int totalColumns = Table.ColumnVariables.Count;
             for (int i = 0; i < _problem.Constraints.Count; i++)
             {
                 if (i == pivotRow) continue;
-                Fraction factor = _table.Values[i, pivotCol];
+                Fraction factor = Table.Values[i, pivotCol];
                 for (int j = 0; j < totalColumns; j++)
                 {
-                    _table.Values[i, j] -= factor * _table.Values[pivotRow, j] / pivotElement;
-                    _table.Values[i, j] = _table.Values[i, j].Reduce();
+                    Table.Values[i, j] -= factor * Table.Values[pivotRow, j] / pivotElement;
+                    Table.Values[i, j] = Table.Values[i, j].Reduce();
                 }
             }
 
             for (int j = 0; j < totalColumns; j++)
             {
-                _table.Values[pivotRow, j] /= pivotElement;
-                _table.Values[pivotRow, j] = _table.Values[pivotRow, j].Reduce();
+                Table.Values[pivotRow, j] /= pivotElement;
+                Table.Values[pivotRow, j] = Table.Values[pivotRow, j].Reduce();
             }
         }
 

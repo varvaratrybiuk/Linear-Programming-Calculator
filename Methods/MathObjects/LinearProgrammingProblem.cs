@@ -4,8 +4,8 @@
     {
         public bool IsMaximization { get; init; }
         public required List<string> ObjectiveFunctionCoefficients { get; set; }
-        public List<string>? SlackVariableCoefficients { get; set; } = new List<string>();
-        public List<string>? ArtificialVariableCoefficients { get; set; } = new List<string>();
+        public List<string>? SlackVariableCoefficients { get; set; } = [];
+        public List<string>? ArtificialVariableCoefficients { get; set; } = [];
         public required List<Constraint> Constraints { get; set; }
         public int VariablesCount => ObjectiveFunctionCoefficients.Count + SlackVariableCoefficients.Count + ArtificialVariableCoefficients.Count;
 
@@ -17,7 +17,7 @@
                 ObjectiveFunctionCoefficients = new List<string>(ObjectiveFunctionCoefficients),
                 SlackVariableCoefficients = new List<string>(SlackVariableCoefficients),
                 ArtificialVariableCoefficients = new List<string>(ArtificialVariableCoefficients),
-                Constraints = new List<Constraint>()
+                Constraints = []
             };
 
             foreach (var constr in Constraints)

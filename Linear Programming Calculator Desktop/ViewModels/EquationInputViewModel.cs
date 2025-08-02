@@ -10,19 +10,15 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
 {
     public partial class EquationInputViewModel : ObservableValidator
     {
-        public ObservableCollection<FieldViewModel> ObjectiveFunctionValues =>
-        new ObservableCollection<FieldViewModel>(
-                Enumerable.Range(1, _parameters.variables)
-                     .Select(i => new FieldViewModel() { Label = $"x{i}" })
-        );
-
-        public ObservableCollection<ConstraintViewModel> ConstraintValues => new ObservableCollection<ConstraintViewModel>(
-                Enumerable.Range(1, _parameters.constraints)
-                          .Select(_ => new ConstraintViewModel(_parameters.variables))
-        );
         public string IntegerVariablesText =>
-            string.Join(", ", ObjectiveFunctionValues.Select(v => v.Label)) + " — цілі";
+                 string.Join(", ", ObjectiveFunctionValues.Select(v => v.Label)) + " — цілі";
 
+
+        [ObservableProperty]
+        private ObservableCollection<FieldViewModel> _objectiveFunctionValues = [];
+
+        [ObservableProperty]
+        private ObservableCollection<ConstraintViewModel> _constraintValues = [];
 
         [ObservableProperty]
         private bool _isMaximization = true;
@@ -30,16 +26,23 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
         [ObservableProperty]
         private bool _integerCheck;
 
-        private readonly (int variables, int constraints) _parameters;
-
         private readonly INavigator<LinearProgramResultDto> _navigationService;
         private readonly INavigator _backNavigator;
 
         public EquationInputViewModel((int variables, int constraints) parameters, INavigator<LinearProgramResultDto> navigationService, INavigator backNavigator)
         {
-            _parameters = parameters;
             _navigationService = navigationService;
             _backNavigator = backNavigator;
+
+            ObjectiveFunctionValues = new ObservableCollection<FieldViewModel>(
+                Enumerable.Range(1, parameters.variables)
+                     .Select(i => new FieldViewModel() { Label = $"x{i}" })
+            );
+
+            ConstraintValues = new ObservableCollection<ConstraintViewModel>(
+                Enumerable.Range(1, parameters.constraints)
+                          .Select(_ => new ConstraintViewModel(parameters.variables))
+            );
         }
 
         [RelayCommand]
@@ -83,7 +86,7 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
 
         private LinearProgrammingProblem BuildLPProblem()
         {
-            List<Constraint> constraints = new List<Constraint>();
+            List<Constraint> constraints = [];
             foreach (var constraint in ConstraintValues)
             {
                 constraints.Add(new Constraint()

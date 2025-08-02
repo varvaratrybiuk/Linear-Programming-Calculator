@@ -15,7 +15,7 @@
             
             <DataTemplate x:Key="SimpleInputTemplate">
                 <StackPanel Orientation="Horizontal" Margin="2">
-                    <TextBox Text="{Binding Value, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                    <TextBox Text="{Binding Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnDataErrors=True}"
                      Width="60" Margin="4,0"
                      HorizontalContentAlignment="Right" />
                     <Label Content="{Binding Label}" VerticalAlignment="Center" />

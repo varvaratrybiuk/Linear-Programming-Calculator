@@ -5,15 +5,13 @@ using Methods.Models;
 
 namespace Methods.Solvers
 {
-    public class GomorySolver(SimplexTable table, LinearProgrammingProblem problem) : ILinearSolver
+    public class GomorySolver(SimplexTable Table, LinearProgrammingProblem problem) : ILinearSolver
     {
-        public SimplexTable Table { get => _table; set => _table = value; }
         public List<GomoryHistory> GomoryHistory { get; set; } = [];
-        private int _historyStep = -1;
 
-        private SimplexTable _table = table;
-        private LinearProgrammingProblem _problem = problem;
-        private Dictionary<Tuple<int, string>, Fraction> _result = [];
+        private int _historyStep = -1;
+        private readonly LinearProgrammingProblem _problem = problem;
+        private readonly Dictionary<(int index, string variableName), Fraction> _result = [];
 
         public void Pivot()
         {
@@ -21,9 +19,9 @@ namespace Methods.Solvers
             int pivotRow = -1;
             Fraction minRatio = Fraction.PositiveInfinity;
 
-            for (int i = 0; i < _table.Values.GetLength(0); i++)
+            for (int i = 0; i < Table.Values.GetLength(0); i++)
             {
-                var element = _table.Values[i, 0];
+                var element = Table.Values[i, 0];
                 if (element < 0)
                 {
                     if (element < minRatio)
@@ -37,16 +35,16 @@ namespace Methods.Solvers
             // Напрямний стовпець
             var pivotCol = -1;
             Fraction minTeta = Fraction.PositiveInfinity;
-            _table.ThetaRow = new List<string>();
+            Table.ThetaRow = [];
 
-            for (int j = 1; j < _table.Values.GetLength(1); j++)
+            for (int j = 1; j < Table.Values.GetLength(1); j++)
             {
-                var element = _table.Values[pivotRow, j];
+                var element = Table.Values[pivotRow, j];
 
                 if (element < 0)
                 {
-                    var teta = Fraction.Abs(_table.DeltaRow[j] / element);
-                    _table.ThetaRow.Add(teta.ToString());
+                    var teta = Fraction.Abs(Table.DeltaRow![j] / element);
+                    Table.ThetaRow.Add(teta.ToString());
 
                     if (teta < minTeta)
                     {
@@ -56,7 +54,7 @@ namespace Methods.Solvers
                 }
                 else
                 {
-                    _table.ThetaRow.Add("-");
+                    Table.ThetaRow.Add("-");
                 }
             }
 
@@ -69,33 +67,33 @@ namespace Methods.Solvers
             {
                 PivotColumn = pivotCol,
                 PivotRow = pivotRow,
-                Table = (SimplexTable)_table.Clone(),
+                Table = (SimplexTable)Table.Clone(),
             });
 
             // Заміна напрямленого рядка
             var newKey = $"x{pivotCol}";
-            var newValue = _table.ColumnVariables[$"A{pivotCol}"];
+            var newValue = Table.ColumnVariables[$"A{pivotCol}"];
 
-            var oldKey = _table.RowVariables.ElementAt(pivotRow).Key;
-            _table.RowVariables.Remove(oldKey);
-            _table.RowVariables[newKey] = newValue;
+            var oldKey = Table.RowVariables.ElementAt(pivotRow).Key;
+            Table.RowVariables.Remove(oldKey);
+            Table.RowVariables[newKey] = newValue;
 
             // Перерахунок
-            Fraction pivotElement = _table.Values[pivotRow, pivotCol];
-            int totalColumns = _table.ColumnVariables.Count;
-            for (int i = 0; i < _table.RowVariables.Count; i++)
+            Fraction pivotElement = Table.Values[pivotRow, pivotCol];
+            int totalColumns = Table.ColumnVariables.Count;
+            for (int i = 0; i < Table.RowVariables.Count; i++)
             {
                 if (i == pivotRow) continue;
-                Fraction factor = _table.Values[i, pivotCol];
+                Fraction factor = Table.Values[i, pivotCol];
                 for (int j = 0; j < totalColumns; j++)
                 {
-                    _table.Values[i, j] -= factor * _table.Values[pivotRow, j] / pivotElement;
+                    Table.Values[i, j] -= factor * Table.Values[pivotRow, j] / pivotElement;
                 }
             }
 
             for (int j = 0; j < totalColumns; j++)
             {
-                _table.Values[pivotRow, j] /= pivotElement;
+                Table.Values[pivotRow, j] /= pivotElement;
             }
             CalculateReducedCosts();
 
@@ -103,12 +101,12 @@ namespace Methods.Solvers
 
         private void CalculateReducedCosts()
         {
-            int rowCount = _table.RowVariables.Count;
-            int columnCount = _table.ColumnVariables.Count;
+            int rowCount = Table.RowVariables.Count;
+            int columnCount = Table.ColumnVariables.Count;
 
-            _table.DeltaRow = new Fraction[columnCount];
+            Table.DeltaRow = new Fraction[columnCount];
 
-            var columnKeys = _table.ColumnVariables.Keys.ToList();
+            var columnKeys = Table.ColumnVariables.Keys.ToList();
 
             for (int j = 0; j < columnCount; j++)
             {
@@ -117,33 +115,35 @@ namespace Methods.Solvers
 
                 for (int i = 0; i < rowCount; i++)
                 {
-                    string rowVar = _table.RowVariables.Keys.ElementAt(i);
-                    Fraction cb = Fraction.FromString(_table.RowVariables[rowVar]);
+                    string rowVar = Table.RowVariables.Keys.ElementAt(i);
+                    Fraction cb = Fraction.FromString(Table.RowVariables[rowVar]);
 
-                    Fraction aij = _table.Values[i, j];
+                    Fraction aij = Table.Values[i, j];
 
                     delta += cb * aij;
                 }
-                Fraction cj = 0;
-                Fraction.TryParse(_table.ColumnVariables[columnVar], out cj);
-                _table.DeltaRow[j] = delta - cj;
+                Fraction.TryParse(Table.ColumnVariables[columnVar], out Fraction cj);
+                Table.DeltaRow[j] = delta - cj;
             }
         }
         public void Solve()
         {
-            while (!IsIntegerOptimalSolutionFound() || !isOptimal())
+            while (!IsIntegerOptimalSolutionFound() || !IsOptimal())
             {
-                if (isOptimal())
+                if (IsOptimal())
                 {
                     if (IsUnbounded()) throw new InvalidOperationException("Немає розв'язку! В рядку немає жодного дробовога значення!");
                     var fractionalRow = FindMostFractionalRow();
                     _historyStep++;
 
-                    var variableName = _table.RowVariables.Keys.ToList()[fractionalRow];
+                    var variableName = Table.RowVariables.Keys.ToList()[fractionalRow];
                     var readableName = variableName.Replace("x", " ");
                     GomoryHistory.Add(new GomoryHistory()
                     {
-                        MaxValue = new Tuple<int, Fraction>(int.Parse(readableName), _result.Where(k => k.Key.Item1 == fractionalRow).Select(k => k.Value).First())
+                        MaxFracValue = (
+                                 int.Parse(readableName),
+                                _result.First(k => k.Key.index == fractionalRow).Value
+                            )
                     });
                     var cutRow = BuildGomoryCutRow(fractionalRow);
                     AddCuttingPlaneRow(cutRow);
@@ -153,18 +153,18 @@ namespace Methods.Solvers
                 {
                     PivotColumn = -1,
                     PivotRow = -1,
-                    Table = (SimplexTable)_table.Clone(),
+                    Table = (SimplexTable)Table.Clone(),
                 });
             }
         }
         private bool IsUnbounded()
         {
             int fractionalRow = FindMostFractionalRow();
-            int columnCount = _table.Values.GetLength(1);
+            int columnCount = Table.Values.GetLength(1);
 
             for (int j = 1; j < columnCount; j++)
             {
-                Fraction value = _table.Values[fractionalRow, j];
+                Fraction value = Table.Values[fractionalRow, j];
                 if (value.Numerator % value.Denominator != 0)
                 {
                     return false;
@@ -188,7 +188,7 @@ namespace Methods.Solvers
                 if (fractionalPart > maxFraction)
                 {
                     maxFraction = fractionalPart;
-                    fractionalRowIndex = keys[i].Item1;
+                    fractionalRowIndex = keys[i].index;
                 }
             }
 
@@ -199,13 +199,13 @@ namespace Methods.Solvers
             var newBranchCut = new BranchCut();
             // Отримуємо рядок
             var rowValues = new List<Fraction>();
-            for (int j = 0; j < _table.Values.GetLength(1); j++)
+            for (int j = 0; j < Table.Values.GetLength(1); j++)
             {
-                rowValues.Add(_table.Values[fractionalRowIndex, j]);
+                rowValues.Add(Table.Values[fractionalRowIndex, j]);
             }
 
             // Створюємо відсічення
-            List<Fraction> cut = new();
+            List<Fraction> cut = [];
             for (int j = 0; j < rowValues.Count; j++)
             {
                 var coeff = rowValues[j];
@@ -213,9 +213,9 @@ namespace Methods.Solvers
                 if (coeff.IsNegative && coeff.Denominator != 1)
                     wholePart = -1;
                 Fraction fractionalPart = coeff - wholePart;
-                var variableName = _table.RowVariables.Keys.ToList()[fractionalRowIndex];
+                var variableName = Table.RowVariables.Keys.ToList()[fractionalRowIndex];
                 var readableName = variableName.Replace("x", " ");
-                newBranchCut.Elements[$"y{readableName}{j}"] = new Tuple<Fraction, Fraction>(wholePart, coeff);
+                newBranchCut.Elements[$"y{readableName}{j}"] = (wholePart, coeff);
                 cut.Add(-fractionalPart);
             }
             cut.Add(1);
@@ -226,14 +226,14 @@ namespace Methods.Solvers
         private void AddCuttingPlaneRow(List<Fraction> cutRow)
         {
             //Додаємо відсічення у симплекс таблицю
-            int oldRowCount = _table.Values.GetLength(0);
-            int oldColCount = _table.Values.GetLength(1);
+            int oldRowCount = Table.Values.GetLength(0);
+            int oldColCount = Table.Values.GetLength(1);
 
             var newRowVarName = $"x{oldColCount}";
             var newColVarName = $"A{oldColCount}";
 
-            _table.RowVariables.Add(newRowVarName, "0");
-            _table.ColumnVariables.Add(newColVarName, "0");
+            Table.RowVariables.Add(newRowVarName, "0");
+            Table.ColumnVariables.Add(newColVarName, "0");
 
             Fraction[,] newTable = new Fraction[oldRowCount + 1, oldColCount + 1];
 
@@ -242,7 +242,7 @@ namespace Methods.Solvers
             {
                 for (int j = 0; j < oldColCount; j++)
                 {
-                    newTable[i, j] = _table.Values[i, j];
+                    newTable[i, j] = Table.Values[i, j];
                 }
             }
 
@@ -258,8 +258,8 @@ namespace Methods.Solvers
 
             newTable[oldRowCount, oldColCount] = Fraction.One;
 
-            _table.Values = newTable;
-            _table.DeltaRow = _table.DeltaRow.Append(Fraction.Zero).ToArray();
+            Table.Values = newTable;
+            Table.DeltaRow = [.. Table.DeltaRow!, Fraction.Zero];
         }
         private bool IsIntegerOptimalSolutionFound()
         {
@@ -279,22 +279,22 @@ namespace Methods.Solvers
             for (int i = 0; i < _problem.ObjectiveFunctionCoefficients.Count; i++)
             {
                 string variableName = $"x{i + 1}";
-                if (table.RowVariables.ContainsKey(variableName))
+                if (Table.RowVariables.ContainsKey(variableName))
                 {
-                    int index = _table.RowVariables.Keys.ToList().IndexOf(variableName);
-                    _result[new Tuple<int, string>(index, variableName)] = _table.Values[index, 0];
+                    int index = Table.RowVariables.Keys.ToList().IndexOf(variableName);
+                    _result[(index, variableName)] = Table.Values[index, 0];
                 }
                 else
                 {
-                    _result[new Tuple<int, string>(-1, variableName)] = new Fraction(0);
+                    _result[(-1, variableName)] = new Fraction(0);
                 }
             }
         }
-        private bool isOptimal()
+        private bool IsOptimal()
         {
-            for (int i = 0; i < _table.Values.GetLength(0); i++)
+            for (int i = 0; i < Table.Values.GetLength(0); i++)
             {
-                if (_table.Values[i, 0] < 0)
+                if (Table.Values[i, 0] < 0)
                 {
                     return false;
                 }
