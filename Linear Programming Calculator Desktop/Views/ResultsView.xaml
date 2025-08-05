@@ -75,75 +75,75 @@
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
-                <Button Content="Нова задача"
+                <Button Content="New problem"
             Command="{Binding NewProblemCommand}"
             Grid.Column="0" Width="100"/>
-                <Button Content="Змінити задачу"
+                <Button Content="Edit problem"
             Command="{Binding EditProblemCommand}"
             Grid.Column="2" Height="25" Width="100"/>
             </Grid>
 
             <StackPanel Grid.Row="1" Orientation="Vertical">
-                <TextBlock Text="Математична модель" FontWeight="DemiBold"/>
+                <TextBlock Text="Mathematical model" FontWeight="DemiBold"/>
                 <ContentControl Content="{Binding MathModelBlock}" 
                     ContentTemplate="{StaticResource MathBlock}" />
 
-                <TextBlock Text="Вводимо вільні змінні" FontWeight="DemiBold" />
+                <TextBlock Text="Introduce free variables" FontWeight="DemiBold" />
                 <ContentControl Content="{Binding FreeVariableBlock}" 
                     ContentTemplate="{StaticResource MathBlock}" />
 
                 <StackPanel Visibility="{Binding ArtificialVariableBlock, Converter={StaticResource nullToVisibilityConverter}}">
-                    <TextBlock Text="Вводимо штучні змінні" FontWeight="DemiBold"/>
+                    <TextBlock Text="Introduce artificial variables" FontWeight="DemiBold"/>
                     <ContentControl Content="{Binding ArtificialVariableBlock}" 
-                  ContentTemplate="{StaticResource MathBlock}" />
+                        ContentTemplate="{StaticResource MathBlock}" />
                 </StackPanel>
 
-                <TextBlock Text="Отримуємо початковий допустимий базисний розв’язок задачі" FontWeight="DemiBold" />
+                <TextBlock Text="Initial feasible basic solution of the problem" FontWeight="DemiBold" />
                 <TextBlock Text="{Binding InitialBasisText}"/>
 
                 <ItemsControl ItemsSource="{Binding SimplexTables}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
-                                <TextBlock Text="Будуємо симплекс-таблицю" FontWeight="Bold" FontSize="16" Margin="0,0,0,5" />
-                                <TextBlock Text = "{Binding Step.PivotColumn, StringFormat='Напрямний стовпець: A\{0\}'}"/>
-                                
+                                <TextBlock Text="Constructing the simplex table" FontWeight="Bold" FontSize="16" Margin="0,0,0,5" />
+                                <TextBlock Text = "{Binding Step.PivotColumn, StringFormat='Pivot column: A\{0\}'}"/>
+
                                 <StackPanel Visibility="{Binding PivotRowKey, Converter={StaticResource nullToVisibilityConverter}}">
-                                    <TextBlock Text = "{Binding PivotRowKey, StringFormat='Напрямний рядок: \{0\}'}"/>
+                                    <TextBlock Text = "{Binding PivotRowKey, StringFormat='Pivot row: \{0\}'}"/>
                                     <TextBlock>
                                         <TextBlock.Text>
-                                            <MultiBinding StringFormat="Напрямний елемент: {0}{1}">
+                                            <MultiBinding StringFormat="Pivot element: {0}{1}">
                                                 <Binding Path="PivotRowKey"/>
                                                 <Binding Path="Step.PivotColumn"/>
                                             </MultiBinding>
                                         </TextBlock.Text>
                                     </TextBlock>
                                 </StackPanel>
-                                
+
                                 <ContentControl Content="{Binding}"
-                                ContentTemplate="{StaticResource SimplexTableTemplate}" />
+                                    ContentTemplate="{StaticResource SimplexTableTemplate}" />
                             </StackPanel>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
 
                 <StackPanel Visibility="{Binding OptimalResult.Step.Table, Converter={StaticResource nullToVisibilityConverter}}">
-                    <TextBlock Text="Отримано оптимальний розв'язок задачі" FontWeight="Bold" FontSize="16"/>
+                    <TextBlock Text="Optimal solution of the problem found" FontWeight="Bold" FontSize="16"/>
                     <ContentControl Content="{Binding OptimalResult}"
-                                ContentTemplate="{StaticResource SimplexTableTemplate}" />
+                        ContentTemplate="{StaticResource SimplexTableTemplate}" />
                 </StackPanel>
 
                 <TextBlock Text="{Binding SimplexSolutionSummary}" 
-                    FontWeight="SemiBold" TextAlignment="Center" Margin="10" FontSize="14"/>
-                
-                <StackPanel Visibility="{Binding GomoryTables, Converter={StaticResource nullToVisibilityConverter}}">
-                    <TextBlock Margin="10" Text="Пошук цілочисельного розв’язку (метод Гоморі)" 
-                               TextAlignment="Center" FontSize="16" FontWeight="Bold"/>
+               FontWeight="SemiBold" TextAlignment="Center" Margin="10" FontSize="14"/>
+
+                <StackPanel Visibility="{Binding GomoryHistory, Converter={StaticResource nullToVisibilityConverter}}">
+                    <TextBlock Margin="10" Text="Searching for integer solution (Gomory method)" 
+                   TextAlignment="Center" FontSize="16" FontWeight="Bold"/>
                     <ItemsControl ItemsSource="{Binding GomoryHistory}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
-                                    <TextBlock Text="Формуємо правильне відсічення" FontWeight="Bold"  Margin="0,5,0,5"  FontSize="14" />
+                                    <TextBlock Text="Constructing a valid cut" FontWeight="Bold"  Margin="0,5,0,5"  FontSize="14" />
                                     <TextBlock Text="{Binding MaxFractionDisplayText}" />
                                     <ItemsControl ItemsSource="{Binding GomoryCutLines}">
                                         <ItemsControl.ItemTemplate>
@@ -157,17 +157,17 @@
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
                                                 <StackPanel>
-                                                    <TextBlock Text="Будуємо симплекс-таблицю"
-                                                           FontWeight="Bold"
-                                                           FontSize="14"
-                                                           Margin="0,0,0,5" />
+                                                    <TextBlock Text="Constructing the simplex table"
+                                                   FontWeight="Bold"
+                                                   FontSize="14"
+                                                   Margin="0,0,0,5" />
 
                                                     <StackPanel Visibility="{Binding PivotRowKey, Converter={StaticResource nullToVisibilityConverter}}">
-                                                        <TextBlock Text="{Binding PivotRowKey, StringFormat='Напрямний рядок: {0}'}" />
-                                                        <TextBlock Text="{Binding Step.PivotColumn, StringFormat='Напрямний стовпець: A{0}'}" />
+                                                        <TextBlock Text="{Binding PivotRowKey, StringFormat='Pivot row: {0}'}" />
+                                                        <TextBlock Text="{Binding Step.PivotColumn, StringFormat='Pivot column: A{0}'}" />
                                                         <TextBlock>
                                                             <TextBlock.Text>
-                                                                <MultiBinding StringFormat="Напрямний елемент: {0}{1}">
+                                                                <MultiBinding StringFormat="Pivot element: {0}{1}">
                                                                     <Binding Path="PivotRowKey" />
                                                                     <Binding Path="Step.PivotColumn" />
                                                                 </MultiBinding>
@@ -175,20 +175,25 @@
                                                         </TextBlock>
                                                     </StackPanel>
                                                     <ContentControl Content="{Binding}"
-                                                             ContentTemplate="{StaticResource SimplexTableTemplate}" />
+                                                        ContentTemplate="{StaticResource SimplexTableTemplate}" />
                                                 </StackPanel>
                                             </DataTemplate>
                                         </ItemsControl.ItemTemplate>
                                     </ItemsControl>
+
+                                    <TextBlock Text="{Binding GomoryStepSummary}" FontWeight="SemiBold" TextAlignment="Center" Margin="10" FontSize="14"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
                 </StackPanel>
-                
+
                 <TextBlock Text="{Binding ErrorMessage}"
-                    Foreground="Red"
-                    FontWeight="Bold"/>
+               Foreground="Red"
+               FontWeight="Bold"
+               TextAlignment="Center"
+               FontSize="16"/>
+
             </StackPanel>
         </Grid>
     </ScrollViewer>

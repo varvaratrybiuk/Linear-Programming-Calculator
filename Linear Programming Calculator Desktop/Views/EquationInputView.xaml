@@ -68,14 +68,13 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
         <StackPanel Grid.Row="0" Margin="10" Orientation="Vertical" DataContext="{Binding}">
-            <TextBlock Text="Цільова функція:" FontWeight="Bold" Margin="0,0,0,6"/>
+            <TextBlock Text="Objective function:" FontWeight="Bold" Margin="0,0,0,6"/>
             <StackPanel Orientation="Horizontal">
                 <ItemsControl ItemsSource="{Binding ObjectiveFunctionValues}"
-                      ItemTemplate="{StaticResource SimpleInputTemplate}"
-                      Margin="0,0,6,0"
-                      AlternationCount="100">
+              ItemTemplate="{StaticResource SimpleInputTemplate}"
+              Margin="0,0,6,0"
+              AlternationCount="100">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <StackPanel Orientation="Horizontal"/>
@@ -86,34 +85,34 @@
                 <TextBlock Text="→" VerticalAlignment="Center" Margin="5,0" FontSize="16"/>
 
                 <ComboBox Width="100"
-                          SelectedIndex="{Binding IsMaximization, Mode=TwoWay, Converter={StaticResource isMaximizationConverter}}">
+                  SelectedIndex="{Binding IsMaximization, Mode=TwoWay, Converter={StaticResource isMaximizationConverter}}">
                     <ComboBoxItem Content="max"/>
                     <ComboBoxItem Content="min"/>
                 </ComboBox>
             </StackPanel>
-            
+
             <Grid Margin="5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
-                <Button Content="Нова задача"
-                        Command="{Binding NewProblemCommand}"
-                        Grid.Column="0" Width="100"/>
-                <Button Content="Розв'язати"
-                        Command="{Binding SolveCommand}"
-                        Grid.Column="2" Height="25" Width="100"/>
+                <Button Content="New problem"
+                Command="{Binding NewProblemCommand}"
+                Grid.Column="0" Width="100"/>
+                <Button Content="Solve"
+                Command="{Binding SolveCommand}"
+                Grid.Column="2" Height="25" Width="100"/>
             </Grid>
         </StackPanel>
 
         <Border Grid.Row="1" Background="#FFFFF0" CornerRadius="5" BorderThickness="1" BorderBrush="#FFD966" Padding="10">
             <StackPanel>
-                <TextBlock Text="Обмеження" FontWeight="Bold" Margin="0,0,0,10"/>
+                <TextBlock Text="Constraints" FontWeight="Bold" Margin="0,0,0,10"/>
                 <ItemsControl ItemsSource="{Binding ConstraintValues}" 
-                        ItemTemplate="{StaticResource ConstraintInputTemplate}" />
+                ItemTemplate="{StaticResource ConstraintInputTemplate}" />
                 <CheckBox
-                    Content="{Binding IntegerVariablesText}"
-                    IsChecked="{Binding IntegerCheck}" Margin="0,5"/>
+            Content="{Binding IntegerVariablesText}"
+            IsChecked="{Binding IntegerCheck}" Margin="0,5"/>
             </StackPanel>
         </Border>
     </Grid>

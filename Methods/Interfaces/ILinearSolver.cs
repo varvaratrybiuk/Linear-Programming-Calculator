@@ -4,5 +4,7 @@
     {
         void Solve();
         void Pivot();
+        bool IsUnbounded();
+        bool IsOptimal();
     }
 }

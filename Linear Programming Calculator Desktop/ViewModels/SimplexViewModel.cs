@@ -23,7 +23,7 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
             if (Step?.Table is null)
                 return this;
 
-            int rows = Step.Table.Values.GetLength(0) + 4 + (Step.Table.ThetaRow.Count != 0 ? 1 : 0);
+            int rows = Step.Table.Values.GetLength(0) + 3 + (Step.Table.ThetaRow.Count != 0 ? 1 : 0);
             int cols = Step.Table.Values.GetLength(1) + 2;
 
             TotalRows = rows;

@@ -9,30 +9,30 @@ namespace Linear_Programming_Calculator_Desktop.Converters
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value is not ConstraintType constraintType)
-                throw new ArgumentException("Недійсний тип значення для конвертації.");
+                throw new ArgumentException("Invalid value type for conversion.");
 
             return constraintType switch
             {
                 ConstraintType.GreaterThanOrEqual => "≥",
                 ConstraintType.LessThanOrEqual => "≤",
                 ConstraintType.Equal => "=",
-                _ => throw new ArgumentOutOfRangeException(nameof(value), "Невідомий тип обмеження.")
+                _ => throw new ArgumentOutOfRangeException(nameof(value), "Unknown constraint type.")
             };
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value is not string sign)
-                throw new ArgumentException("Недійсний тип символу для конвертації.");
+                throw new ArgumentException("Invalid symbol type for conversion.");
 
             return sign switch
             {
                 "≥" => ConstraintType.GreaterThanOrEqual,
                 "≤" => ConstraintType.LessThanOrEqual,
                 "=" => ConstraintType.Equal,
-                _ => throw new ArgumentException("Такого символу не існує!")
+                _ => throw new ArgumentException("This symbol does not exist!")
             };
-
         }
+
     }
 }

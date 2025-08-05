@@ -19,9 +19,8 @@ namespace Methods.Solvers
         public void Solve()
         {
             SimplexHistory.InitialLinearProgrammingProblem = (LinearProgrammingProblem)_problem.Clone();
-            // Приведення до канонічного вигляду
+
             ConvertToCanonicalForm();
-            // Додавання вільних змінних та штучних змінних
             ProcessAuxiliaryVariables(isSlack: true);
             SimplexHistory.FreeVariableProblem = (LinearProgrammingProblem)_problem.Clone();
             ProcessAuxiliaryVariables(isSlack: false);
@@ -30,9 +29,7 @@ namespace Methods.Solvers
                 SimplexHistory.ArtificialProblemProblem = (LinearProgrammingProblem)_problem.Clone();
             }
 
-            // Заповнення першої таблиці
             InitializeTableau();
-            // Пошук оптимального рішення, якщо це можливо
             while (true)
             {
                 CalculateReducedCosts();
@@ -44,18 +41,16 @@ namespace Methods.Solvers
                         PivotRow = -1,
                         Table = (SimplexTable)Table.Clone(),
                     });
-                    throw new InvalidOperationException("Немає розв'язку! Штучні змінні не вивелися з базису!");
+                    throw new InvalidOperationException("No solution! Artificial variables have not left the basis!");
                 }
                 if (IsOptimal())
                     break;
                 Pivot();
             }
-            // Видалення штучних змінних
             RemoveArtificialVariables();
             SimplexHistory.OptimalTable = (SimplexTable)Table.Clone();
         }
 
-        // Видалення штучних змінних
         private void RemoveArtificialVariables()
         {
             int artificialVariablesCount = _problem.ArtificialVariableCoefficients?.Count ?? 0;
@@ -107,7 +102,6 @@ namespace Methods.Solvers
             Table.DeltaRow = newDelta;
         }
 
-        // Додавання вільних та штучних змін
         private void ProcessAuxiliaryVariables(bool isSlack)
         {
             int constCount = _problem.Constraints.Count;
@@ -169,7 +163,6 @@ namespace Methods.Solvers
                 _problem.ArtificialVariableCoefficients?.Add(_problem.IsMaximization ? (-M).ToString() : M.ToString());
         }
 
-        // Ініціалізація початкової симплекс таблиці
         private void InitializeTableau()
         {
             int totalColumns = _problem.VariablesCount;
@@ -189,11 +182,9 @@ namespace Methods.Solvers
                 Table.ColumnVariables.Add(variableName, coefficient);
             }
 
-            // Знаходимо початковий допустимий базисний розв’язок
             List<int> usedRows = [];
             TryAssignBasicVariableColumns(usedRows);
 
-            // Заповнюємо таблицю
             for (int i = 0; i < _problem.Constraints.Count; i++)
             {
                 if (usedRows.Contains(i)) continue;
@@ -269,7 +260,6 @@ namespace Methods.Solvers
             else
                 return _problem.ArtificialVariableCoefficients![index - _problem.ObjectiveFunctionCoefficients.Count - (_problem.SlackVariableCoefficients?.Count ?? 0)];
         }
-        // Розрахунок індексного рядка
         private void CalculateReducedCosts()
         {
             int rowCount = _problem.Constraints.Count;
@@ -297,14 +287,13 @@ namespace Methods.Solvers
                 Table.DeltaRow[j] = (delta - cj).Reduce();
             }
         }
-        private bool IsOptimal()
+        public bool IsOptimal()
         {
             return _problem.IsMaximization ? !Table.DeltaRow!.Skip(1).Any(n => n < 0) : !Table.DeltaRow!.Skip(1).Any(n => n > 0);
         }
-        private bool IsUnbounded()
+        public bool IsUnbounded()
         {
             int rowIndex = _problem.Constraints.Count;
-            // Штучні змінні не вивелися
             if (Table.RowVariables
                     .Select(row => row.Value)
                     .Any(value => double.Parse(value) == M || double.Parse(value) == -M) &&
@@ -317,11 +306,10 @@ namespace Methods.Solvers
             return false;
         }
 
-        // Пошук оптимального значення
         public void Pivot()
         {
-            int basicVariablesCount = _problem.Constraints.Count; // к-сть умов обмежень
-            // Визначення напрямного стовпця
+            int basicVariablesCount = _problem.Constraints.Count;
+
             int offset = 1;
             Fraction[] deltaSlice = Table.DeltaRow!.Skip(offset).ToArray();
 
@@ -329,7 +317,6 @@ namespace Methods.Solvers
                 ? Array.IndexOf(deltaSlice, deltaSlice.Min()) + offset
                 : Array.IndexOf(deltaSlice, deltaSlice.Max()) + offset;
 
-            // Визначення напрямного рядка та напрямного елемента
             int pivotRow = -1;
             Fraction minRatio = new Fraction(double.MaxValue).Reduce();
             for (int i = 0; i < basicVariablesCount; i++)
@@ -353,10 +340,8 @@ namespace Methods.Solvers
                 PivotRow = pivotRow,
                 Table = (SimplexTable)Table.Clone(),
             });
-            if (pivotRow == -1) throw new InvalidOperationException("Немає розв'язку! Неможливо визначити напрямний рядок!");
+            if (pivotRow == -1) throw new InvalidOperationException("No solution! It's impossible to determine the pivot row!");
 
-            // Перерахунок симплекс таблиці
-            // Заміна напрямленого рядка
             var newKey = $"x{pivotCol}";
             var newValue = Table.ColumnVariables[$"A{pivotCol}"];
 
@@ -364,7 +349,6 @@ namespace Methods.Solvers
             Table.RowVariables.Remove(oldKey);
             Table.RowVariables[newKey] = newValue;
 
-            // Перерахунок
             Fraction pivotElement = Table.Values[pivotRow, pivotCol];
             int totalColumns = Table.ColumnVariables.Count;
             for (int i = 0; i < _problem.Constraints.Count; i++)
@@ -385,7 +369,6 @@ namespace Methods.Solvers
             }
         }
 
-        // Приведення до канонічного вигляду
         private void ConvertToCanonicalForm()
         {
             foreach (var constraint in _problem.Constraints)

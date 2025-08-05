@@ -30,22 +30,22 @@ namespace Linear_Programming_Calculator_Desktop
             services.AddScoped<StartViewModel>();
             services.AddScoped<ResultsViewModel>();
 
-            services.AddSingleton<INavigator, NavigationService<StartViewModel>>(sp =>
+            services.AddSingleton<INavigator<StartViewModel>, NavigationService<StartViewModel>>(sp =>
                 new NavigationService<StartViewModel>(
                     sp.GetRequiredService<NavigationStore>(),
                     () => sp.GetRequiredService<StartViewModel>()
                 )
             );
 
-            services.AddScoped<INavigator<(int variables, int constraints)>>(sp =>
-                new NavigationService<(int variables, int constraints), EquationInputViewModel>(
+            services.AddScoped<INavigator<EquationInputViewModel, (int variables, int constraints)>>(sp =>
+                new NavigationService<EquationInputViewModel, (int variables, int constraints)>(
                     sp.GetRequiredService<NavigationStore>(),
                     parameters => ActivatorUtilities.CreateInstance<EquationInputViewModel>(sp, parameters)
                 )
             );
 
-            services.AddScoped<INavigator<LinearProgramResultDto>>(sp =>
-               new NavigationService<LinearProgramResultDto, ResultsViewModel>(
+            services.AddScoped<INavigator<ResultsViewModel, LinearProgramResultDto>>(sp =>
+               new NavigationService<ResultsViewModel, LinearProgramResultDto>(
                    sp.GetRequiredService<NavigationStore>(),
                    parameters => ActivatorUtilities.CreateInstance<ResultsViewModel>(sp, parameters)
                )
@@ -58,8 +58,8 @@ namespace Linear_Programming_Calculator_Desktop
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            var navStore = _serviceProvider.GetRequiredService<NavigationStore>();
-            var starter = _serviceProvider.GetRequiredService<INavigator>();
+            _ = _serviceProvider.GetRequiredService<NavigationStore>();
+            var starter = _serviceProvider.GetRequiredService<INavigator<StartViewModel>>();
             starter.Navigate();
 
             var mainWindow = _serviceProvider.GetRequiredService<MainWindow>();

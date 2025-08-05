@@ -60,7 +60,7 @@ namespace Linear_Programming_Calculator_Desktop.Services
             if (!isIntegerProblem)
                 return string.Empty;
             var allVars = GetAllVariables(problem);
-            return string.Join(", ", allVars) + " — цілі";
+            return string.Join(", ", allVars) + " are integers";
         }
 
         private List<string> GetAllVariables(LinearProgrammingProblem problem)

@@ -11,7 +11,7 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
     public partial class EquationInputViewModel : ObservableValidator
     {
         public string IntegerVariablesText =>
-                 string.Join(", ", ObjectiveFunctionValues.Select(v => v.Label)) + " — цілі";
+                 string.Join(", ", ObjectiveFunctionValues.Select(v => v.Label)) + " are integers";
 
 
         [ObservableProperty]
@@ -26,10 +26,11 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
         [ObservableProperty]
         private bool _integerCheck;
 
-        private readonly INavigator<LinearProgramResultDto> _navigationService;
-        private readonly INavigator _backNavigator;
+        private readonly INavigator<ResultsViewModel, LinearProgramResultDto> _navigationService;
+        private readonly INavigator<StartViewModel> _backNavigator;
 
-        public EquationInputViewModel((int variables, int constraints) parameters, INavigator<LinearProgramResultDto> navigationService, INavigator backNavigator)
+
+        public EquationInputViewModel((int variables, int constraints) parameters, INavigator<ResultsViewModel, LinearProgramResultDto> navigationService, INavigator<StartViewModel> backNavigator)
         {
             _navigationService = navigationService;
             _backNavigator = backNavigator;

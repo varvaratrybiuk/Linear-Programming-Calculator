@@ -3,7 +3,7 @@ using Linear_Programming_Calculator_Desktop.Stores;
 
 namespace Linear_Programming_Calculator_Desktop.Services
 {
-    public class NavigationService<TViewModel>(NavigationStore navigationStore, Func<TViewModel> createViewModel) : INavigator
+    public class NavigationService<TViewModel>(NavigationStore navigationStore, Func<TViewModel> createViewModel) : INavigator<TViewModel>
         where TViewModel : ObservableObject
     {
         private readonly NavigationStore _navigationStore = navigationStore;
@@ -15,7 +15,7 @@ namespace Linear_Programming_Calculator_Desktop.Services
         }
     }
 
-    public class NavigationService<TParameter, TViewModel>(NavigationStore navigationStore, Func<TParameter, TViewModel> createViewModelWithParam) : INavigator<TParameter>
+    public class NavigationService<TViewModel, TParameter>(NavigationStore navigationStore, Func<TParameter, TViewModel> createViewModelWithParam) : INavigator<TViewModel, TParameter>
         where TViewModel : ObservableObject
     {
         private readonly NavigationStore _navigationStore = navigationStore;

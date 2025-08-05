@@ -6,7 +6,7 @@ namespace Linear_Programming_Calculator_Desktop.Attributes
     {
         public NumericOnlyAttribute()
         {
-            ErrorMessage = "Введіть дійсне число";
+            ErrorMessage = "Enter a valid number";
         }
 
         public override bool IsValid(object? value)

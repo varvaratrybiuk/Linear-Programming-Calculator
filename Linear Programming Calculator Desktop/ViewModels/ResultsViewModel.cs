@@ -6,6 +6,7 @@ using Linear_Programming_Calculator_Desktop.Models;
 using Linear_Programming_Calculator_Desktop.Services;
 using Methods.MathObjects;
 using Methods.Models;
+using System.Text;
 
 namespace Linear_Programming_Calculator_Desktop.ViewModels
 {
@@ -30,43 +31,44 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
         {
             get
             {
-                string summary = string.Empty;
+                StringBuilder summary = new();
 
                 if (_resultDto.SHistory.OptimalTable is null)
-                    return summary;
+                    return summary.ToString();
 
                 for (int i = 0; i < _resultDto.SHistory.InitialLinearProgrammingProblem!.ObjectiveFunctionCoefficients.Count; i++)
                 {
-                    string key = $"x{i + 1}";
+                    (string elementName, int elementIndex) = OptimalResult.Step.Table.RowVariables.Keys
+                             .Select((e, ind) => (e, ind))
+                             .FirstOrDefault(pair => pair.e == $"x{i + 1}");
+                    var value = elementIndex >= 0 && elementName is not null ? OptimalResult.Step.Table.Values[elementIndex, 0] : Fraction.Zero;
 
-                    int rowIndex = OptimalResult.Step.Table.RowVariables.Keys.ToList().IndexOf(key);
-                    var value = rowIndex >= 0 ? OptimalResult.Step.Table.Values[rowIndex, 0] : Fraction.Zero;
-
-                    summary += $"{key} = {value}, ";
+                    summary.Append($"x{i + 1} = {value}, ");
                 }
 
-                summary += $"F{(_resultDto.SHistory.InitialLinearProgrammingProblem!.IsMaximization ? "max" : "min")} = {OptimalResult.Step.Table.DeltaRow![0]}";
+                summary.Append($"F{(_resultDto.SHistory.InitialLinearProgrammingProblem!.IsMaximization ? "max" : "min")} = {OptimalResult.Step.Table.DeltaRow![0]}");
 
-                return summary;
+                return summary.ToString();
             }
         }
 
         public List<GomoryViewModel>? GomoryHistory => _resultDto.GHistory?.Select(s =>
         {
-            return new GomoryViewModel(s);
+            return new GomoryViewModel(s, _resultDto.SHistory.InitialLinearProgrammingProblem!.ObjectiveFunctionCoefficients);
         }).ToList();
 
 
         private readonly LinearProgramResultDto _resultDto;
+        private (int variables, int constraints) InputParameters => (_resultDto.SHistory.InitialLinearProgrammingProblem!.VariablesCount, _resultDto.SHistory.InitialLinearProgrammingProblem.Constraints.Count);
 
-        private readonly INavigator _backNavigator;
-        private readonly INavigator _editNavigator;
+        private readonly INavigator<StartViewModel> _backNavigator;
+        private readonly INavigator<EquationInputViewModel, (int variables, int constraints)> _editNavigator;
 
         private readonly IProblemFormatterService _problemFormatter;
 
         public ResultsViewModel(LinearProgramResultDto resultDto,
-                        INavigator backNavigator,
-                        INavigator editNavigator,
+                        INavigator<StartViewModel> backNavigator,
+                        INavigator<EquationInputViewModel, (int variables, int constraints)> editNavigator,
                         IProblemFormatterService problemFormatter)
         {
             _resultDto = resultDto;
@@ -86,7 +88,7 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
         public void NewProblem() => _backNavigator.Navigate();
 
         [RelayCommand]
-        public void EditProblem() => _editNavigator.Navigate();
+        public void EditProblem() => _editNavigator.Navigate(InputParameters);
 
         private FormattedLinearProblem FormatBlock(LinearProgrammingProblem problem, bool isEqual)
         {
