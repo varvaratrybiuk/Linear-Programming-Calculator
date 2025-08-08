@@ -18,6 +18,7 @@ namespace Linear_Programming_Calculator_Desktop
             var services = new ServiceCollection();
 
             services.AddSingleton<NavigationStore>();
+            services.AddSingleton<LinearProgramInputStore>();
             services.AddSingleton<IProblemFormatterService, ProblemFormatterService>();
 
             services.AddSingleton<MainViewModel>();

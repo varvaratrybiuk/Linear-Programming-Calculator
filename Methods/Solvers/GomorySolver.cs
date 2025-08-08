@@ -41,7 +41,7 @@ namespace Methods.Solvers
 
                 if (element < 0)
                 {
-                    var theta = Fraction.Abs(Table.DeltaRow![j] / element);
+                    var theta = Fraction.Abs(Table.DeltaRow![j].Value / element);
                     Table.ThetaRow.Add(theta.ToString());
 
                     if (theta < minTheta)
@@ -100,9 +100,9 @@ namespace Methods.Solvers
             int rowCount = Table.RowVariables.Count;
             int columnCount = Table.ColumnVariables.Count;
 
-            Table.DeltaRow = new Fraction[columnCount];
-
             var columnKeys = Table.ColumnVariables.Keys.ToList();
+
+            Table.DeltaRow.Clear();
 
             for (int j = 0; j < columnCount; j++)
             {
@@ -119,7 +119,7 @@ namespace Methods.Solvers
                     delta += cb * aij;
                 }
                 Fraction.TryParse(Table.ColumnVariables[columnVar], out Fraction cj);
-                Table.DeltaRow[j] = delta - cj;
+                Table.DeltaRow.Add(new ExpressionValue($"{delta - cj}", delta - cj));
             }
         }
         public void Solve()
@@ -265,7 +265,7 @@ namespace Methods.Solvers
             newTable[oldRowCount, oldColCount] = Fraction.One;
 
             Table.Values = newTable;
-            Table.DeltaRow = [.. Table.DeltaRow!, Fraction.Zero];
+            Table.DeltaRow = [.. Table.DeltaRow!, new ExpressionValue("", Fraction.Zero)];
         }
 
         private bool IsIntegerOptimalSolutionFound()

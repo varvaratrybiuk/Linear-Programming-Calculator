@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using Linear_Programming_Calculator_Desktop.DTOs;
 using Linear_Programming_Calculator_Desktop.Services;
+using Linear_Programming_Calculator_Desktop.Stores;
 using Methods.MathObjects;
 using Methods.Solvers;
 using System.Collections.ObjectModel;
@@ -13,27 +14,26 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
         public string IntegerVariablesText =>
                  string.Join(", ", ObjectiveFunctionValues.Select(v => v.Label)) + " are integers";
 
+        public ObservableCollection<FieldViewModel> ObjectiveFunctionValues { get; private set; }
+
+        public ObservableCollection<ConstraintViewModel> ConstraintValues { get; private set; }
 
         [ObservableProperty]
-        private ObservableCollection<FieldViewModel> _objectiveFunctionValues = [];
-
-        [ObservableProperty]
-        private ObservableCollection<ConstraintViewModel> _constraintValues = [];
-
-        [ObservableProperty]
-        private bool _isMaximization = true;
+        private bool _isMaximization;
 
         [ObservableProperty]
         private bool _integerCheck;
 
         private readonly INavigator<ResultsViewModel, LinearProgramResultDto> _navigationService;
         private readonly INavigator<StartViewModel> _backNavigator;
+        private LinearProgramInputStore _lpStore;
 
-
-        public EquationInputViewModel((int variables, int constraints) parameters, INavigator<ResultsViewModel, LinearProgramResultDto> navigationService, INavigator<StartViewModel> backNavigator)
+        public EquationInputViewModel((int variables, int constraints) parameters, LinearProgramInputStore lpStore, INavigator<ResultsViewModel, LinearProgramResultDto> navigationService, INavigator<StartViewModel> backNavigator)
         {
             _navigationService = navigationService;
             _backNavigator = backNavigator;
+            _lpStore = lpStore;
+
 
             ObjectiveFunctionValues = new ObservableCollection<FieldViewModel>(
                 Enumerable.Range(1, parameters.variables)
@@ -81,8 +81,24 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
                     IsIntegerProblem = IntegerCheck
                 };
 
+                _lpStore = SaveToStore();
+
                 _navigationService.Navigate(resultDto);
             }
+        }
+
+        private LinearProgramInputStore SaveToStore()
+        {
+            return new LinearProgramInputStore()
+            {
+                CurrentLinearProgramInput = new Models.LinearProgramInput()
+                {
+                    ObjectiveFunctionValues = new List<FieldViewModel>(ObjectiveFunctionValues),
+                    ConstraintValues = new List<ConstraintViewModel>(ConstraintValues),
+                    IsMaximization = IsMaximization,
+                    IntegerCheck = IntegerCheck
+                }
+            };
         }
 
         private LinearProgrammingProblem BuildLPProblem()

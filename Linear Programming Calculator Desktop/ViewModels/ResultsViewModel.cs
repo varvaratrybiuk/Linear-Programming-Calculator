@@ -13,7 +13,7 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
     public partial class ResultsViewModel : ObservableObject
     {
         public FormattedLinearProblem MathModelBlock { get; private set; }
-        public FormattedLinearProblem FreeVariableBlock { get; private set; }
+        public FormattedLinearProblem SlackVariableBlock { get; private set; }
         public FormattedLinearProblem? ArtificialVariableBlock { get; private set; }
         public string InitialBasisText => string.Join(", ", _resultDto.SHistory.InitialBasis.Select(kvp => $"{kvp.Key} = {kvp.Value}"));
         public string? ErrorMessage => _resultDto.ErrorMessage;
@@ -46,7 +46,7 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
                     summary.Append($"x{i + 1} = {value}, ");
                 }
 
-                summary.Append($"F{(_resultDto.SHistory.InitialLinearProgrammingProblem!.IsMaximization ? "max" : "min")} = {OptimalResult.Step.Table.DeltaRow![0]}");
+                summary.Append($"F{(_resultDto.SHistory.InitialLinearProgrammingProblem!.IsMaximization ? "max" : "min")} = {OptimalResult.Step.Table.DeltaRow![0].Value}");
 
                 return summary.ToString();
             }
@@ -77,7 +77,7 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
             _problemFormatter = problemFormatter;
 
             MathModelBlock = FormatBlock(resultDto.SHistory.InitialLinearProgrammingProblem!, isEqual: false);
-            FreeVariableBlock = FormatBlock(resultDto.SHistory.FreeVariableProblem!, isEqual: true);
+            SlackVariableBlock = FormatBlock(resultDto.SHistory.SlackVariableProblem!, isEqual: true);
             ArtificialVariableBlock = resultDto.SHistory.ArtificialProblemProblem != null
                 ? FormatBlock(resultDto.SHistory.ArtificialProblemProblem, isEqual: true)
                 : null;

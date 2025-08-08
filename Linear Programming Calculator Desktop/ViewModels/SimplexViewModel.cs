@@ -47,7 +47,7 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
                 }
             }
 
-            AddRowToCells("∆", Step.Table.DeltaRow!.Select(d => d.ToString()));
+            AddRowToCells("∆", Step.Table.DeltaRow!.Select(d => d.ExpressionText.ToString()));
 
 
             if (Step.Table.ThetaRow.Count != 0)

@@ -22,7 +22,7 @@ namespace Methods.Solvers
 
             ConvertToCanonicalForm();
             ProcessAuxiliaryVariables(isSlack: true);
-            SimplexHistory.FreeVariableProblem = (LinearProgrammingProblem)_problem.Clone();
+            SimplexHistory.SlackVariableProblem = (LinearProgrammingProblem)_problem.Clone();
             ProcessAuxiliaryVariables(isSlack: false);
             if (_problem.ArtificialVariableCoefficients?.Count != 0)
             {
@@ -89,13 +89,13 @@ namespace Methods.Solvers
 
             Table.Values = newValues;
 
-            var newDelta = new Fraction[cols];
-            int newDeltaIndex = 0;
-            for (int i = 0; i < Table.DeltaRow!.Length; i++)
+            var newDelta = new List<ExpressionValue>();
+
+            for (int i = 0; i < Table.DeltaRow!.Count; i++)
             {
                 if (!indexesToRemove.Contains(i))
                 {
-                    newDelta[newDeltaIndex++] = Table.DeltaRow[i];
+                    newDelta.Add(Table.DeltaRow[i]);
                 }
             }
 
@@ -160,7 +160,7 @@ namespace Methods.Solvers
             if (isSlack)
                 _problem.SlackVariableCoefficients?.Add("0");
             else
-                _problem.ArtificialVariableCoefficients?.Add(_problem.IsMaximization ? (-M).ToString() : M.ToString());
+                _problem.ArtificialVariableCoefficients?.Add(_problem.IsMaximization ? "-" + nameof(M) : nameof(M));
         }
 
         private void InitializeTableau()
@@ -264,42 +264,88 @@ namespace Methods.Solvers
         {
             int rowCount = _problem.Constraints.Count;
             int columnCount = Table.ColumnVariables.Count;
-
-            Table.DeltaRow = new Fraction[columnCount];
-
             var columnKeys = Table.ColumnVariables.Keys.ToList();
+
+            Table.DeltaRow.Clear();
 
             for (int j = 0; j < columnCount; j++)
             {
                 Fraction delta = 0;
+                Fraction deltaM = 0;
                 string columnVar = columnKeys[j];
 
                 for (int i = 0; i < rowCount; i++)
                 {
                     string rowVar = Table.RowVariables.Keys.ElementAt(i);
-                    Fraction cb = Fraction.FromString(Table.RowVariables[rowVar]);
-
+                    string cbStr = Table.RowVariables[rowVar];
                     Fraction aij = Table.Values[i, j];
 
+                    if (TryGetMSign(cbStr, out int sign))
+                    {
+                        deltaM += sign * aij;
+                        continue;
+                    }
+
+                    Fraction cb = Fraction.FromString(cbStr);
                     delta += cb * aij;
                 }
-                Fraction.TryParse(Table.ColumnVariables[columnVar], out Fraction cj);
-                Table.DeltaRow[j] = (delta - cj).Reduce();
+
+                string cjStr = Table.ColumnVariables[columnVar];
+                var (cj, cjSign) = ParseCj(cjStr);
+
+                Fraction totalDeltaM = deltaM - cjSign;
+
+                string deltaMStr = totalDeltaM == 0 ? "" : $"{(totalDeltaM < 0 ? "-" : "")}{Fraction.Abs(totalDeltaM)}M";
+                Fraction numericPart = delta - (cjStr is "M" or "-M" ? Fraction.Zero : cj);
+
+                string expressionStr = CombineParts(deltaMStr, numericPart);
+
+                var value = (delta + (deltaM * new Fraction(M)) - cj).Reduce();
+                Table.DeltaRow.Add(new ExpressionValue(expressionStr, value));
             }
         }
+
+        private static bool TryGetMSign(string s, out int sign)
+        {
+            if (s == "M") { sign = 1; return true; }
+            if (s == "-M") { sign = -1; return true; }
+            sign = 0;
+            return false;
+        }
+
+        private (Fraction cj, Fraction sign) ParseCj(string cjStr)
+        {
+            if (TryGetMSign(cjStr, out int sign))
+                return (new Fraction(sign * M), sign);
+
+            Fraction.TryParse(cjStr, out var cj);
+                return (cj, 0);
+        }
+
+        private static string CombineParts(string mPart, Fraction numeric)
+        {
+            if (string.IsNullOrEmpty(mPart) && numeric == 0) return "0";
+            if (string.IsNullOrEmpty(mPart)) return numeric.ToString();
+            if (numeric == 0) return mPart;
+
+            var op = numeric > 0 ? " + " : " - ";
+            var abs = Fraction.Abs(numeric);
+            return mPart + op + abs;
+        }
+
         public bool IsOptimal()
         {
-            return _problem.IsMaximization ? !Table.DeltaRow!.Skip(1).Any(n => n < 0) : !Table.DeltaRow!.Skip(1).Any(n => n > 0);
+            return _problem.IsMaximization ? !Table.DeltaRow!.Skip(1).Any(n => n.Value < 0) : !Table.DeltaRow!.Skip(1).Any(n => n.Value > 0);
         }
         public bool IsUnbounded()
         {
             int rowIndex = _problem.Constraints.Count;
             if (Table.RowVariables
                     .Select(row => row.Value)
-                    .Any(value => double.Parse(value) == M || double.Parse(value) == -M) &&
+                    .Any(value => value == "M" || value == "-M") &&
                 (_problem.IsMaximization
-                    ? !Table.DeltaRow!.Skip(1).Any(n => n < 0)
-                    : !Table.DeltaRow!.Skip(1).Any(n => n > 0)))
+                    ? !Table.DeltaRow!.Skip(1).Any(n => n.Value < 0)
+                    : !Table.DeltaRow!.Skip(1).Any(n => n.Value > 0)))
             {
                 return true;
             }
@@ -311,7 +357,7 @@ namespace Methods.Solvers
             int basicVariablesCount = _problem.Constraints.Count;
 
             int offset = 1;
-            Fraction[] deltaSlice = Table.DeltaRow!.Skip(offset).ToArray();
+            Fraction[] deltaSlice = Table.DeltaRow!.Skip(offset).Select(f => f.Value).ToArray();
 
             int pivotCol = _problem.IsMaximization
                 ? Array.IndexOf(deltaSlice, deltaSlice.Min()) + offset

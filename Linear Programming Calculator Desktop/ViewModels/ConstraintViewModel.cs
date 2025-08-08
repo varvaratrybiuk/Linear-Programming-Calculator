@@ -8,14 +8,15 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
     public partial class ConstraintViewModel : ObservableValidator
     {
         [ObservableProperty]
-        private ObservableCollection<FieldViewModel> _constraintValues = new();
+        private ObservableCollection<FieldViewModel> _constraintValues = [];
 
         [ObservableProperty]
+        [NotifyDataErrorInfo]
         [NumericOnly]
-        private double _rightSideValue;
+        private string _rightSideValue = "0";
 
         [ObservableProperty]
-        private ConstraintType _constraintType;
+        private ConstraintType _constraintType = ConstraintType.LessThanOrEqual;
 
         public ConstraintViewModel(int variables)
         {
@@ -23,9 +24,6 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
            Enumerable.Range(1, variables)
                      .Select(i => new FieldViewModel() { Label = $"x{i}" })
             );
-
-            _constraintType = ConstraintType.LessThanOrEqual;
-            _rightSideValue = 0;
         }
     }
 }

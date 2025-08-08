@@ -88,8 +88,8 @@
                 <ContentControl Content="{Binding MathModelBlock}" 
                     ContentTemplate="{StaticResource MathBlock}" />
 
-                <TextBlock Text="Introduce free variables" FontWeight="DemiBold" />
-                <ContentControl Content="{Binding FreeVariableBlock}" 
+                <TextBlock Text="Introduce slack variables" FontWeight="DemiBold" />
+                <ContentControl Content="{Binding SlackVariableBlock}" 
                     ContentTemplate="{StaticResource MathBlock}" />
 
                 <StackPanel Visibility="{Binding ArtificialVariableBlock, Converter={StaticResource nullToVisibilityConverter}}">
@@ -137,13 +137,13 @@
                FontWeight="SemiBold" TextAlignment="Center" Margin="10" FontSize="14"/>
 
                 <StackPanel Visibility="{Binding GomoryHistory, Converter={StaticResource nullToVisibilityConverter}}">
-                    <TextBlock Margin="10" Text="Searching for integer solution (Gomory method)" 
+                    <TextBlock Margin="10" Text="Finding an integer solution (Gomory method)" 
                    TextAlignment="Center" FontSize="16" FontWeight="Bold"/>
                     <ItemsControl ItemsSource="{Binding GomoryHistory}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
-                                    <TextBlock Text="Constructing a valid cut" FontWeight="Bold"  Margin="0,5,0,5"  FontSize="14" />
+                                    <TextBlock Text="Constructing a Gomory cut" FontWeight="Bold"  Margin="0,5,0,5"  FontSize="14" />
                                     <TextBlock Text="{Binding MaxFractionDisplayText}" />
                                     <ItemsControl ItemsSource="{Binding GomoryCutLines}">
                                         <ItemsControl.ItemTemplate>
