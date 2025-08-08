@@ -1,11 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using Fractions;
+using Linear_Programming_Calculator_Desktop.Services;
 using Methods.Models;
 using System.Text;
 
 namespace Linear_Programming_Calculator_Desktop.ViewModels
 {
-    public partial class GomoryViewModel(GomoryHistory gomoryStep, List<string> objFuncCoeff) : ObservableObject
+    public partial class GomoryViewModel(GomoryHistory gomoryStep, List<string> objFuncCoeff, IOptimalResultSummaryService summaryService) : ObservableObject
     {
         public string MaxFractionDisplayText => $"Maximum fractional part among the variables:, x{gomoryStep.MaxFracValue.rowIndex} = {gomoryStep.MaxFracValue.value}";
         public List<string> GomoryCutLines => BuildGomoryCutLines();
@@ -23,19 +24,14 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
 
                 for (int i = 0; i < objFuncCoeff.Count; i++)
                 {
-                    (string elementName, int elementIndex) = gomoryStep.Steps.Last().Table.RowVariables.Keys
-                             .Select((e, ind) => (e, ind))
-                             .FirstOrDefault(pair => pair.e == $"x{i + 1}");
-                    var value = elementIndex >= 0 && elementName is not null ? gomoryStep.Steps.Last().Table.Values[elementIndex, 0] : Fraction.Zero;
+                    var (value, resultStr) = summaryService.FormatVariableAssignment(gomoryStep.Steps.Last().Table, i);
 
-                    summary.Append($"x{i + 1} = {value}, ");
-
+                    summary.Append(resultStr);
                     if (hasIntegerAnswer)
                         hasIntegerAnswer = int.TryParse(value.ToString(), out _);
 
                 }
-
-                summary.Append($"F = {gomoryStep.Steps.Last().Table.DeltaRow![0]} ");
+                summary.Append(summaryService.FormatObjectiveFunctionValue(gomoryStep.Steps.Last().Table));
 
                 summary.Append(hasIntegerAnswer ? "are integers." : "aren't integers.");
 

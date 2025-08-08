@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Fractions;
 using Linear_Programming_Calculator_Desktop.DTOs;
 using Linear_Programming_Calculator_Desktop.Models;
 using Linear_Programming_Calculator_Desktop.Services;
@@ -38,15 +37,11 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
 
                 for (int i = 0; i < _resultDto.SHistory.InitialLinearProgrammingProblem!.ObjectiveFunctionCoefficients.Count; i++)
                 {
-                    (string elementName, int elementIndex) = OptimalResult.Step.Table.RowVariables.Keys
-                             .Select((e, ind) => (e, ind))
-                             .FirstOrDefault(pair => pair.e == $"x{i + 1}");
-                    var value = elementIndex >= 0 && elementName is not null ? OptimalResult.Step.Table.Values[elementIndex, 0] : Fraction.Zero;
-
-                    summary.Append($"x{i + 1} = {value}, ");
+                    var (_, resultStr) = _resultSummaryService.FormatVariableAssignment(OptimalResult.Step.Table, i);
+                    summary.Append(resultStr);
                 }
 
-                summary.Append($"F{(_resultDto.SHistory.InitialLinearProgrammingProblem!.IsMaximization ? "max" : "min")} = {OptimalResult.Step.Table.DeltaRow![0].Value}");
+                summary.Append(_resultSummaryService.FormatObjectiveFunctionValue(OptimalResult.Step.Table));
 
                 return summary.ToString();
             }
@@ -54,7 +49,7 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
 
         public List<GomoryViewModel>? GomoryHistory => _resultDto.GHistory?.Select(s =>
         {
-            return new GomoryViewModel(s, _resultDto.SHistory.InitialLinearProgrammingProblem!.ObjectiveFunctionCoefficients);
+            return new GomoryViewModel(s, _resultDto.SHistory.InitialLinearProgrammingProblem!.ObjectiveFunctionCoefficients, _resultSummaryService);
         }).ToList();
 
 
@@ -65,16 +60,19 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
         private readonly INavigator<EquationInputViewModel, (int variables, int constraints)> _editNavigator;
 
         private readonly IProblemFormatterService _problemFormatter;
+        private readonly IOptimalResultSummaryService _resultSummaryService;
 
         public ResultsViewModel(LinearProgramResultDto resultDto,
                         INavigator<StartViewModel> backNavigator,
                         INavigator<EquationInputViewModel, (int variables, int constraints)> editNavigator,
-                        IProblemFormatterService problemFormatter)
+                        IProblemFormatterService problemFormatter,
+                        IOptimalResultSummaryService resultSummaryService)
         {
             _resultDto = resultDto;
             _backNavigator = backNavigator;
             _editNavigator = editNavigator;
             _problemFormatter = problemFormatter;
+            _resultSummaryService = resultSummaryService;
 
             MathModelBlock = FormatBlock(resultDto.SHistory.InitialLinearProgrammingProblem!, isEqual: false);
             SlackVariableBlock = FormatBlock(resultDto.SHistory.SlackVariableProblem!, isEqual: true);

@@ -319,7 +319,7 @@ namespace Methods.Solvers
                 return (new Fraction(sign * M), sign);
 
             Fraction.TryParse(cjStr, out var cj);
-                return (cj, 0);
+            return (cj, 0);
         }
 
         private static string CombineParts(string mPart, Fraction numeric)

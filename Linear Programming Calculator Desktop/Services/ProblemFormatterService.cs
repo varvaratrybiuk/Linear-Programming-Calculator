@@ -63,7 +63,7 @@ namespace Linear_Programming_Calculator_Desktop.Services
             return string.Join(", ", allVars) + " are integers";
         }
 
-        private List<string> GetAllVariables(LinearProgrammingProblem problem)
+        private static List<string> GetAllVariables(LinearProgrammingProblem problem)
         {
             int count =
                 problem.ObjectiveFunctionCoefficients.Count +

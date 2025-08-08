@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Linear_Programming_Calculator_Desktop.DTOs;
+using Linear_Programming_Calculator_Desktop.Models;
 using Linear_Programming_Calculator_Desktop.Services;
 using Linear_Programming_Calculator_Desktop.Stores;
 using Methods.MathObjects;
@@ -12,11 +13,11 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
     public partial class EquationInputViewModel : ObservableValidator
     {
         public string IntegerVariablesText =>
-                 string.Join(", ", ObjectiveFunctionValues.Select(v => v.Label)) + " are integers";
+                 string.Join(", ", ObjectiveFunctionValues!.Select(v => v.Label)) + " are integers";
 
-        public ObservableCollection<FieldViewModel> ObjectiveFunctionValues { get; private set; }
+        public ObservableCollection<FieldViewModel>? ObjectiveFunctionValues { get; private set; }
 
-        public ObservableCollection<ConstraintViewModel> ConstraintValues { get; private set; }
+        public ObservableCollection<ConstraintViewModel>? ConstraintValues { get; private set; }
 
         [ObservableProperty]
         private bool _isMaximization;
@@ -26,7 +27,7 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
 
         private readonly INavigator<ResultsViewModel, LinearProgramResultDto> _navigationService;
         private readonly INavigator<StartViewModel> _backNavigator;
-        private LinearProgramInputStore _lpStore;
+        private readonly LinearProgramInputStore _lpStore;
 
         public EquationInputViewModel((int variables, int constraints) parameters, LinearProgramInputStore lpStore, INavigator<ResultsViewModel, LinearProgramResultDto> navigationService, INavigator<StartViewModel> backNavigator)
         {
@@ -34,16 +35,33 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
             _backNavigator = backNavigator;
             _lpStore = lpStore;
 
+            _lpStore.CurrentLinearProgramInputChanged += OnCurrentLinearProgramInputStoreChanged;
+            OnCurrentLinearProgramInputStoreChanged();
 
-            ObjectiveFunctionValues = new ObservableCollection<FieldViewModel>(
+            var input = lpStore.CurrentLinearProgramInput;
+
+            if (input.ObjectiveFunctionValues.Count == 0)
+            {
+                ObjectiveFunctionValues = new ObservableCollection<FieldViewModel>(
                 Enumerable.Range(1, parameters.variables)
                      .Select(i => new FieldViewModel() { Label = $"x{i}" })
-            );
+                );
 
-            ConstraintValues = new ObservableCollection<ConstraintViewModel>(
-                Enumerable.Range(1, parameters.constraints)
-                          .Select(_ => new ConstraintViewModel(parameters.variables))
-            );
+                ConstraintValues = new ObservableCollection<ConstraintViewModel>(
+                    Enumerable.Range(1, parameters.constraints)
+                              .Select(_ => new ConstraintViewModel(parameters.variables))
+                );
+            }
+
+        }
+
+        private void OnCurrentLinearProgramInputStoreChanged()
+        {
+            IsMaximization = _lpStore.CurrentLinearProgramInput.IsMaximization;
+            IntegerCheck = _lpStore.CurrentLinearProgramInput.IntegerCheck;
+
+            ObjectiveFunctionValues = new ObservableCollection<FieldViewModel>(_lpStore.CurrentLinearProgramInput.ObjectiveFunctionValues);
+            ConstraintValues = new ObservableCollection<ConstraintViewModel>(_lpStore.CurrentLinearProgramInput.ConstraintValues);
         }
 
         [RelayCommand]
@@ -81,30 +99,27 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
                     IsIntegerProblem = IntegerCheck
                 };
 
-                _lpStore = SaveToStore();
+                _lpStore.CurrentLinearProgramInput = SaveToStore();
 
                 _navigationService.Navigate(resultDto);
             }
         }
 
-        private LinearProgramInputStore SaveToStore()
+        private LinearProgramInput SaveToStore()
         {
-            return new LinearProgramInputStore()
+            return new LinearProgramInput()
             {
-                CurrentLinearProgramInput = new Models.LinearProgramInput()
-                {
-                    ObjectiveFunctionValues = new List<FieldViewModel>(ObjectiveFunctionValues),
-                    ConstraintValues = new List<ConstraintViewModel>(ConstraintValues),
-                    IsMaximization = IsMaximization,
-                    IntegerCheck = IntegerCheck
-                }
+                ObjectiveFunctionValues = new List<FieldViewModel>(ObjectiveFunctionValues!),
+                ConstraintValues = new List<ConstraintViewModel>(ConstraintValues!),
+                IsMaximization = IsMaximization,
+                IntegerCheck = IntegerCheck
             };
         }
 
         private LinearProgrammingProblem BuildLPProblem()
         {
             List<Constraint> constraints = [];
-            foreach (var constraint in ConstraintValues)
+            foreach (var constraint in ConstraintValues!)
             {
                 constraints.Add(new Constraint()
                 {
@@ -117,7 +132,7 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
             return new LinearProgrammingProblem()
             {
                 IsMaximization = IsMaximization,
-                ObjectiveFunctionCoefficients = ObjectiveFunctionValues.Select(f => f.Value).ToList(),
+                ObjectiveFunctionCoefficients = ObjectiveFunctionValues!.Select(f => f.Value).ToList(),
                 Constraints = constraints
             };
 

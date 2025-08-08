@@ -20,6 +20,7 @@ namespace Linear_Programming_Calculator_Desktop
             services.AddSingleton<NavigationStore>();
             services.AddSingleton<LinearProgramInputStore>();
             services.AddSingleton<IProblemFormatterService, ProblemFormatterService>();
+            services.AddSingleton<IOptimalResultSummaryService, OptimalResultSummaryService>();
 
             services.AddSingleton<MainViewModel>();
             services.AddSingleton((s) => new MainWindow()

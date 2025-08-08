@@ -6,7 +6,7 @@ namespace Linear_Programming_Calculator_Desktop.Stores
     public class LinearProgramInputStore
     {
         private LinearProgramInput _currentLinearProgramInput;
-     
+
         public LinearProgramInput CurrentLinearProgramInput
         {
             get => _currentLinearProgramInput;
@@ -17,6 +17,6 @@ namespace Linear_Programming_Calculator_Desktop.Stores
             }
         }
 
-        public Action CurrentLinearProgramInputChanged;
+        public event Action CurrentLinearProgramInputChanged;
     }
 }
