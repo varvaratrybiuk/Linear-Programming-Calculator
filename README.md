@@ -50,11 +50,7 @@ To view the documentation, run the following commands:
 
 1. Navigate to the project folder:
 ```
-cd "Linear Programming Calculator Desktop"
-```
-or
-```
-cd Methods
+cd docs
 ```
 2. Build and serve the documentation locally:
 ```
