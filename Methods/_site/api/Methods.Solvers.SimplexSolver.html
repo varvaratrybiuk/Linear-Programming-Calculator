@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class SimplexSolver | Linear Programming Solvers </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SimplexSolver | Linear Programming Solvers ">
+      
+      <meta name="description" content="Solver for Linear Programming Problems using the Simplex method.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/new/main/apiSpec/new?filename=Methods_Solvers_SimplexSolver.md&amp;value=---%0Auid%3A%20Methods.Solvers.SimplexSolver%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Linear Programming Solvers">
+            Linear Programming Solvers
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Methods.Solvers.SimplexSolver">
+
+
+
+  <h1 id="Methods_Solvers_SimplexSolver" data-uid="Methods.Solvers.SimplexSolver" class="text-break">
+Class SimplexSolver  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Methods/Solvers/SimplexSolver.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Methods.html">Methods</a>.<a class="xref" href="Methods.Solvers.html">Solvers</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Methods.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Solver for Linear Programming Problems using the Simplex method.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SimplexSolver : ILinearSolver</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">SimplexSolver</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Methods.Interfaces.ILinearSolver.html">ILinearSolver</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Methods_Solvers_SimplexSolver__ctor_" data-uid="Methods.Solvers.SimplexSolver.#ctor*"></a>
+
+  <h3 id="Methods_Solvers_SimplexSolver__ctor_Methods_MathObjects_LinearProgrammingProblem_" data-uid="Methods.Solvers.SimplexSolver.#ctor(Methods.MathObjects.LinearProgrammingProblem)">
+  SimplexSolver(LinearProgrammingProblem)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Methods/Solvers/SimplexSolver.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Solver for Linear Programming Problems using the Simplex method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SimplexSolver(LinearProgrammingProblem problem)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>problem</code> <a class="xref" href="Methods.MathObjects.LinearProgrammingProblem.html">LinearProgrammingProblem</a></dt>
+    <dd><p>The LPP to be solved.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Methods_Solvers_SimplexSolver_SimplexHistory_" data-uid="Methods.Solvers.SimplexSolver.SimplexHistory*"></a>
+
+  <h3 id="Methods_Solvers_SimplexSolver_SimplexHistory" data-uid="Methods.Solvers.SimplexSolver.SimplexHistory">
+  SimplexHistory
+  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Methods/Solvers/SimplexSolver.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stores the history of the Simplex solving process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SimplexHistory SimplexHistory { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Methods.Models.SimplexHistory.html">SimplexHistory</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Methods_Solvers_SimplexSolver_Table_" data-uid="Methods.Solvers.SimplexSolver.Table*"></a>
+
+  <h3 id="Methods_Solvers_SimplexSolver_Table" data-uid="Methods.Solvers.SimplexSolver.Table">
+  Table
+  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Methods/Solvers/SimplexSolver.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The current Simplex table used during the solution process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SimplexTable Table { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Methods.Models.SimplexTable.html">SimplexTable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Methods_Solvers_SimplexSolver_CalculateReducedCosts_" data-uid="Methods.Solvers.SimplexSolver.CalculateReducedCosts*"></a>
+
+  <h3 id="Methods_Solvers_SimplexSolver_CalculateReducedCosts" data-uid="Methods.Solvers.SimplexSolver.CalculateReducedCosts">
+  CalculateReducedCosts()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Methods/Solvers/SimplexSolver.cs/#L300"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the reduced costs (delta values) for the current simplex tableau.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CalculateReducedCosts()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Methods_Solvers_SimplexSolver_IsOptimal_" data-uid="Methods.Solvers.SimplexSolver.IsOptimal*"></a>
+
+  <h3 id="Methods_Solvers_SimplexSolver_IsOptimal" data-uid="Methods.Solvers.SimplexSolver.IsOptimal">
+  IsOptimal()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Methods/Solvers/SimplexSolver.cs/#L402"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the current solution in the simplex table is optimal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsOptimal()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the solution is optimal; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Methods_Solvers_SimplexSolver_IsOptimal_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The solution is optimal if all values in the delta row are non-negative when maximizing the objective function,
+or all values are non-positive when minimizing.</p>
+</div>
+
+
+
+
+  <a id="Methods_Solvers_SimplexSolver_IsUnbounded_" data-uid="Methods.Solvers.SimplexSolver.IsUnbounded*"></a>
+
+  <h3 id="Methods_Solvers_SimplexSolver_IsUnbounded" data-uid="Methods.Solvers.SimplexSolver.IsUnbounded">
+  IsUnbounded()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Methods/Solvers/SimplexSolver.cs/#L413"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the LPP has a solution.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsUnbounded()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the problem has no solution; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Methods_Solvers_SimplexSolver_IsUnbounded_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Returns true if the basis still contains artificial variables even though the delta row indicates an optimal solution.</p>
+</div>
+
+
+
+
+  <a id="Methods_Solvers_SimplexSolver_Pivot_" data-uid="Methods.Solvers.SimplexSolver.Pivot*"></a>
+
+  <h3 id="Methods_Solvers_SimplexSolver_Pivot" data-uid="Methods.Solvers.SimplexSolver.Pivot">
+  Pivot()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Methods/Solvers/SimplexSolver.cs/#L433"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Finds the pivot row and column for the next solving step.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Pivot()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Methods_Solvers_SimplexSolver_Pivot_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The pivot column is determined by the minimum or maximum value, depending on the objective function.
+Then, in the pivot column, the minimum positive row value is found and selected as the pivot row.
+Finally, recalculates all table values accordingly.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown if the pivot row cannot be determined (all values in the pivot column are less than or equal to 0).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Methods_Solvers_SimplexSolver_Solve_" data-uid="Methods.Solvers.SimplexSolver.Solve*"></a>
+
+  <h3 id="Methods_Solvers_SimplexSolver_Solve" data-uid="Methods.Solvers.SimplexSolver.Solve">
+  Solve()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Methods/Solvers/SimplexSolver.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs the steps required to solve the linear programming problem.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Solve()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Methods_Solvers_SimplexSolver_Solve_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>First, if the right-hand side (RHS) of any constraint is less than 0, the constraints are converted into canonical form.
+Then, slack and artificial variables (if needed) are added.
+After that, the initial simplex table is initialized.
+The solver proceeds by calculating reduced costs, checking for solution existence, determining if the solution is optimal, and searching for a pivot element.
+Finally, artificial variables are removed if they were added.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown if artificial variables remain in the basis after solving.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Methods/Solvers/SimplexSolver.cs/#L15" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

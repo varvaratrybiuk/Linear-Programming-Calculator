@@ -1,20 +1,40 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using Fractions;
 using Linear_Programming_Calculator_Desktop.Services;
 using Methods.Models;
 using System.Text;
 
 namespace Linear_Programming_Calculator_Desktop.ViewModels
 {
-    public partial class GomoryViewModel(GomoryHistory gomoryStep, List<string> objFuncCoeff, IOptimalResultSummaryService summaryService) : ObservableObject
+    /// <summary>
+    /// Represents a ViewModel with the single step of the Gomory cutting-plane method.
+    /// </summary>
+    /// <param name="gomoryStep">The current step of Gomory history containing the cut and fractional values.</param>
+    /// <param name="objFuncCoeff">List of objective function coefficients for reference in formatting.</param>
+    /// <param name="summaryService">Service for generating summaries of optimal results.</param>
+    /// <param name="cutFormatterService">Service for formatting Gomory cuts into readable strings.</param>
+    public partial class GomoryViewModel(GomoryHistory gomoryStep, List<string> objFuncCoeff, IOptimalResultSummaryService summaryService, IGomoryCutFormatterService cutFormatterService) : ObservableObject
     {
+        /// <summary>
+        /// Text displaying the variable with the maximum fractional part in this Gomory step.
+        /// </summary>
         public string MaxFractionDisplayText => $"Maximum fractional part among the variables:, x{gomoryStep.MaxFracValue.rowIndex} = {gomoryStep.MaxFracValue.value}";
-        public List<string> GomoryCutLines => BuildGomoryCutLines();
+
+        /// <summary>
+        /// List of formatted strings representing the Gomory cut for this step.
+        /// </summary>
+        public List<string> GomoryCutLines => cutFormatterService.BuildGomoryCutLines(gomoryStep.Cut);
+
+        /// <summary>
+        /// List of <see cref="SimplexViewModel"/> representing simplex tables associated with this Gomory step.
+        /// </summary>
         public List<SimplexViewModel>? GomoryTables => gomoryStep.Steps.Select(stp =>
         {
             return new SimplexViewModel(stp).LoadFromTable();
         }).ToList();
 
+        /// <summary>
+        /// A summary string describing this Gomory step.
+        /// </summary>
         public string GomoryStepSummary
         {
             get
@@ -33,98 +53,10 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
                 }
                 summary.Append(summaryService.FormatObjectiveFunctionValue(gomoryStep.Steps.Last().Table));
 
-                summary.Append(hasIntegerAnswer ? "are integers." : "aren't integers.");
+                summary.Append(hasIntegerAnswer ? " are integers." : " aren't integers.");
 
                 return summary.ToString();
             }
-        }
-
-
-        private List<string> BuildGomoryCutLines()
-        {
-            var lines = new List<string>
-            {
-                BuildFractionPartsSection(),
-                BuildInequalitySection(),
-                BuildEqualitySection(),
-                BuildRightHandSideSection()
-            };
-
-            return lines;
-        }
-
-        private string BuildFractionPartsSection()
-        {
-            var sb = new StringBuilder();
-            sb.AppendLine("Determine the fractional parts:");
-
-            foreach (var (varName, (intPart, fracPart)) in gomoryStep.Cut.FractionalElements)
-            {
-                if (fracPart.Denominator == 1) continue;
-
-                string intStr = intPart.IsNegative ? $"({intPart})" : intPart.ToString();
-                sb.AppendLine($"{varName} = {fracPart} - {intStr} = {fracPart - intPart}");
-            }
-
-            return sb.ToString().TrimEnd();
-        }
-
-        private string BuildInequalitySection()
-        {
-            var lhsParts = GetLhsParts();
-            var constant = GetConstant();
-
-            return $"Write the valid cut: \n{string.Join(" + ", lhsParts)} ≥ {constant}";
-        }
-
-        private string BuildEqualitySection()
-        {
-            var lhsParts = GetLhsParts();
-            var constant = GetConstant();
-            int artificialElementIndex = gomoryStep.Cut.FractionalElements.Count;
-
-            return $"Convert to an equation: \n{string.Join(" + ", lhsParts)} - x{artificialElementIndex} = {constant}";
-        }
-
-        private string BuildRightHandSideSection()
-        {
-            var rhsParts = new List<string>();
-            int artificialElementIndex = gomoryStep.Cut.FractionalElements.Count;
-            rhsParts.Add($"x{artificialElementIndex}");
-
-            for (int k = 1; k < gomoryStep.Cut.FractionalElements.Count; k++)
-            {
-                var (intPart, fracPart) = gomoryStep.Cut.FractionalElements.ElementAt(k).Value;
-                if (fracPart.Denominator != 1)
-                {
-                    rhsParts.Add($"- {fracPart - intPart}x{k}");
-                }
-            }
-
-            var constant = GetConstant();
-            return $"Перетворимо:\n{-constant} = {string.Join(" ", rhsParts)}";
-        }
-
-        private List<string> GetLhsParts()
-        {
-            var lhsParts = new List<string>();
-
-            for (int k = 1; k < gomoryStep.Cut.FractionalElements.Count; k++)
-            {
-                var (intPart, fracPart) = gomoryStep.Cut.FractionalElements.ElementAt(k).Value;
-                if (fracPart.Denominator != 1)
-                {
-                    lhsParts.Add($"{fracPart - intPart}x{k}");
-                }
-            }
-
-            return lhsParts;
-        }
-
-        private Fraction GetConstant()
-        {
-            var (intPart, fracPart) = gomoryStep.Cut.FractionalElements.ElementAt(0).Value;
-            return fracPart - intPart;
         }
     }
 }

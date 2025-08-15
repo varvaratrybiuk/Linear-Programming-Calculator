@@ -1,0 +1,11 @@
+﻿### YamlMime:ManagedReference
+apiRules:
+  - exclude:
+      uidRegex: Linear_Programming_Calculator_Desktop.App
+      type: Class
+  - exclude:
+      uidRegex: Linear_Programming_Calculator_Desktop.Views.*
+      type: Namespace
+  - exclude:
+      uidRegex: Linear_Programming_Calculator_Desktop.MainWindow
+      type: Class

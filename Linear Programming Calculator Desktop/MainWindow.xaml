@@ -7,7 +7,7 @@
         xmlns:vms="clr-namespace:Linear_Programming_Calculator_Desktop.ViewModels"
         xmlns:views="clr-namespace:Linear_Programming_Calculator_Desktop.Views"
         mc:Ignorable="d"
-        Title="Linear Programming Solver" ResizeMode="CanMinimize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+        Title="Linear Programming Solver" ResizeMode="CanMinimize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" Icon="/calculator.ico">
     <Grid>
         <Grid.Resources>
             <DataTemplate DataType="{x:Type vms:StartViewModel}">

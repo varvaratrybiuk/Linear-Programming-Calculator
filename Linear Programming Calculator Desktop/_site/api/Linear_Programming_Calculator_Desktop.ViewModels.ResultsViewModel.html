@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ResultsViewModel | Linear Programming Calculator Docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ResultsViewModel | Linear Programming Calculator Docs ">
+      
+      <meta name="description" content="Represents a ViewModel that displays the results of solving a LPP.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Linear Programming Calculator Docs">
+            Linear Programming Calculator Docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel">
+
+
+
+  <h1 id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel" class="text-break">
+Class ResultsViewModel  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Linear_Programming_Calculator_Desktop.html">Linear_Programming_Calculator_Desktop</a>.<a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.html">ViewModels</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Linear Programming Calculator Desktop.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a ViewModel that displays the results of solving a LPP.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ResultsViewModel : ObservableObject, INotifyPropertyChanged, INotifyPropertyChanging</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject">ObservableObject</a></div>
+      <div><span class="xref">ResultsViewModel</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanging">INotifyPropertyChanging</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.onpropertychanged#communitytoolkit-mvvm-componentmodel-observableobject-onpropertychanged(system-componentmodel-propertychangedeventargs)">ObservableObject.OnPropertyChanged(PropertyChangedEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.onpropertychanging#communitytoolkit-mvvm-componentmodel-observableobject-onpropertychanging(system-componentmodel-propertychangingeventargs)">ObservableObject.OnPropertyChanging(PropertyChangingEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.onpropertychanged#communitytoolkit-mvvm-componentmodel-observableobject-onpropertychanged(system-string)">ObservableObject.OnPropertyChanged(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.onpropertychanging#communitytoolkit-mvvm-componentmodel-observableobject-onpropertychanging(system-string)">ObservableObject.OnPropertyChanging(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setproperty#communitytoolkit-mvvm-componentmodel-observableobject-setproperty-1(-0@-0-system-string)">ObservableObject.SetProperty&lt;T&gt;(ref T, T, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setproperty#communitytoolkit-mvvm-componentmodel-observableobject-setproperty-1(-0@-0-system-collections-generic-iequalitycomparer((-0))-system-string)">ObservableObject.SetProperty&lt;T&gt;(ref T, T, IEqualityComparer&lt;T&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setproperty#communitytoolkit-mvvm-componentmodel-observableobject-setproperty-1(-0-0-system-action((-0))-system-string)">ObservableObject.SetProperty&lt;T&gt;(T, T, Action&lt;T&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setproperty#communitytoolkit-mvvm-componentmodel-observableobject-setproperty-1(-0-0-system-collections-generic-iequalitycomparer((-0))-system-action((-0))-system-string)">ObservableObject.SetProperty&lt;T&gt;(T, T, IEqualityComparer&lt;T&gt;, Action&lt;T&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setproperty#communitytoolkit-mvvm-componentmodel-observableobject-setproperty-2(-1-1-0-system-action((-0-1))-system-string)">ObservableObject.SetProperty&lt;TModel, T&gt;(T, T, TModel, Action&lt;TModel, T&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setproperty#communitytoolkit-mvvm-componentmodel-observableobject-setproperty-2(-1-1-system-collections-generic-iequalitycomparer((-1))-0-system-action((-0-1))-system-string)">ObservableObject.SetProperty&lt;TModel, T&gt;(T, T, IEqualityComparer&lt;T&gt;, TModel, Action&lt;TModel, T&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setpropertyandnotifyoncompletion#communitytoolkit-mvvm-componentmodel-observableobject-setpropertyandnotifyoncompletion(communitytoolkit-mvvm-componentmodel-observableobject-tasknotifier@-system-threading-tasks-task-system-string)">ObservableObject.SetPropertyAndNotifyOnCompletion(ref ObservableObject.TaskNotifier, Task, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setpropertyandnotifyoncompletion#communitytoolkit-mvvm-componentmodel-observableobject-setpropertyandnotifyoncompletion(communitytoolkit-mvvm-componentmodel-observableobject-tasknotifier@-system-threading-tasks-task-system-action((system-threading-tasks-task))-system-string)">ObservableObject.SetPropertyAndNotifyOnCompletion(ref ObservableObject.TaskNotifier, Task, Action&lt;Task&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setpropertyandnotifyoncompletion#communitytoolkit-mvvm-componentmodel-observableobject-setpropertyandnotifyoncompletion-1(communitytoolkit-mvvm-componentmodel-observableobject-tasknotifier((-0))@-system-threading-tasks-task((-0))-system-string)">ObservableObject.SetPropertyAndNotifyOnCompletion&lt;T&gt;(ref ObservableObject.TaskNotifier&lt;T&gt;, Task&lt;T&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setpropertyandnotifyoncompletion#communitytoolkit-mvvm-componentmodel-observableobject-setpropertyandnotifyoncompletion-1(communitytoolkit-mvvm-componentmodel-observableobject-tasknotifier((-0))@-system-threading-tasks-task((-0))-system-action((system-threading-tasks-task((-0))))-system-string)">ObservableObject.SetPropertyAndNotifyOnCompletion&lt;T&gt;(ref ObservableObject.TaskNotifier&lt;T&gt;, Task&lt;T&gt;, Action&lt;Task&lt;T&gt;&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.propertychanged">ObservableObject.PropertyChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.propertychanging">ObservableObject.PropertyChanging</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel__ctor_" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.#ctor*"></a>
+
+  <h3 id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel__ctor_Linear_Programming_Calculator_Desktop_DTOs_LinearProgramResultDto_Linear_Programming_Calculator_Desktop_Services_INavigator_Linear_Programming_Calculator_Desktop_ViewModels_StartViewModel__Linear_Programming_Calculator_Desktop_Services_INavigator_Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel__Linear_Programming_Calculator_Desktop_Services_IProblemFormatterService_Linear_Programming_Calculator_Desktop_Services_IOptimalResultSummaryService_Linear_Programming_Calculator_Desktop_Services_IGomoryCutFormatterService_" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.#ctor(Linear_Programming_Calculator_Desktop.DTOs.LinearProgramResultDto,Linear_Programming_Calculator_Desktop.Services.INavigator{Linear_Programming_Calculator_Desktop.ViewModels.StartViewModel},Linear_Programming_Calculator_Desktop.Services.INavigator{Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel},Linear_Programming_Calculator_Desktop.Services.IProblemFormatterService,Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService,Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService)">
+  ResultsViewModel(LinearProgramResultDto, INavigator&lt;StartViewModel&gt;, INavigator&lt;EquationInputViewModel&gt;, IProblemFormatterService, IOptimalResultSummaryService, IGomoryCutFormatterService)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Linear Programming Calculator Desktop/ViewModels/ResultsViewModel.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes all services and formats all mathematical block steps.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ResultsViewModel(LinearProgramResultDto resultDto, INavigator&lt;StartViewModel&gt; backNavigator, INavigator&lt;EquationInputViewModel&gt; editNavigator, IProblemFormatterService problemFormatter, IOptimalResultSummaryService resultSummaryService, IGomoryCutFormatterService gomoryCutFormatterService)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>resultDto</code> <a class="xref" href="Linear_Programming_Calculator_Desktop.DTOs.LinearProgramResultDto.html">LinearProgramResultDto</a></dt>
+    <dd><p>Results of the solved LPP.</p>
+</dd>
+    <dt><code>backNavigator</code> <a class="xref" href="Linear_Programming_Calculator_Desktop.Services.INavigator-1.html">INavigator</a>&lt;<a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.StartViewModel.html">StartViewModel</a>&gt;</dt>
+    <dd><p>Navigator for returning to the <a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.StartViewModel.html">StartViewModel</a>.</p>
+</dd>
+    <dt><code>editNavigator</code> <a class="xref" href="Linear_Programming_Calculator_Desktop.Services.INavigator-1.html">INavigator</a>&lt;<a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.html">EquationInputViewModel</a>&gt;</dt>
+    <dd><p>Navigator for returning to the equation <a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.html">EquationInputViewModel</a>.</p>
+</dd>
+    <dt><code>problemFormatter</code> <a class="xref" href="Linear_Programming_Calculator_Desktop.Services.IProblemFormatterService.html">IProblemFormatterService</a></dt>
+    <dd><p>Service for formatting the problem for display.</p>
+</dd>
+    <dt><code>resultSummaryService</code> <a class="xref" href="Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService.html">IOptimalResultSummaryService</a></dt>
+    <dd><p>Service for generating the optimal result summary.</p>
+</dd>
+    <dt><code>gomoryCutFormatterService</code> <a class="xref" href="Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.html">IGomoryCutFormatterService</a></dt>
+    <dd><p>Service for formatting Gomory cut steps for display.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_ArtificialVariableBlock_" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.ArtificialVariableBlock*"></a>
+
+  <h3 id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_ArtificialVariableBlock" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.ArtificialVariableBlock">
+  ArtificialVariableBlock
+  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Linear Programming Calculator Desktop/ViewModels/ResultsViewModel.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Formatted representation of the problem after introducing artificial variables, if applicable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FormattedLinearProblem? ArtificialVariableBlock { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Linear_Programming_Calculator_Desktop.Models.FormattedLinearProblem.html">FormattedLinearProblem</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_EditProblemCommand_" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblemCommand*"></a>
+
+  <h3 id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_EditProblemCommand" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblemCommand">
+  EditProblemCommand
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets an <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.input.irelaycommand">IRelayCommand</a> instance wrapping <a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.html#Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_EditProblem">EditProblem()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IRelayCommand EditProblemCommand { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.input.irelaycommand">IRelayCommand</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_ErrorMessage_" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.ErrorMessage*"></a>
+
+  <h3 id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_ErrorMessage" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.ErrorMessage">
+  ErrorMessage
+  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Linear Programming Calculator Desktop/ViewModels/ResultsViewModel.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Error message describing any issues encountered during solving.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? ErrorMessage { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_GomoryHistory_" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.GomoryHistory*"></a>
+
+  <h3 id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_GomoryHistory" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.GomoryHistory">
+  GomoryHistory
+  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Linear Programming Calculator Desktop/ViewModels/ResultsViewModel.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>History of Gomory cut method steps, if needed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;GomoryViewModel&gt;? GomoryHistory { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.GomoryViewModel.html">GomoryViewModel</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_InitialBasisText_" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.InitialBasisText*"></a>
+
+  <h3 id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_InitialBasisText" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.InitialBasisText">
+  InitialBasisText
+  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Linear Programming Calculator Desktop/ViewModels/ResultsViewModel.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Text description of the initial basis for the problem.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string InitialBasisText { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_MathModelBlock_" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.MathModelBlock*"></a>
+
+  <h3 id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_MathModelBlock" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.MathModelBlock">
+  MathModelBlock
+  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Linear Programming Calculator Desktop/ViewModels/ResultsViewModel.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Formatted representation of the original mathematical model of the problem.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FormattedLinearProblem MathModelBlock { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Linear_Programming_Calculator_Desktop.Models.FormattedLinearProblem.html">FormattedLinearProblem</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_NewProblemCommand_" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.NewProblemCommand*"></a>
+
+  <h3 id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_NewProblemCommand" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.NewProblemCommand">
+  NewProblemCommand
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets an <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.input.irelaycommand">IRelayCommand</a> instance wrapping <a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.html#Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_NewProblem">NewProblem()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IRelayCommand NewProblemCommand { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.input.irelaycommand">IRelayCommand</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_OptimalResult_" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.OptimalResult*"></a>
+
+  <h3 id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_OptimalResult" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.OptimalResult">
+  OptimalResult
+  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Linear Programming Calculator Desktop/ViewModels/ResultsViewModel.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Final optimal simplex table after solving.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SimplexViewModel OptimalResult { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.SimplexViewModel.html">SimplexViewModel</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_SimplexSolutionSummary_" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.SimplexSolutionSummary*"></a>
+
+  <h3 id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_SimplexSolutionSummary" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.SimplexSolutionSummary">
+  SimplexSolutionSummary
+  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Linear Programming Calculator Desktop/ViewModels/ResultsViewModel.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Summary of the solution obtained by the simplex method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string SimplexSolutionSummary { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_SimplexTables_" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.SimplexTables*"></a>
+
+  <h3 id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_SimplexTables" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.SimplexTables">
+  SimplexTables
+  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Linear Programming Calculator Desktop/ViewModels/ResultsViewModel.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>List of formatted simplex tables for each iteration step.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;SimplexViewModel&gt; SimplexTables { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.SimplexViewModel.html">SimplexViewModel</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_SlackVariableBlock_" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.SlackVariableBlock*"></a>
+
+  <h3 id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_SlackVariableBlock" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.SlackVariableBlock">
+  SlackVariableBlock
+  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Linear Programming Calculator Desktop/ViewModels/ResultsViewModel.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Formatted representation of the problem after introducing slack variables.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FormattedLinearProblem SlackVariableBlock { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Linear_Programming_Calculator_Desktop.Models.FormattedLinearProblem.html">FormattedLinearProblem</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_EditProblem_" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblem*"></a>
+
+  <h3 id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_EditProblem" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblem">
+  EditProblem()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Linear Programming Calculator Desktop/ViewModels/ResultsViewModel.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Navigates to the view for editing the current LPP.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[RelayCommand]
+public void EditProblem()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_NewProblem_" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.NewProblem*"></a>
+
+  <h3 id="Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_NewProblem" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.NewProblem">
+  NewProblem()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Linear Programming Calculator Desktop/ViewModels/ResultsViewModel.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Navigates to the view for creating a new LPP.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[RelayCommand]
+public void NewProblem()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

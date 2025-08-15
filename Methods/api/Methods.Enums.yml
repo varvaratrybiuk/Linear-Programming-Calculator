@@ -1,0 +1,47 @@
+### YamlMime:ManagedReference
+items:
+- uid: Methods.Enums
+  commentId: N:Methods.Enums
+  id: Enums
+  parent: Methods
+  children:
+  - Methods.Enums.ConstraintType
+  langs:
+  - csharp
+  - vb
+  name: Methods.Enums
+  nameWithType: Methods.Enums
+  fullName: Methods.Enums
+  type: Namespace
+  assemblies:
+  - Methods
+references:
+- uid: Methods.Enums.ConstraintType
+  commentId: T:Methods.Enums.ConstraintType
+  parent: Methods.Enums
+  href: Methods.Enums.ConstraintType.html
+  name: ConstraintType
+  nameWithType: ConstraintType
+  fullName: Methods.Enums.ConstraintType
+- uid: Methods.Enums
+  commentId: N:Methods.Enums
+  href: Methods.html
+  name: Methods.Enums
+  nameWithType: Methods.Enums
+  fullName: Methods.Enums
+  spec.csharp:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.Enums
+    name: Enums
+    href: Methods.Enums.html
+  spec.vb:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.Enums
+    name: Enums
+    href: Methods.Enums.html

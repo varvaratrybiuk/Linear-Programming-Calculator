@@ -1,0 +1,609 @@
+{
+  "source_base_path": "C:/Users/User/Desktop/Study/Linear Programming Calculator/Linear Programming Calculator Desktop",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.Attributes.NumericOnlyAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.Attributes.NumericOnlyAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.Attributes.NumericOnlyAttribute",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.Attributes.NumericOnlyAttribute.yml\" sourcestartlinenumber=\"1\">Validation attribute that ensures a value represents a valid numeric (double) input.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.Attributes.ValidVariableCountAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.Attributes.ValidVariableCountAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.Attributes.ValidVariableCountAttribute",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.Attributes.ValidVariableCountAttribute.yml\" sourcestartlinenumber=\"1\">Validation attribute to ensure an integer input meets a minimum value requirement.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.Attributes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.Attributes.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.Attributes",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.Converters.ConstraintTypeToSignConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.Converters.ConstraintTypeToSignConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.Converters.ConstraintTypeToSignConverter",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.Converters.ConstraintTypeToSignConverter.yml\" sourcestartlinenumber=\"1\">Converts between ConstraintType enum values and their corresponding\nstring symbols used in the UI.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.Converters.IsMaximizationConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.Converters.IsMaximizationConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.Converters.IsMaximizationConverter",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.Converters.IsMaximizationConverter.yml\" sourcestartlinenumber=\"1\">Converts the numeric selected value to a boolean.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.Converters.IsNotLastItemConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.Converters.IsNotLastItemConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.Converters.IsNotLastItemConverter",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.Converters.IsNotLastItemConverter.yml\" sourcestartlinenumber=\"1\">Converts a pair of values to Visibility,</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.Converters.NullToVisibilityConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.Converters.NullToVisibilityConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.Converters.NullToVisibilityConverter",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.Converters.NullToVisibilityConverter.yml\" sourcestartlinenumber=\"1\">Converts a null or empty string value to Visibility.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.Converters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.Converters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.Converters",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.DTOs.LinearProgramResultDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.DTOs.LinearProgramResultDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.DTOs.LinearProgramResultDto",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.DTOs.LinearProgramResultDto.yml\" sourcestartlinenumber=\"1\">Data transfer object for passing data between views.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.DTOs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.DTOs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.DTOs",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.Models.FormattedLinearProblem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.Models.FormattedLinearProblem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.Models.FormattedLinearProblem",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.Models.FormattedLinearProblem.yml\" sourcestartlinenumber=\"1\">Represents a formatted text for display in the Result view.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.Models.LinearProgramInput.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.Models.LinearProgramInput.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.Models.LinearProgramInput",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.Models.LinearProgramInput.yml\" sourcestartlinenumber=\"1\">Represents user input for a LPP collected from the view.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.Models.SimplexCell.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.Models.SimplexCell.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.Models.SimplexCell",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.Models.SimplexCell.yml\" sourcestartlinenumber=\"1\">Represents a cell in the Simplex table.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.Models.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.Models",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.yml\" sourcestartlinenumber=\"1\">Service for formatting Gomory cuts into readable string.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.yml\" sourcestartlinenumber=\"1\">Service interface for formatting Gomory cuts into readable string representations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.Services.INavigator-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.Services.INavigator-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.Services.INavigator<TViewModel>",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.Services.INavigator-1.yml\" sourcestartlinenumber=\"1\">Interface for Navigator without parameters.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.Services.INavigator-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.Services.INavigator-2.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.Services.INavigator<TViewModel, TParameter>",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.Services.INavigator-2.yml\" sourcestartlinenumber=\"1\">Interface for Navigator with parameters.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService.yml\" sourcestartlinenumber=\"1\">Service interface for formatting the optimal result summary.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.Services.IProblemFormatterService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.Services.IProblemFormatterService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.Services.IProblemFormatterService",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.Services.IProblemFormatterService.yml\" sourcestartlinenumber=\"1\">Service interface that provides methods to format different parts of a LPP for display.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.Services.NavigationService-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.Services.NavigationService-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.Services.NavigationService<TViewModel>",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.Services.NavigationService-1.yml\" sourcestartlinenumber=\"1\">Represents a navigation service for navigating between ViewModels without parameters.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.Services.NavigationService-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.Services.NavigationService-2.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.Services.NavigationService<TViewModel, TParameter>",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.Services.NavigationService-2.yml\" sourcestartlinenumber=\"1\">Represents a navigation service for navigating between ViewModels with parameters.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.Services.OptimalResultSummaryService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.Services.OptimalResultSummaryService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.Services.OptimalResultSummaryService",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.Services.OptimalResultSummaryService.yml\" sourcestartlinenumber=\"1\">Service for formatting the optimal result summary.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.Services.ProblemFormatterService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.Services.ProblemFormatterService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.Services.ProblemFormatterService",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.Services.ProblemFormatterService.yml\" sourcestartlinenumber=\"1\">Service that provides methods to format different parts of a LPP for display.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.Services.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.Services.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.Services",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.Stores.LinearProgramInputStore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.Stores.LinearProgramInputStore.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.Stores.LinearProgramInputStore",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.Stores.LinearProgramInputStore.yml\" sourcestartlinenumber=\"1\">Stores the current input data for a LPP\nand notifies subscribers when the input changes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.Stores.NavigationStore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.Stores.NavigationStore.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.Stores.NavigationStore",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.Stores.NavigationStore.yml\" sourcestartlinenumber=\"1\">Stores the current active ViewModel in the application\nand notifies subscribers when the current ViewModel changes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.Stores.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.Stores.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.Stores",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.ViewModels.ConstraintViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.ViewModels.ConstraintViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.ViewModels.ConstraintViewModel",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.ViewModels.ConstraintViewModel.yml\" sourcestartlinenumber=\"1\">Represents a ViewModel that is bound to a single constraint in the View.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.yml\" sourcestartlinenumber=\"1\">Represent a ViewModel that provides blocks for problem input, shown in the View.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.ViewModels.FieldViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.ViewModels.FieldViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.ViewModels.FieldViewModel",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.ViewModels.FieldViewModel.yml\" sourcestartlinenumber=\"1\">Represents a ViewModel that contains a single field for user input.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.ViewModels.GomoryViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.ViewModels.GomoryViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.ViewModels.GomoryViewModel",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.ViewModels.GomoryViewModel.yml\" sourcestartlinenumber=\"1\">Represents a ViewModel with the single step of the Gomory cutting-plane method.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.ViewModels.MainViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.ViewModels.MainViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.ViewModels.MainViewModel",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.ViewModels.MainViewModel.yml\" sourcestartlinenumber=\"1\">Represents a base ViewModel for storing and handling navigation between ViewModels.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.yml\" sourcestartlinenumber=\"1\">Represents a ViewModel that displays the results of solving a LPP.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.ViewModels.SimplexViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.ViewModels.SimplexViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.ViewModels.SimplexViewModel",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.ViewModels.SimplexViewModel.yml\" sourcestartlinenumber=\"1\">Represents a ViewModel holding the table content and related information displayed in the View.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.ViewModels.StartViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.ViewModels.StartViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.ViewModels.StartViewModel",
+      "Summary": "<p sourcefile=\"api/Linear_Programming_Calculator_Desktop.ViewModels.StartViewModel.yml\" sourcestartlinenumber=\"1\">Represents a ViewModel for entering the number of variables and constraints.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.ViewModels.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.ViewModels.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Linear_Programming_Calculator_Desktop.ViewModels",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Linear_Programming_Calculator_Desktop.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Linear_Programming_Calculator_Desktop.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": null,
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/img1.jpg",
+      "output": {
+        "resource": {
+          "relative_path": "images/img1.jpg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/img2.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/img2.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/img3.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/img3.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

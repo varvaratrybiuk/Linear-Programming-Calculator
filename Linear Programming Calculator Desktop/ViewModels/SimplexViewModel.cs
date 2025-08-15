@@ -6,18 +6,41 @@ using System.Windows.Media;
 
 namespace Linear_Programming_Calculator_Desktop.ViewModels
 {
+    /// <summary>
+    /// Represents a ViewModel holding the table content and related information displayed in the View.
+    /// </summary>
+    /// <param name="simplexStep">Current step of the solved problem.</param>
     public partial class SimplexViewModel(SimplexStep simplexStep) : ObservableObject
     {
+        /// <summary>
+        /// Current step of the solved problem.
+        /// </summary>
         public SimplexStep Step { get; } = simplexStep;
+        /// <summary>
+        /// Gets the key of the pivot row in the current table.
+        /// </summary>
         public string PivotRowKey => Step.Table.RowVariables.ElementAtOrDefault(Step.PivotRow).Key ?? string.Empty;
-        public ObservableCollection<SimplexCell> Cells { get; } = [];
 
+        /// <summary>
+        /// Collection of cells representing the current table.
+        /// </summary>
+        public ObservableCollection<SimplexCell> Cells { get; } = [];
+        /// <summary>
+        /// Total number of rows in the table.
+        /// </summary>
         [ObservableProperty]
         private int _totalRows;
 
+        /// <summary>
+        /// Total number of columns in the table.
+        /// </summary>
         [ObservableProperty]
         private int _totalCols;
 
+        /// <summary>
+        /// Loads the table data into a new <see cref="SimplexViewModel"/> instance.
+        /// </summary>
+        /// <returns>A new <see cref="SimplexViewModel"/> populated with the current table data.</returns>
         public SimplexViewModel LoadFromTable()
         {
             if (Step?.Table is null)
@@ -58,7 +81,12 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
 
             return this;
         }
-
+        /// <summary>
+        /// Determines the background brush for a specific cell in the table.
+        /// </summary>
+        /// <param name="i">The row index of the cell.</param>
+        /// <param name="j">The column index of the cell.</param>
+        /// <returns>A <see cref="Brush"/> indicating the background color of a cell, highlighting pivot rows, columns, and elements.</returns>
         private Brush GetCellBackground(int i, int j)
         {
             if (Step.PivotColumn == -1) return Brushes.Transparent;
@@ -69,7 +97,11 @@ namespace Linear_Programming_Calculator_Desktop.ViewModels
             return Brushes.Transparent;
         }
 
-
+        /// <summary>
+        /// Adds a row of cells to the current table representation with a label and a list of values.
+        /// </summary>
+        /// <param name="label1">The label for the row.</param>
+        /// <param name="values">The collection of values to populate the row cells.</param>
         private void AddRowToCells(string label1, IEnumerable<string> values)
         {
             Cells.Add(new SimplexCell { Text = "" });

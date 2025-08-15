@@ -21,6 +21,7 @@ namespace Linear_Programming_Calculator_Desktop
             services.AddSingleton<LinearProgramInputStore>();
             services.AddSingleton<IProblemFormatterService, ProblemFormatterService>();
             services.AddSingleton<IOptimalResultSummaryService, OptimalResultSummaryService>();
+            services.AddSingleton<IGomoryCutFormatterService, GomoryCutFormatterService>();
 
             services.AddSingleton<MainViewModel>();
             services.AddSingleton((s) => new MainWindow()
@@ -38,6 +39,13 @@ namespace Linear_Programming_Calculator_Desktop
                     () => sp.GetRequiredService<StartViewModel>()
                 )
             );
+
+            services.AddScoped<INavigator<EquationInputViewModel>>(sp =>
+               new NavigationService<EquationInputViewModel>(
+                   sp.GetRequiredService<NavigationStore>(),
+                   () => ActivatorUtilities.CreateInstance<EquationInputViewModel>(sp)
+               )
+           );
 
             services.AddScoped<INavigator<EquationInputViewModel, (int variables, int constraints)>>(sp =>
                 new NavigationService<EquationInputViewModel, (int variables, int constraints)>(

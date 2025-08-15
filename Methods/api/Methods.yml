@@ -1,0 +1,126 @@
+### YamlMime:ManagedReference
+items:
+- uid: Methods
+  id: Methods
+  children:
+  - Methods.Enums
+  - Methods.Interfaces
+  - Methods.MathObjects
+  - Methods.Models
+  - Methods.Solvers
+  langs:
+  - csharp
+  - vb
+  name: Methods
+  type: Namespace
+references:
+- uid: Methods.Enums
+  commentId: N:Methods.Enums
+  href: Methods.html
+  name: Methods.Enums
+  nameWithType: Methods.Enums
+  fullName: Methods.Enums
+  spec.csharp:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.Enums
+    name: Enums
+    href: Methods.Enums.html
+  spec.vb:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.Enums
+    name: Enums
+    href: Methods.Enums.html
+- uid: Methods.Interfaces
+  commentId: N:Methods.Interfaces
+  href: Methods.html
+  name: Methods.Interfaces
+  nameWithType: Methods.Interfaces
+  fullName: Methods.Interfaces
+  spec.csharp:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.Interfaces
+    name: Interfaces
+    href: Methods.Interfaces.html
+  spec.vb:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.Interfaces
+    name: Interfaces
+    href: Methods.Interfaces.html
+- uid: Methods.MathObjects
+  commentId: N:Methods.MathObjects
+  href: Methods.html
+  name: Methods.MathObjects
+  nameWithType: Methods.MathObjects
+  fullName: Methods.MathObjects
+  spec.csharp:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.MathObjects
+    name: MathObjects
+    href: Methods.MathObjects.html
+  spec.vb:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.MathObjects
+    name: MathObjects
+    href: Methods.MathObjects.html
+- uid: Methods.Models
+  commentId: N:Methods.Models
+  href: Methods.html
+  name: Methods.Models
+  nameWithType: Methods.Models
+  fullName: Methods.Models
+  spec.csharp:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.Models
+    name: Models
+    href: Methods.Models.html
+  spec.vb:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.Models
+    name: Models
+    href: Methods.Models.html
+- uid: Methods.Solvers
+  commentId: N:Methods.Solvers
+  href: Methods.html
+  name: Methods.Solvers
+  nameWithType: Methods.Solvers
+  fullName: Methods.Solvers
+  spec.csharp:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.Solvers
+    name: Solvers
+    href: Methods.Solvers.html
+  spec.vb:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.Solvers
+    name: Solvers
+    href: Methods.Solvers.html

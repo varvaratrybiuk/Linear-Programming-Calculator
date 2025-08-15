@@ -1,0 +1,55 @@
+### YamlMime:ManagedReference
+items:
+- uid: Linear_Programming_Calculator_Desktop.Stores
+  commentId: N:Linear_Programming_Calculator_Desktop.Stores
+  id: Stores
+  parent: Linear_Programming_Calculator_Desktop
+  children:
+  - Linear_Programming_Calculator_Desktop.Stores.LinearProgramInputStore
+  - Linear_Programming_Calculator_Desktop.Stores.NavigationStore
+  langs:
+  - csharp
+  - vb
+  name: Linear_Programming_Calculator_Desktop.Stores
+  nameWithType: Linear_Programming_Calculator_Desktop.Stores
+  fullName: Linear_Programming_Calculator_Desktop.Stores
+  type: Namespace
+  assemblies:
+  - Linear Programming Calculator Desktop
+references:
+- uid: Linear_Programming_Calculator_Desktop.Stores.LinearProgramInputStore
+  commentId: T:Linear_Programming_Calculator_Desktop.Stores.LinearProgramInputStore
+  parent: Linear_Programming_Calculator_Desktop.Stores
+  href: Linear_Programming_Calculator_Desktop.Stores.LinearProgramInputStore.html
+  name: LinearProgramInputStore
+  nameWithType: LinearProgramInputStore
+  fullName: Linear_Programming_Calculator_Desktop.Stores.LinearProgramInputStore
+- uid: Linear_Programming_Calculator_Desktop.Stores.NavigationStore
+  commentId: T:Linear_Programming_Calculator_Desktop.Stores.NavigationStore
+  parent: Linear_Programming_Calculator_Desktop.Stores
+  href: Linear_Programming_Calculator_Desktop.Stores.NavigationStore.html
+  name: NavigationStore
+  nameWithType: NavigationStore
+  fullName: Linear_Programming_Calculator_Desktop.Stores.NavigationStore
+- uid: Linear_Programming_Calculator_Desktop.Stores
+  commentId: N:Linear_Programming_Calculator_Desktop.Stores
+  href: Linear_Programming_Calculator_Desktop.html
+  name: Linear_Programming_Calculator_Desktop.Stores
+  nameWithType: Linear_Programming_Calculator_Desktop.Stores
+  fullName: Linear_Programming_Calculator_Desktop.Stores
+  spec.csharp:
+  - uid: Linear_Programming_Calculator_Desktop
+    name: Linear_Programming_Calculator_Desktop
+    href: Linear_Programming_Calculator_Desktop.html
+  - name: .
+  - uid: Linear_Programming_Calculator_Desktop.Stores
+    name: Stores
+    href: Linear_Programming_Calculator_Desktop.Stores.html
+  spec.vb:
+  - uid: Linear_Programming_Calculator_Desktop
+    name: Linear_Programming_Calculator_Desktop
+    href: Linear_Programming_Calculator_Desktop.html
+  - name: .
+  - uid: Linear_Programming_Calculator_Desktop.Stores
+    name: Stores
+    href: Linear_Programming_Calculator_Desktop.Stores.html

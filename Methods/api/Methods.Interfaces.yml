@@ -1,0 +1,47 @@
+### YamlMime:ManagedReference
+items:
+- uid: Methods.Interfaces
+  commentId: N:Methods.Interfaces
+  id: Interfaces
+  parent: Methods
+  children:
+  - Methods.Interfaces.ILinearSolver
+  langs:
+  - csharp
+  - vb
+  name: Methods.Interfaces
+  nameWithType: Methods.Interfaces
+  fullName: Methods.Interfaces
+  type: Namespace
+  assemblies:
+  - Methods
+references:
+- uid: Methods.Interfaces.ILinearSolver
+  commentId: T:Methods.Interfaces.ILinearSolver
+  parent: Methods.Interfaces
+  href: Methods.Interfaces.ILinearSolver.html
+  name: ILinearSolver
+  nameWithType: ILinearSolver
+  fullName: Methods.Interfaces.ILinearSolver
+- uid: Methods.Interfaces
+  commentId: N:Methods.Interfaces
+  href: Methods.html
+  name: Methods.Interfaces
+  nameWithType: Methods.Interfaces
+  fullName: Methods.Interfaces
+  spec.csharp:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.Interfaces
+    name: Interfaces
+    href: Methods.Interfaces.html
+  spec.vb:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.Interfaces
+    name: Interfaces
+    href: Methods.Interfaces.html

@@ -1,0 +1,299 @@
+{
+  "source_base_path": "C:/Users/User/Desktop/Study/Linear Programming Calculator/Methods",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Methods.Enums.ConstraintType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Methods.Enums.ConstraintType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Methods.Enums.ConstraintType",
+      "Summary": "<p sourcefile=\"api/Methods.Enums.ConstraintType.yml\" sourcestartlinenumber=\"1\">Represents the type of a constraint in a LPP.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Methods.Enums.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Methods.Enums.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Methods.Enums",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Methods.Interfaces.ILinearSolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Methods.Interfaces.ILinearSolver.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Methods.Interfaces.ILinearSolver",
+      "Summary": "<p sourcefile=\"api/Methods.Interfaces.ILinearSolver.yml\" sourcestartlinenumber=\"1\">Interface that represents the essential methods for solving Linear Programming Problems (LPPs).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Methods.Interfaces.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Methods.Interfaces.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Methods.Interfaces",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Methods.MathObjects.Constraint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Methods.MathObjects.Constraint.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Methods.MathObjects.Constraint",
+      "Summary": "<p sourcefile=\"api/Methods.MathObjects.Constraint.yml\" sourcestartlinenumber=\"1\">Class that represent a constraint parts</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Methods.MathObjects.LinearProgrammingProblem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Methods.MathObjects.LinearProgrammingProblem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Methods.MathObjects.LinearProgrammingProblem",
+      "Summary": "<p sourcefile=\"api/Methods.MathObjects.LinearProgrammingProblem.yml\" sourcestartlinenumber=\"1\">Represents a LPP.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Methods.MathObjects.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Methods.MathObjects.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Methods.MathObjects",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Methods.Models.BranchCut.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Methods.Models.BranchCut.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Methods.Models.BranchCut",
+      "Summary": "<p sourcefile=\"api/Methods.Models.BranchCut.yml\" sourcestartlinenumber=\"1\">Represents a parts of Gomory cut.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Methods.Models.ExpressionValue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Methods.Models.ExpressionValue.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Methods.Models.ExpressionValue",
+      "Summary": "<p sourcefile=\"api/Methods.Models.ExpressionValue.yml\" sourcestartlinenumber=\"1\">Represents a text expression for the table and its actual numeric value.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Methods.Models.GomoryHistory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Methods.Models.GomoryHistory.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Methods.Models.GomoryHistory",
+      "Summary": "<p sourcefile=\"api/Methods.Models.GomoryHistory.yml\" sourcestartlinenumber=\"1\">Represents the current state of finding an integer solution using the Gomory cut method.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Methods.Models.SimplexHistory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Methods.Models.SimplexHistory.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Methods.Models.SimplexHistory",
+      "Summary": "<p sourcefile=\"api/Methods.Models.SimplexHistory.yml\" sourcestartlinenumber=\"1\">Represents the history of the simplex algorithm solving process.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Methods.Models.SimplexStep.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Methods.Models.SimplexStep.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Methods.Models.SimplexStep",
+      "Summary": "<p sourcefile=\"api/Methods.Models.SimplexStep.yml\" sourcestartlinenumber=\"1\">Represents the current state of the simplex table during pivot selection.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Methods.Models.SimplexTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Methods.Models.SimplexTable.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Methods.Models.SimplexTable",
+      "Summary": "<p sourcefile=\"api/Methods.Models.SimplexTable.yml\" sourcestartlinenumber=\"1\">Represents a simplex tableau used during the simplex algorithm iterations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Methods.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Methods.Models.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Methods.Models",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Methods.Solvers.GomorySolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Methods.Solvers.GomorySolver.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Methods.Solvers.GomorySolver",
+      "Summary": "<p sourcefile=\"api/Methods.Solvers.GomorySolver.yml\" sourcestartlinenumber=\"1\">Represents a solver for the Gomory Cutting Plane method.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Methods.Solvers.SimplexSolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Methods.Solvers.SimplexSolver.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Methods.Solvers.SimplexSolver",
+      "Summary": "<p sourcefile=\"api/Methods.Solvers.SimplexSolver.yml\" sourcestartlinenumber=\"1\">Solver for Linear Programming Problems using the Simplex method.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Methods.Solvers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Methods.Solvers.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Methods.Solvers",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Methods.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Methods.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": null,
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

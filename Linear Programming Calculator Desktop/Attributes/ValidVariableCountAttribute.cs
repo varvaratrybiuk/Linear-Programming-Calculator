@@ -2,15 +2,23 @@
 
 namespace Linear_Programming_Calculator_Desktop.Attributes
 {
-    public class ValidVariableCountAttribute : ValidationAttribute
+    /// <summary>
+    /// Validation attribute to ensure an integer input meets a minimum value requirement.
+    /// </summary>
+    /// <param name="minValue">The minimum acceptable integer value.</param>
+    public class ValidVariableCountAttribute(int minValue) : ValidationAttribute
     {
-        public int MinValue { get; }
+        /// <summary>
+        /// Gets the minimum allowed value for the input.
+        /// </summary>
+        public int MinValue { get; } = minValue;
 
-        public ValidVariableCountAttribute(int minValue)
-        {
-            MinValue = minValue;
-        }
-
+        /// <summary>
+        /// Validates whether the input value is a non-null, non-empty integer
+        /// and meets the minimum value requirement.
+        /// </summary>
+        /// <param name="value">The input value to validate.</param>
+        /// <returns>True if the input is valid; otherwise, false.</returns>
         public override bool IsValid(object? value)
         {
             string? input = (value == null) ? string.Empty : value.ToString();

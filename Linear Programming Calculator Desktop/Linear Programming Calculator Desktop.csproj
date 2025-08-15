@@ -7,13 +7,11 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Resources\calculator.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Views\Екфір\**" />
-    <EmbeddedResource Remove="Views\Екфір\**" />
-    <None Remove="Views\Екфір\**" />
-    <Page Remove="Views\Екфір\**" />
+    <None Remove="calculator.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +21,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Methods\Methods.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="calculator.ico" />
   </ItemGroup>
 
 </Project>

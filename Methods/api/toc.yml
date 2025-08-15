@@ -1,0 +1,63 @@
+### YamlMime:TableOfContent
+items:
+- uid: Methods
+  name: Methods
+  type: Namespace
+  items:
+  - uid: Methods.Enums
+    name: Enums
+    type: Namespace
+    items:
+    - uid: Methods.Enums.ConstraintType
+      name: ConstraintType
+      type: Enum
+  - uid: Methods.Interfaces
+    name: Interfaces
+    type: Namespace
+    items:
+    - uid: Methods.Interfaces.ILinearSolver
+      name: ILinearSolver
+      type: Interface
+  - uid: Methods.MathObjects
+    name: MathObjects
+    type: Namespace
+    items:
+    - uid: Methods.MathObjects.Constraint
+      name: Constraint
+      type: Class
+    - uid: Methods.MathObjects.LinearProgrammingProblem
+      name: LinearProgrammingProblem
+      type: Class
+  - uid: Methods.Models
+    name: Models
+    type: Namespace
+    items:
+    - uid: Methods.Models.BranchCut
+      name: BranchCut
+      type: Class
+    - uid: Methods.Models.ExpressionValue
+      name: ExpressionValue
+      type: Class
+    - uid: Methods.Models.GomoryHistory
+      name: GomoryHistory
+      type: Class
+    - uid: Methods.Models.SimplexHistory
+      name: SimplexHistory
+      type: Class
+    - uid: Methods.Models.SimplexStep
+      name: SimplexStep
+      type: Class
+    - uid: Methods.Models.SimplexTable
+      name: SimplexTable
+      type: Class
+  - uid: Methods.Solvers
+    name: Solvers
+    type: Namespace
+    items:
+    - uid: Methods.Solvers.GomorySolver
+      name: GomorySolver
+      type: Class
+    - uid: Methods.Solvers.SimplexSolver
+      name: SimplexSolver
+      type: Class
+memberLayout: SamePage

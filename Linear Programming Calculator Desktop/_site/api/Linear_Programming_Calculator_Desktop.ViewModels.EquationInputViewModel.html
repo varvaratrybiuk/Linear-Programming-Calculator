@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class EquationInputViewModel | Linear Programming Calculator Docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class EquationInputViewModel | Linear Programming Calculator Docs ">
+      
+      <meta name="description" content="Represent a ViewModel that provides blocks for problem input, shown in the View.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Linear Programming Calculator Docs">
+            Linear Programming Calculator Docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel">
+
+
+
+  <h1 id="Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel" class="text-break">
+Class EquationInputViewModel  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Linear_Programming_Calculator_Desktop.html">Linear_Programming_Calculator_Desktop</a>.<a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.html">ViewModels</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Linear Programming Calculator Desktop.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represent a ViewModel that provides blocks for problem input, shown in the View.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class EquationInputViewModel : ObservableValidator, INotifyPropertyChanged, INotifyPropertyChanging, INotifyDataErrorInfo</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject">ObservableObject</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observablevalidator">ObservableValidator</a></div>
+      <div><span class="xref">EquationInputViewModel</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanging">INotifyPropertyChanging</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifydataerrorinfo">INotifyDataErrorInfo</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observablevalidator.setproperty#communitytoolkit-mvvm-componentmodel-observablevalidator-setproperty-1(-0@-0-system-boolean-system-string)">ObservableValidator.SetProperty&lt;T&gt;(ref T, T, bool, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observablevalidator.setproperty#communitytoolkit-mvvm-componentmodel-observablevalidator-setproperty-1(-0@-0-system-collections-generic-iequalitycomparer((-0))-system-boolean-system-string)">ObservableValidator.SetProperty&lt;T&gt;(ref T, T, IEqualityComparer&lt;T&gt;, bool, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observablevalidator.setproperty#communitytoolkit-mvvm-componentmodel-observablevalidator-setproperty-1(-0-0-system-action((-0))-system-boolean-system-string)">ObservableValidator.SetProperty&lt;T&gt;(T, T, Action&lt;T&gt;, bool, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observablevalidator.setproperty#communitytoolkit-mvvm-componentmodel-observablevalidator-setproperty-1(-0-0-system-collections-generic-iequalitycomparer((-0))-system-action((-0))-system-boolean-system-string)">ObservableValidator.SetProperty&lt;T&gt;(T, T, IEqualityComparer&lt;T&gt;, Action&lt;T&gt;, bool, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observablevalidator.setproperty#communitytoolkit-mvvm-componentmodel-observablevalidator-setproperty-2(-1-1-0-system-action((-0-1))-system-boolean-system-string)">ObservableValidator.SetProperty&lt;TModel, T&gt;(T, T, TModel, Action&lt;TModel, T&gt;, bool, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observablevalidator.setproperty#communitytoolkit-mvvm-componentmodel-observablevalidator-setproperty-2(-1-1-system-collections-generic-iequalitycomparer((-1))-0-system-action((-0-1))-system-boolean-system-string)">ObservableValidator.SetProperty&lt;TModel, T&gt;(T, T, IEqualityComparer&lt;T&gt;, TModel, Action&lt;TModel, T&gt;, bool, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observablevalidator.trysetproperty#communitytoolkit-mvvm-componentmodel-observablevalidator-trysetproperty-1(-0@-0-system-collections-generic-ireadonlycollection((system-componentmodel-dataannotations-validationresult))@-system-string)">ObservableValidator.TrySetProperty&lt;T&gt;(ref T, T, out IReadOnlyCollection&lt;ValidationResult&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observablevalidator.trysetproperty#communitytoolkit-mvvm-componentmodel-observablevalidator-trysetproperty-1(-0@-0-system-collections-generic-iequalitycomparer((-0))-system-collections-generic-ireadonlycollection((system-componentmodel-dataannotations-validationresult))@-system-string)">ObservableValidator.TrySetProperty&lt;T&gt;(ref T, T, IEqualityComparer&lt;T&gt;, out IReadOnlyCollection&lt;ValidationResult&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observablevalidator.trysetproperty#communitytoolkit-mvvm-componentmodel-observablevalidator-trysetproperty-1(-0-0-system-action((-0))-system-collections-generic-ireadonlycollection((system-componentmodel-dataannotations-validationresult))@-system-string)">ObservableValidator.TrySetProperty&lt;T&gt;(T, T, Action&lt;T&gt;, out IReadOnlyCollection&lt;ValidationResult&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observablevalidator.trysetproperty#communitytoolkit-mvvm-componentmodel-observablevalidator-trysetproperty-1(-0-0-system-collections-generic-iequalitycomparer((-0))-system-action((-0))-system-collections-generic-ireadonlycollection((system-componentmodel-dataannotations-validationresult))@-system-string)">ObservableValidator.TrySetProperty&lt;T&gt;(T, T, IEqualityComparer&lt;T&gt;, Action&lt;T&gt;, out IReadOnlyCollection&lt;ValidationResult&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observablevalidator.trysetproperty#communitytoolkit-mvvm-componentmodel-observablevalidator-trysetproperty-2(-1-1-0-system-action((-0-1))-system-collections-generic-ireadonlycollection((system-componentmodel-dataannotations-validationresult))@-system-string)">ObservableValidator.TrySetProperty&lt;TModel, T&gt;(T, T, TModel, Action&lt;TModel, T&gt;, out IReadOnlyCollection&lt;ValidationResult&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observablevalidator.trysetproperty#communitytoolkit-mvvm-componentmodel-observablevalidator-trysetproperty-2(-1-1-system-collections-generic-iequalitycomparer((-1))-0-system-action((-0-1))-system-collections-generic-ireadonlycollection((system-componentmodel-dataannotations-validationresult))@-system-string)">ObservableValidator.TrySetProperty&lt;TModel, T&gt;(T, T, IEqualityComparer&lt;T&gt;, TModel, Action&lt;TModel, T&gt;, out IReadOnlyCollection&lt;ValidationResult&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observablevalidator.clearerrors">ObservableValidator.ClearErrors(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observablevalidator.geterrors">ObservableValidator.GetErrors(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observablevalidator.validateallproperties">ObservableValidator.ValidateAllProperties()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observablevalidator.validateproperty">ObservableValidator.ValidateProperty(object, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observablevalidator.haserrors">ObservableValidator.HasErrors</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observablevalidator.errorschanged">ObservableValidator.ErrorsChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.onpropertychanged#communitytoolkit-mvvm-componentmodel-observableobject-onpropertychanged(system-componentmodel-propertychangedeventargs)">ObservableObject.OnPropertyChanged(PropertyChangedEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.onpropertychanging#communitytoolkit-mvvm-componentmodel-observableobject-onpropertychanging(system-componentmodel-propertychangingeventargs)">ObservableObject.OnPropertyChanging(PropertyChangingEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.onpropertychanged#communitytoolkit-mvvm-componentmodel-observableobject-onpropertychanged(system-string)">ObservableObject.OnPropertyChanged(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.onpropertychanging#communitytoolkit-mvvm-componentmodel-observableobject-onpropertychanging(system-string)">ObservableObject.OnPropertyChanging(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setproperty#communitytoolkit-mvvm-componentmodel-observableobject-setproperty-1(-0@-0-system-string)">ObservableObject.SetProperty&lt;T&gt;(ref T, T, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setproperty#communitytoolkit-mvvm-componentmodel-observableobject-setproperty-1(-0@-0-system-collections-generic-iequalitycomparer((-0))-system-string)">ObservableObject.SetProperty&lt;T&gt;(ref T, T, IEqualityComparer&lt;T&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setproperty#communitytoolkit-mvvm-componentmodel-observableobject-setproperty-1(-0-0-system-action((-0))-system-string)">ObservableObject.SetProperty&lt;T&gt;(T, T, Action&lt;T&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setproperty#communitytoolkit-mvvm-componentmodel-observableobject-setproperty-1(-0-0-system-collections-generic-iequalitycomparer((-0))-system-action((-0))-system-string)">ObservableObject.SetProperty&lt;T&gt;(T, T, IEqualityComparer&lt;T&gt;, Action&lt;T&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setproperty#communitytoolkit-mvvm-componentmodel-observableobject-setproperty-2(-1-1-0-system-action((-0-1))-system-string)">ObservableObject.SetProperty&lt;TModel, T&gt;(T, T, TModel, Action&lt;TModel, T&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setproperty#communitytoolkit-mvvm-componentmodel-observableobject-setproperty-2(-1-1-system-collections-generic-iequalitycomparer((-1))-0-system-action((-0-1))-system-string)">ObservableObject.SetProperty&lt;TModel, T&gt;(T, T, IEqualityComparer&lt;T&gt;, TModel, Action&lt;TModel, T&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setpropertyandnotifyoncompletion#communitytoolkit-mvvm-componentmodel-observableobject-setpropertyandnotifyoncompletion(communitytoolkit-mvvm-componentmodel-observableobject-tasknotifier@-system-threading-tasks-task-system-string)">ObservableObject.SetPropertyAndNotifyOnCompletion(ref ObservableObject.TaskNotifier, Task, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setpropertyandnotifyoncompletion#communitytoolkit-mvvm-componentmodel-observableobject-setpropertyandnotifyoncompletion(communitytoolkit-mvvm-componentmodel-observableobject-tasknotifier@-system-threading-tasks-task-system-action((system-threading-tasks-task))-system-string)">ObservableObject.SetPropertyAndNotifyOnCompletion(ref ObservableObject.TaskNotifier, Task, Action&lt;Task&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setpropertyandnotifyoncompletion#communitytoolkit-mvvm-componentmodel-observableobject-setpropertyandnotifyoncompletion-1(communitytoolkit-mvvm-componentmodel-observableobject-tasknotifier((-0))@-system-threading-tasks-task((-0))-system-string)">ObservableObject.SetPropertyAndNotifyOnCompletion&lt;T&gt;(ref ObservableObject.TaskNotifier&lt;T&gt;, Task&lt;T&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.setpropertyandnotifyoncompletion#communitytoolkit-mvvm-componentmodel-observableobject-setpropertyandnotifyoncompletion-1(communitytoolkit-mvvm-componentmodel-observableobject-tasknotifier((-0))@-system-threading-tasks-task((-0))-system-action((system-threading-tasks-task((-0))))-system-string)">ObservableObject.SetPropertyAndNotifyOnCompletion&lt;T&gt;(ref ObservableObject.TaskNotifier&lt;T&gt;, Task&lt;T&gt;, Action&lt;Task&lt;T&gt;&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.propertychanged">ObservableObject.PropertyChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.componentmodel.observableobject.propertychanging">ObservableObject.PropertyChanging</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel__ctor_" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.#ctor*"></a>
+
+  <h3 id="Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel__ctor_Linear_Programming_Calculator_Desktop_Stores_LinearProgramInputStore_Linear_Programming_Calculator_Desktop_Services_INavigator_Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_Linear_Programming_Calculator_Desktop_DTOs_LinearProgramResultDto__Linear_Programming_Calculator_Desktop_Services_INavigator_Linear_Programming_Calculator_Desktop_ViewModels_StartViewModel__" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.#ctor(Linear_Programming_Calculator_Desktop.Stores.LinearProgramInputStore,Linear_Programming_Calculator_Desktop.Services.INavigator{Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel,Linear_Programming_Calculator_Desktop.DTOs.LinearProgramResultDto},Linear_Programming_Calculator_Desktop.Services.INavigator{Linear_Programming_Calculator_Desktop.ViewModels.StartViewModel})">
+  EquationInputViewModel(LinearProgramInputStore, INavigator&lt;ResultsViewModel, LinearProgramResultDto&gt;, INavigator&lt;StartViewModel&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Linear Programming Calculator Desktop/ViewModels/EquationInputViewModel.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.html">EquationInputViewModel</a> using data from an existing store.
+Configures navigation services and restores previous data from storage.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EquationInputViewModel(LinearProgramInputStore lpStore, INavigator&lt;ResultsViewModel, LinearProgramResultDto&gt; navigationService, INavigator&lt;StartViewModel&gt; backNavigationService)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lpStore</code> <a class="xref" href="Linear_Programming_Calculator_Desktop.Stores.LinearProgramInputStore.html">LinearProgramInputStore</a></dt>
+    <dd><p>The store containing the current <a class="xref" href="Linear_Programming_Calculator_Desktop.Models.LinearProgramInput.html">LinearProgramInput</a> data.</p>
+</dd>
+    <dt><code>navigationService</code> <a class="xref" href="Linear_Programming_Calculator_Desktop.Services.INavigator-2.html">INavigator</a>&lt;<a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.html">ResultsViewModel</a>, <a class="xref" href="Linear_Programming_Calculator_Desktop.DTOs.LinearProgramResultDto.html">LinearProgramResultDto</a>&gt;</dt>
+    <dd><p>Service for navigating to the <a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.html">ResultsViewModel</a>.</p>
+</dd>
+    <dt><code>backNavigationService</code> <a class="xref" href="Linear_Programming_Calculator_Desktop.Services.INavigator-1.html">INavigator</a>&lt;<a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.StartViewModel.html">StartViewModel</a>&gt;</dt>
+    <dd><p>Service for navigating back to the <a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.StartViewModel.html">StartViewModel</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel__ctor_" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.#ctor*"></a>
+
+  <h3 id="Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel__ctor_System_ValueTuple_System_Int32_System_Int32__Linear_Programming_Calculator_Desktop_Stores_LinearProgramInputStore_Linear_Programming_Calculator_Desktop_Services_INavigator_Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_Linear_Programming_Calculator_Desktop_DTOs_LinearProgramResultDto__Linear_Programming_Calculator_Desktop_Services_INavigator_Linear_Programming_Calculator_Desktop_ViewModels_StartViewModel__" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.#ctor(System.ValueTuple{System.Int32,System.Int32},Linear_Programming_Calculator_Desktop.Stores.LinearProgramInputStore,Linear_Programming_Calculator_Desktop.Services.INavigator{Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel,Linear_Programming_Calculator_Desktop.DTOs.LinearProgramResultDto},Linear_Programming_Calculator_Desktop.Services.INavigator{Linear_Programming_Calculator_Desktop.ViewModels.StartViewModel})">
+  EquationInputViewModel((int variables, int constraints), LinearProgramInputStore, INavigator&lt;ResultsViewModel, LinearProgramResultDto&gt;, INavigator&lt;StartViewModel&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Linear Programming Calculator Desktop/ViewModels/EquationInputViewModel.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.html">EquationInputViewModel</a> with a specified number of variables and constraints.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EquationInputViewModel((int variables, int constraints) parameters, LinearProgramInputStore lpStore, INavigator&lt;ResultsViewModel, LinearProgramResultDto&gt; navigationService, INavigator&lt;StartViewModel&gt; backNavigationService)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameters</code> (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.variables">variables</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.constraints">constraints</a>)</dt>
+    <dd><p>Tuple containing the number of variables and constraints.</p>
+</dd>
+    <dt><code>lpStore</code> <a class="xref" href="Linear_Programming_Calculator_Desktop.Stores.LinearProgramInputStore.html">LinearProgramInputStore</a></dt>
+    <dd><p>The store containing the current <a class="xref" href="Linear_Programming_Calculator_Desktop.Models.LinearProgramInput.html">LinearProgramInput</a> data.</p>
+</dd>
+    <dt><code>navigationService</code> <a class="xref" href="Linear_Programming_Calculator_Desktop.Services.INavigator-2.html">INavigator</a>&lt;<a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.html">ResultsViewModel</a>, <a class="xref" href="Linear_Programming_Calculator_Desktop.DTOs.LinearProgramResultDto.html">LinearProgramResultDto</a>&gt;</dt>
+    <dd><p>Service for navigating to the <a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.html">ResultsViewModel</a>.</p>
+</dd>
+    <dt><code>backNavigationService</code> <a class="xref" href="Linear_Programming_Calculator_Desktop.Services.INavigator-1.html">INavigator</a>&lt;<a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.StartViewModel.html">StartViewModel</a>&gt;</dt>
+    <dd><p>Service for navigating back to the <a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.StartViewModel.html">StartViewModel</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel__ctor_System_ValueTuple_System_Int32_System_Int32__Linear_Programming_Calculator_Desktop_Stores_LinearProgramInputStore_Linear_Programming_Calculator_Desktop_Services_INavigator_Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_Linear_Programming_Calculator_Desktop_DTOs_LinearProgramResultDto__Linear_Programming_Calculator_Desktop_Services_INavigator_Linear_Programming_Calculator_Desktop_ViewModels_StartViewModel___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Configures navigation services and initializes <a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.html#Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel_ObjectiveFunctionValues">ObjectiveFunctionValues</a> and <a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.html#Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel_ConstraintValues">ConstraintValues</a>
+based on the provided values.</p>
+</div>
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel_ConstraintValues_" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.ConstraintValues*"></a>
+
+  <h3 id="Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel_ConstraintValues" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.ConstraintValues">
+  ConstraintValues
+  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Linear Programming Calculator Desktop/ViewModels/EquationInputViewModel.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A collection of constraints.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ObservableCollection&lt;ConstraintViewModel&gt;? ConstraintValues { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1">ObservableCollection</a>&lt;<a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.ConstraintViewModel.html">ConstraintViewModel</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel_IntegerCheck_" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.IntegerCheck*"></a>
+
+  <h3 id="Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel_IntegerCheck" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.IntegerCheck">
+  IntegerCheck
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the problem has integer constraint.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IntegerCheck { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel_IntegerVariablesText_" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.IntegerVariablesText*"></a>
+
+  <h3 id="Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel_IntegerVariablesText" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.IntegerVariablesText">
+  IntegerVariablesText
+  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Linear Programming Calculator Desktop/ViewModels/EquationInputViewModel.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Formatted text for displaying an integer constraint.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string IntegerVariablesText { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel_IsMaximization_" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.IsMaximization*"></a>
+
+  <h3 id="Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel_IsMaximization" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.IsMaximization">
+  IsMaximization
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the problem is a maximization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsMaximization { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel_NewProblemCommand_" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.NewProblemCommand*"></a>
+
+  <h3 id="Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel_NewProblemCommand" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.NewProblemCommand">
+  NewProblemCommand
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets an <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.input.irelaycommand">IRelayCommand</a> instance wrapping <a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.html#Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel_NewProblem">NewProblem()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IRelayCommand NewProblemCommand { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.input.irelaycommand">IRelayCommand</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel_ObjectiveFunctionValues_" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.ObjectiveFunctionValues*"></a>
+
+  <h3 id="Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel_ObjectiveFunctionValues" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.ObjectiveFunctionValues">
+  ObjectiveFunctionValues
+  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Linear Programming Calculator Desktop/ViewModels/EquationInputViewModel.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>List of coefficients for the variables in the objective function.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ObservableCollection&lt;FieldViewModel&gt;? ObjectiveFunctionValues { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1">ObservableCollection</a>&lt;<a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.FieldViewModel.html">FieldViewModel</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel_SolveCommand_" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.SolveCommand*"></a>
+
+  <h3 id="Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel_SolveCommand" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.SolveCommand">
+  SolveCommand
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets an <a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.input.irelaycommand">IRelayCommand</a> instance wrapping <a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.html#Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel_Solve">Solve()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IRelayCommand SolveCommand { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.input.irelaycommand">IRelayCommand</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel_NewProblem_" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.NewProblem*"></a>
+
+  <h3 id="Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel_NewProblem" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.NewProblem">
+  NewProblem()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Linear Programming Calculator Desktop/ViewModels/EquationInputViewModel.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Command for navigating to the <a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.StartViewModel.html">StartViewModel</a> for entering the number of variables and constraints.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[RelayCommand]
+public void NewProblem()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel_Solve_" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.Solve*"></a>
+
+  <h3 id="Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel_Solve" data-uid="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.Solve">
+  Solve()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/varvaratrybiuk/Linear-Programming-Calculator/blob/main/Linear Programming Calculator Desktop/ViewModels/EquationInputViewModel.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Command that solves the problem using the entered data and navigates to the <a class="xref" href="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.html">ResultsViewModel</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[RelayCommand]
+public void Solve()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

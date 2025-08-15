@@ -1,0 +1,249 @@
+### YamlMime:ManagedReference
+items:
+- uid: Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService
+  commentId: T:Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService
+  id: IOptimalResultSummaryService
+  parent: Linear_Programming_Calculator_Desktop.Services
+  children:
+  - Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService.FormatObjectiveFunctionValue(Methods.Models.SimplexTable)
+  - Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService.FormatVariableAssignment(Methods.Models.SimplexTable,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: IOptimalResultSummaryService
+  nameWithType: IOptimalResultSummaryService
+  fullName: Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService
+  type: Interface
+  source:
+    remote:
+      path: Linear Programming Calculator Desktop/Services/IOptimalResultSummaryService.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: IOptimalResultSummaryService
+    path: Services/IOptimalResultSummaryService.cs
+    startLine: 8
+  assemblies:
+  - Linear Programming Calculator Desktop
+  namespace: Linear_Programming_Calculator_Desktop.Services
+  summary: Service interface for formatting the optimal result summary.
+  example: []
+  syntax:
+    content: public interface IOptimalResultSummaryService
+    content.vb: Public Interface IOptimalResultSummaryService
+- uid: Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService.FormatVariableAssignment(Methods.Models.SimplexTable,System.Int32)
+  commentId: M:Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService.FormatVariableAssignment(Methods.Models.SimplexTable,System.Int32)
+  id: FormatVariableAssignment(Methods.Models.SimplexTable,System.Int32)
+  parent: Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService
+  langs:
+  - csharp
+  - vb
+  name: FormatVariableAssignment(SimplexTable, int)
+  nameWithType: IOptimalResultSummaryService.FormatVariableAssignment(SimplexTable, int)
+  fullName: Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService.FormatVariableAssignment(Methods.Models.SimplexTable, int)
+  type: Method
+  source:
+    remote:
+      path: Linear Programming Calculator Desktop/Services/IOptimalResultSummaryService.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: FormatVariableAssignment
+    path: Services/IOptimalResultSummaryService.cs
+    startLine: 16
+  assemblies:
+  - Linear Programming Calculator Desktop
+  namespace: Linear_Programming_Calculator_Desktop.Services
+  summary: Formats the output of a variable assignment.
+  example: []
+  syntax:
+    content: (Fraction, string) FormatVariableAssignment(SimplexTable table, int currentIndex)
+    parameters:
+    - id: table
+      type: Methods.Models.SimplexTable
+      description: The table containing the results.
+    - id: currentIndex
+      type: System.Int32
+      description: The current index of the variable in the objective function.
+    return:
+      type: System.ValueTuple{Fractions.Fraction,System.String}
+      description: A tuple containing the variable value and its formatted output.
+    content.vb: Function FormatVariableAssignment(table As SimplexTable, currentIndex As Integer) As (Fraction, String)
+  overload: Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService.FormatVariableAssignment*
+  nameWithType.vb: IOptimalResultSummaryService.FormatVariableAssignment(SimplexTable, Integer)
+  fullName.vb: Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService.FormatVariableAssignment(Methods.Models.SimplexTable, Integer)
+  name.vb: FormatVariableAssignment(SimplexTable, Integer)
+- uid: Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService.FormatObjectiveFunctionValue(Methods.Models.SimplexTable)
+  commentId: M:Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService.FormatObjectiveFunctionValue(Methods.Models.SimplexTable)
+  id: FormatObjectiveFunctionValue(Methods.Models.SimplexTable)
+  parent: Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService
+  langs:
+  - csharp
+  - vb
+  name: FormatObjectiveFunctionValue(SimplexTable)
+  nameWithType: IOptimalResultSummaryService.FormatObjectiveFunctionValue(SimplexTable)
+  fullName: Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService.FormatObjectiveFunctionValue(Methods.Models.SimplexTable)
+  type: Method
+  source:
+    remote:
+      path: Linear Programming Calculator Desktop/Services/IOptimalResultSummaryService.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: FormatObjectiveFunctionValue
+    path: Services/IOptimalResultSummaryService.cs
+    startLine: 22
+  assemblies:
+  - Linear Programming Calculator Desktop
+  namespace: Linear_Programming_Calculator_Desktop.Services
+  summary: Formats the output of the objective function's optimal value.
+  example: []
+  syntax:
+    content: string FormatObjectiveFunctionValue(SimplexTable table)
+    parameters:
+    - id: table
+      type: Methods.Models.SimplexTable
+      description: The table containing the results.
+    return:
+      type: System.String
+      description: The formatted optimal result of the objective function.
+    content.vb: Function FormatObjectiveFunctionValue(table As SimplexTable) As String
+  overload: Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService.FormatObjectiveFunctionValue*
+references:
+- uid: Linear_Programming_Calculator_Desktop.Services
+  commentId: N:Linear_Programming_Calculator_Desktop.Services
+  href: Linear_Programming_Calculator_Desktop.html
+  name: Linear_Programming_Calculator_Desktop.Services
+  nameWithType: Linear_Programming_Calculator_Desktop.Services
+  fullName: Linear_Programming_Calculator_Desktop.Services
+  spec.csharp:
+  - uid: Linear_Programming_Calculator_Desktop
+    name: Linear_Programming_Calculator_Desktop
+    href: Linear_Programming_Calculator_Desktop.html
+  - name: .
+  - uid: Linear_Programming_Calculator_Desktop.Services
+    name: Services
+    href: Linear_Programming_Calculator_Desktop.Services.html
+  spec.vb:
+  - uid: Linear_Programming_Calculator_Desktop
+    name: Linear_Programming_Calculator_Desktop
+    href: Linear_Programming_Calculator_Desktop.html
+  - name: .
+  - uid: Linear_Programming_Calculator_Desktop.Services
+    name: Services
+    href: Linear_Programming_Calculator_Desktop.Services.html
+- uid: Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService.FormatVariableAssignment*
+  commentId: Overload:Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService.FormatVariableAssignment
+  href: Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService.html#Linear_Programming_Calculator_Desktop_Services_IOptimalResultSummaryService_FormatVariableAssignment_Methods_Models_SimplexTable_System_Int32_
+  name: FormatVariableAssignment
+  nameWithType: IOptimalResultSummaryService.FormatVariableAssignment
+  fullName: Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService.FormatVariableAssignment
+- uid: Methods.Models.SimplexTable
+  commentId: T:Methods.Models.SimplexTable
+  parent: Methods.Models
+  name: SimplexTable
+  nameWithType: SimplexTable
+  fullName: Methods.Models.SimplexTable
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.ValueTuple{Fractions.Fraction,System.String}
+  commentId: T:System.ValueTuple{Fractions.Fraction,System.String}
+  parent: System
+  definition: System.ValueTuple`2
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: (Fraction, string)
+  nameWithType: (Fraction, string)
+  fullName: (Fractions.Fraction, string)
+  nameWithType.vb: (Fraction, String)
+  fullName.vb: (Fractions.Fraction, String)
+  name.vb: (Fraction, String)
+  spec.csharp:
+  - name: (
+  - uid: Fractions.Fraction
+    name: Fraction
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: Fractions.Fraction
+    name: Fraction
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Methods.Models
+  commentId: N:Methods.Models
+  name: Methods.Models
+  nameWithType: Methods.Models
+  fullName: Methods.Models
+  spec.csharp:
+  - uid: Methods
+    name: Methods
+  - name: .
+  - uid: Methods.Models
+    name: Models
+  spec.vb:
+  - uid: Methods
+    name: Methods
+  - name: .
+  - uid: Methods.Models
+    name: Models
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueTuple`2
+  commentId: T:System.ValueTuple`2
+  name: (T1, T2)
+  nameWithType: (T1, T2)
+  fullName: (T1, T2)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+- uid: Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService.FormatObjectiveFunctionValue*
+  commentId: Overload:Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService.FormatObjectiveFunctionValue
+  href: Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService.html#Linear_Programming_Calculator_Desktop_Services_IOptimalResultSummaryService_FormatObjectiveFunctionValue_Methods_Models_SimplexTable_
+  name: FormatObjectiveFunctionValue
+  nameWithType: IOptimalResultSummaryService.FormatObjectiveFunctionValue
+  fullName: Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService.FormatObjectiveFunctionValue
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

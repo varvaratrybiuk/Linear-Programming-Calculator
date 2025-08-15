@@ -1,0 +1,147 @@
+### YamlMime:ManagedReference
+items:
+- uid: Methods.Enums.ConstraintType
+  commentId: T:Methods.Enums.ConstraintType
+  id: ConstraintType
+  parent: Methods.Enums
+  children:
+  - Methods.Enums.ConstraintType.Equal
+  - Methods.Enums.ConstraintType.GreaterThanOrEqual
+  - Methods.Enums.ConstraintType.LessThanOrEqual
+  langs:
+  - csharp
+  - vb
+  name: ConstraintType
+  nameWithType: ConstraintType
+  fullName: Methods.Enums.ConstraintType
+  type: Enum
+  source:
+    remote:
+      path: Methods/Enums/ConstraintType.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: ConstraintType
+    path: Enums/ConstraintType.cs
+    startLine: 5
+  assemblies:
+  - Methods
+  namespace: Methods.Enums
+  summary: Represents the type of a constraint in a LPP.
+  example: []
+  syntax:
+    content: public enum ConstraintType
+    content.vb: Public Enum ConstraintType
+- uid: Methods.Enums.ConstraintType.LessThanOrEqual
+  commentId: F:Methods.Enums.ConstraintType.LessThanOrEqual
+  id: LessThanOrEqual
+  parent: Methods.Enums.ConstraintType
+  langs:
+  - csharp
+  - vb
+  name: LessThanOrEqual
+  nameWithType: ConstraintType.LessThanOrEqual
+  fullName: Methods.Enums.ConstraintType.LessThanOrEqual
+  type: Field
+  source:
+    remote:
+      path: Methods/Enums/ConstraintType.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: LessThanOrEqual
+    path: Enums/ConstraintType.cs
+    startLine: 10
+  assemblies:
+  - Methods
+  namespace: Methods.Enums
+  summary: Less than or equal to constraint.
+  example: []
+  syntax:
+    content: LessThanOrEqual = 0
+    return:
+      type: Methods.Enums.ConstraintType
+- uid: Methods.Enums.ConstraintType.GreaterThanOrEqual
+  commentId: F:Methods.Enums.ConstraintType.GreaterThanOrEqual
+  id: GreaterThanOrEqual
+  parent: Methods.Enums.ConstraintType
+  langs:
+  - csharp
+  - vb
+  name: GreaterThanOrEqual
+  nameWithType: ConstraintType.GreaterThanOrEqual
+  fullName: Methods.Enums.ConstraintType.GreaterThanOrEqual
+  type: Field
+  source:
+    remote:
+      path: Methods/Enums/ConstraintType.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: GreaterThanOrEqual
+    path: Enums/ConstraintType.cs
+    startLine: 14
+  assemblies:
+  - Methods
+  namespace: Methods.Enums
+  summary: Greater than or equal to constraint.
+  example: []
+  syntax:
+    content: GreaterThanOrEqual = 1
+    return:
+      type: Methods.Enums.ConstraintType
+- uid: Methods.Enums.ConstraintType.Equal
+  commentId: F:Methods.Enums.ConstraintType.Equal
+  id: Equal
+  parent: Methods.Enums.ConstraintType
+  langs:
+  - csharp
+  - vb
+  name: Equal
+  nameWithType: ConstraintType.Equal
+  fullName: Methods.Enums.ConstraintType.Equal
+  type: Field
+  source:
+    remote:
+      path: Methods/Enums/ConstraintType.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: Equal
+    path: Enums/ConstraintType.cs
+    startLine: 18
+  assemblies:
+  - Methods
+  namespace: Methods.Enums
+  summary: Equality constraint.
+  example: []
+  syntax:
+    content: Equal = 2
+    return:
+      type: Methods.Enums.ConstraintType
+references:
+- uid: Methods.Enums
+  commentId: N:Methods.Enums
+  href: Methods.html
+  name: Methods.Enums
+  nameWithType: Methods.Enums
+  fullName: Methods.Enums
+  spec.csharp:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.Enums
+    name: Enums
+    href: Methods.Enums.html
+  spec.vb:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.Enums
+    name: Enums
+    href: Methods.Enums.html
+- uid: Methods.Enums.ConstraintType
+  commentId: T:Methods.Enums.ConstraintType
+  parent: Methods.Enums
+  href: Methods.Enums.ConstraintType.html
+  name: ConstraintType
+  nameWithType: ConstraintType
+  fullName: Methods.Enums.ConstraintType
