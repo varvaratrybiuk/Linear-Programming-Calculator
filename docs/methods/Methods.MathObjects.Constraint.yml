@@ -1,0 +1,632 @@
+### YamlMime:ManagedReference
+items:
+- uid: Methods.MathObjects.Constraint
+  commentId: T:Methods.MathObjects.Constraint
+  id: Constraint
+  parent: Methods.MathObjects
+  children:
+  - Methods.MathObjects.Constraint.Clone
+  - Methods.MathObjects.Constraint.Coefficients
+  - Methods.MathObjects.Constraint.RightHandSide
+  - Methods.MathObjects.Constraint.Type
+  langs:
+  - csharp
+  - vb
+  name: Constraint
+  nameWithType: Constraint
+  fullName: Methods.MathObjects.Constraint
+  type: Class
+  source:
+    remote:
+      path: Methods/MathObjects/Constraint.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: Constraint
+    path: ../Methods/MathObjects/Constraint.cs
+    startLine: 7
+  assemblies:
+  - Methods
+  namespace: Methods.MathObjects
+  summary: Class that represent a constraint parts
+  example: []
+  syntax:
+    content: 'public class Constraint : ICloneable'
+    content.vb: Public Class Constraint Implements ICloneable
+  inheritance:
+  - System.Object
+  implements:
+  - System.ICloneable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Methods.MathObjects.Constraint.Coefficients
+  commentId: P:Methods.MathObjects.Constraint.Coefficients
+  id: Coefficients
+  parent: Methods.MathObjects.Constraint
+  langs:
+  - csharp
+  - vb
+  name: Coefficients
+  nameWithType: Constraint.Coefficients
+  fullName: Methods.MathObjects.Constraint.Coefficients
+  type: Property
+  source:
+    remote:
+      path: Methods/MathObjects/Constraint.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: Coefficients
+    path: ../Methods/MathObjects/Constraint.cs
+    startLine: 12
+  assemblies:
+  - Methods
+  namespace: Methods.MathObjects
+  summary: List of coefficients.
+  example: []
+  syntax:
+    content: public List<string> Coefficients { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Property Coefficients As List(Of String)
+  overload: Methods.MathObjects.Constraint.Coefficients*
+- uid: Methods.MathObjects.Constraint.Type
+  commentId: P:Methods.MathObjects.Constraint.Type
+  id: Type
+  parent: Methods.MathObjects.Constraint
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: Constraint.Type
+  fullName: Methods.MathObjects.Constraint.Type
+  type: Property
+  source:
+    remote:
+      path: Methods/MathObjects/Constraint.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: Type
+    path: ../Methods/MathObjects/Constraint.cs
+    startLine: 16
+  assemblies:
+  - Methods
+  namespace: Methods.MathObjects
+  summary: Represents the type of constraint, such as greater than or equal, less than or equal, or equal.
+  example: []
+  syntax:
+    content: public ConstraintType Type { get; set; }
+    parameters: []
+    return:
+      type: Methods.Enums.ConstraintType
+    content.vb: Public Property Type As ConstraintType
+  overload: Methods.MathObjects.Constraint.Type*
+- uid: Methods.MathObjects.Constraint.RightHandSide
+  commentId: P:Methods.MathObjects.Constraint.RightHandSide
+  id: RightHandSide
+  parent: Methods.MathObjects.Constraint
+  langs:
+  - csharp
+  - vb
+  name: RightHandSide
+  nameWithType: Constraint.RightHandSide
+  fullName: Methods.MathObjects.Constraint.RightHandSide
+  type: Property
+  source:
+    remote:
+      path: Methods/MathObjects/Constraint.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: RightHandSide
+    path: ../Methods/MathObjects/Constraint.cs
+    startLine: 20
+  assemblies:
+  - Methods
+  namespace: Methods.MathObjects
+  summary: Represents the expression on the right-hand side of the constraint.
+  example: []
+  syntax:
+    content: public string RightHandSide { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property RightHandSide As String
+  overload: Methods.MathObjects.Constraint.RightHandSide*
+- uid: Methods.MathObjects.Constraint.Clone
+  commentId: M:Methods.MathObjects.Constraint.Clone
+  id: Clone
+  parent: Methods.MathObjects.Constraint
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: Constraint.Clone()
+  fullName: Methods.MathObjects.Constraint.Clone()
+  type: Method
+  source:
+    remote:
+      path: Methods/MathObjects/Constraint.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: Clone
+    path: ../Methods/MathObjects/Constraint.cs
+    startLine: 26
+  assemblies:
+  - Methods
+  namespace: Methods.MathObjects
+  summary: Creates a clone of the current object.
+  example: []
+  syntax:
+    content: public object Clone()
+    return:
+      type: System.Object
+      description: A new instance of the <xref href="Methods.MathObjects.Constraint" data-throw-if-not-resolved="false"></xref> object.
+    content.vb: Public Function Clone() As Object
+  overload: Methods.MathObjects.Constraint.Clone*
+  implements:
+  - System.ICloneable.Clone
+references:
+- uid: Methods.MathObjects
+  commentId: N:Methods.MathObjects
+  href: Methods.html
+  name: Methods.MathObjects
+  nameWithType: Methods.MathObjects
+  fullName: Methods.MathObjects
+  spec.csharp:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.MathObjects
+    name: MathObjects
+    href: Methods.MathObjects.html
+  spec.vb:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.MathObjects
+    name: MathObjects
+    href: Methods.MathObjects.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Methods.MathObjects.Constraint.Coefficients*
+  commentId: Overload:Methods.MathObjects.Constraint.Coefficients
+  href: Methods.MathObjects.Constraint.html#Methods_MathObjects_Constraint_Coefficients
+  name: Coefficients
+  nameWithType: Constraint.Coefficients
+  fullName: Methods.MathObjects.Constraint.Coefficients
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Methods.MathObjects.Constraint.Type*
+  commentId: Overload:Methods.MathObjects.Constraint.Type
+  href: Methods.MathObjects.Constraint.html#Methods_MathObjects_Constraint_Type
+  name: Type
+  nameWithType: Constraint.Type
+  fullName: Methods.MathObjects.Constraint.Type
+- uid: Methods.Enums.ConstraintType
+  commentId: T:Methods.Enums.ConstraintType
+  parent: Methods.Enums
+  href: Methods.Enums.ConstraintType.html
+  name: ConstraintType
+  nameWithType: ConstraintType
+  fullName: Methods.Enums.ConstraintType
+- uid: Methods.Enums
+  commentId: N:Methods.Enums
+  href: Methods.html
+  name: Methods.Enums
+  nameWithType: Methods.Enums
+  fullName: Methods.Enums
+  spec.csharp:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.Enums
+    name: Enums
+    href: Methods.Enums.html
+  spec.vb:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.Enums
+    name: Enums
+    href: Methods.Enums.html
+- uid: Methods.MathObjects.Constraint.RightHandSide*
+  commentId: Overload:Methods.MathObjects.Constraint.RightHandSide
+  href: Methods.MathObjects.Constraint.html#Methods_MathObjects_Constraint_RightHandSide
+  name: RightHandSide
+  nameWithType: Constraint.RightHandSide
+  fullName: Methods.MathObjects.Constraint.RightHandSide
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Methods.MathObjects.Constraint
+  commentId: T:Methods.MathObjects.Constraint
+  href: Methods.MathObjects.Constraint.html
+  name: Constraint
+  nameWithType: Constraint
+  fullName: Methods.MathObjects.Constraint
+- uid: Methods.MathObjects.Constraint.Clone*
+  commentId: Overload:Methods.MathObjects.Constraint.Clone
+  href: Methods.MathObjects.Constraint.html#Methods_MathObjects_Constraint_Clone
+  name: Clone
+  nameWithType: Constraint.Clone
+  fullName: Methods.MathObjects.Constraint.Clone
+- uid: System.ICloneable.Clone
+  commentId: M:System.ICloneable.Clone
+  parent: System.ICloneable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  name: Clone()
+  nameWithType: ICloneable.Clone()
+  fullName: System.ICloneable.Clone()
+  spec.csharp:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )

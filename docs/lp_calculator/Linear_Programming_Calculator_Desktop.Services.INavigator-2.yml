@@ -1,0 +1,113 @@
+### YamlMime:ManagedReference
+items:
+- uid: Linear_Programming_Calculator_Desktop.Services.INavigator`2
+  commentId: T:Linear_Programming_Calculator_Desktop.Services.INavigator`2
+  id: INavigator`2
+  parent: Linear_Programming_Calculator_Desktop.Services
+  children:
+  - Linear_Programming_Calculator_Desktop.Services.INavigator`2.Navigate(`1)
+  langs:
+  - csharp
+  - vb
+  name: INavigator<TViewModel, TParameter>
+  nameWithType: INavigator<TViewModel, TParameter>
+  fullName: Linear_Programming_Calculator_Desktop.Services.INavigator<TViewModel, TParameter>
+  type: Interface
+  source:
+    remote:
+      path: Linear Programming Calculator Desktop/Services/INavigator.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: INavigator
+    path: ../Linear Programming Calculator Desktop/Services/INavigator.cs
+    startLine: 18
+  assemblies:
+  - Linear Programming Calculator Desktop
+  namespace: Linear_Programming_Calculator_Desktop.Services
+  summary: Interface for Navigator with parameters.
+  example: []
+  syntax:
+    content: public interface INavigator<TViewModel, TParameter>
+    typeParameters:
+    - id: TViewModel
+      description: The type of ViewModel to navigate to.
+    - id: TParameter
+      description: Parameters to be passed.
+    content.vb: Public Interface INavigator(Of TViewModel, TParameter)
+  nameWithType.vb: INavigator(Of TViewModel, TParameter)
+  fullName.vb: Linear_Programming_Calculator_Desktop.Services.INavigator(Of TViewModel, TParameter)
+  name.vb: INavigator(Of TViewModel, TParameter)
+- uid: Linear_Programming_Calculator_Desktop.Services.INavigator`2.Navigate(`1)
+  commentId: M:Linear_Programming_Calculator_Desktop.Services.INavigator`2.Navigate(`1)
+  id: Navigate(`1)
+  parent: Linear_Programming_Calculator_Desktop.Services.INavigator`2
+  langs:
+  - csharp
+  - vb
+  name: Navigate(TParameter)
+  nameWithType: INavigator<TViewModel, TParameter>.Navigate(TParameter)
+  fullName: Linear_Programming_Calculator_Desktop.Services.INavigator<TViewModel, TParameter>.Navigate(TParameter)
+  type: Method
+  source:
+    remote:
+      path: Linear Programming Calculator Desktop/Services/INavigator.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: Navigate
+    path: ../Linear Programming Calculator Desktop/Services/INavigator.cs
+    startLine: 23
+  assemblies:
+  - Linear Programming Calculator Desktop
+  namespace: Linear_Programming_Calculator_Desktop.Services
+  summary: Used to navigate to target View Model with parameters.
+  example: []
+  syntax:
+    content: void Navigate(TParameter parameter)
+    parameters:
+    - id: parameter
+      type: '{TParameter}'
+    content.vb: Sub Navigate(parameter As TParameter)
+  overload: Linear_Programming_Calculator_Desktop.Services.INavigator`2.Navigate*
+  nameWithType.vb: INavigator(Of TViewModel, TParameter).Navigate(TParameter)
+  fullName.vb: Linear_Programming_Calculator_Desktop.Services.INavigator(Of TViewModel, TParameter).Navigate(TParameter)
+references:
+- uid: Linear_Programming_Calculator_Desktop.Services
+  commentId: N:Linear_Programming_Calculator_Desktop.Services
+  href: Linear_Programming_Calculator_Desktop.html
+  name: Linear_Programming_Calculator_Desktop.Services
+  nameWithType: Linear_Programming_Calculator_Desktop.Services
+  fullName: Linear_Programming_Calculator_Desktop.Services
+  spec.csharp:
+  - uid: Linear_Programming_Calculator_Desktop
+    name: Linear_Programming_Calculator_Desktop
+    href: Linear_Programming_Calculator_Desktop.html
+  - name: .
+  - uid: Linear_Programming_Calculator_Desktop.Services
+    name: Services
+    href: Linear_Programming_Calculator_Desktop.Services.html
+  spec.vb:
+  - uid: Linear_Programming_Calculator_Desktop
+    name: Linear_Programming_Calculator_Desktop
+    href: Linear_Programming_Calculator_Desktop.html
+  - name: .
+  - uid: Linear_Programming_Calculator_Desktop.Services
+    name: Services
+    href: Linear_Programming_Calculator_Desktop.Services.html
+- uid: Linear_Programming_Calculator_Desktop.Services.INavigator`2.Navigate*
+  commentId: Overload:Linear_Programming_Calculator_Desktop.Services.INavigator`2.Navigate
+  href: Linear_Programming_Calculator_Desktop.Services.INavigator-2.html#Linear_Programming_Calculator_Desktop_Services_INavigator_2_Navigate__1_
+  name: Navigate
+  nameWithType: INavigator<TViewModel, TParameter>.Navigate
+  fullName: Linear_Programming_Calculator_Desktop.Services.INavigator<TViewModel, TParameter>.Navigate
+  nameWithType.vb: INavigator(Of TViewModel, TParameter).Navigate
+  fullName.vb: Linear_Programming_Calculator_Desktop.Services.INavigator(Of TViewModel, TParameter).Navigate
+- uid: '{TParameter}'
+  commentId: '!:TParameter'
+  definition: TParameter
+  name: TParameter
+  nameWithType: TParameter
+  fullName: TParameter
+- uid: TParameter
+  name: TParameter
+  nameWithType: TParameter
+  fullName: TParameter

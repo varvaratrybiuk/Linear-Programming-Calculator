@@ -1,0 +1,31 @@
+### YamlMime:ManagedReference
+items:
+- uid: Methods.Solvers
+  commentId: N:Methods.Solvers
+  id: Solvers
+  parent: Methods
+  children:
+  - Methods.Solvers.GomorySolver
+  - Methods.Solvers.SimplexSolver
+  langs:
+  - csharp
+  - vb
+  name: Methods.Solvers
+  nameWithType: Methods.Solvers
+  fullName: Methods.Solvers
+  type: Namespace
+  assemblies:
+  - Methods
+references:
+- uid: Methods.Solvers.GomorySolver
+  commentId: T:Methods.Solvers.GomorySolver
+  href: Methods.Solvers.GomorySolver.html
+  name: GomorySolver
+  nameWithType: GomorySolver
+  fullName: Methods.Solvers.GomorySolver
+- uid: Methods.Solvers.SimplexSolver
+  commentId: T:Methods.Solvers.SimplexSolver
+  href: Methods.Solvers.SimplexSolver.html
+  name: SimplexSolver
+  nameWithType: SimplexSolver
+  fullName: Methods.Solvers.SimplexSolver

@@ -1,0 +1,6 @@
+- name: Descriptions
+  href: docs/
+- name: Linear Programming Calculator
+  href: lp_calculator/
+- name: Linear Programming Solvers
+  href: methods/

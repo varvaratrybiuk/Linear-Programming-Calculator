@@ -1,0 +1,125 @@
+### YamlMime:TableOfContent
+items:
+- uid: Linear_Programming_Calculator_Desktop
+  name: Linear_Programming_Calculator_Desktop
+  type: Namespace
+  items:
+  - uid: Linear_Programming_Calculator_Desktop.Attributes
+    name: Attributes
+    type: Namespace
+    items:
+    - uid: Linear_Programming_Calculator_Desktop.Attributes.NumericOnlyAttribute
+      name: NumericOnlyAttribute
+      type: Class
+    - uid: Linear_Programming_Calculator_Desktop.Attributes.ValidVariableCountAttribute
+      name: ValidVariableCountAttribute
+      type: Class
+  - uid: Linear_Programming_Calculator_Desktop.Converters
+    name: Converters
+    type: Namespace
+    items:
+    - uid: Linear_Programming_Calculator_Desktop.Converters.ConstraintTypeToSignConverter
+      name: ConstraintTypeToSignConverter
+      type: Class
+    - uid: Linear_Programming_Calculator_Desktop.Converters.IsMaximizationConverter
+      name: IsMaximizationConverter
+      type: Class
+    - uid: Linear_Programming_Calculator_Desktop.Converters.IsNotLastItemConverter
+      name: IsNotLastItemConverter
+      type: Class
+    - uid: Linear_Programming_Calculator_Desktop.Converters.NullToVisibilityConverter
+      name: NullToVisibilityConverter
+      type: Class
+  - uid: Linear_Programming_Calculator_Desktop.DTOs
+    name: DTOs
+    type: Namespace
+    items:
+    - uid: Linear_Programming_Calculator_Desktop.DTOs.LinearProgramResultDto
+      name: LinearProgramResultDto
+      type: Class
+  - uid: Linear_Programming_Calculator_Desktop.Models
+    name: Models
+    type: Namespace
+    items:
+    - uid: Linear_Programming_Calculator_Desktop.Models.FormattedLinearProblem
+      name: FormattedLinearProblem
+      type: Class
+    - uid: Linear_Programming_Calculator_Desktop.Models.LinearProgramInput
+      name: LinearProgramInput
+      type: Class
+    - uid: Linear_Programming_Calculator_Desktop.Models.SimplexCell
+      name: SimplexCell
+      type: Class
+  - uid: Linear_Programming_Calculator_Desktop.Services
+    name: Services
+    type: Namespace
+    items:
+    - uid: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService
+      name: GomoryCutFormatterService
+      type: Class
+    - uid: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService
+      name: IGomoryCutFormatterService
+      type: Interface
+    - uid: Linear_Programming_Calculator_Desktop.Services.INavigator`1
+      name: INavigator<TViewModel>
+      type: Interface
+    - uid: Linear_Programming_Calculator_Desktop.Services.INavigator`2
+      name: INavigator<TViewModel, TParameter>
+      type: Interface
+    - uid: Linear_Programming_Calculator_Desktop.Services.IOptimalResultSummaryService
+      name: IOptimalResultSummaryService
+      type: Interface
+    - uid: Linear_Programming_Calculator_Desktop.Services.IProblemFormatterService
+      name: IProblemFormatterService
+      type: Interface
+    - uid: Linear_Programming_Calculator_Desktop.Services.NavigationService`1
+      name: NavigationService<TViewModel>
+      type: Class
+    - uid: Linear_Programming_Calculator_Desktop.Services.NavigationService`2
+      name: NavigationService<TViewModel, TParameter>
+      type: Class
+    - uid: Linear_Programming_Calculator_Desktop.Services.OptimalResultSummaryService
+      name: OptimalResultSummaryService
+      type: Class
+    - uid: Linear_Programming_Calculator_Desktop.Services.ProblemFormatterService
+      name: ProblemFormatterService
+      type: Class
+  - uid: Linear_Programming_Calculator_Desktop.Stores
+    name: Stores
+    type: Namespace
+    items:
+    - uid: Linear_Programming_Calculator_Desktop.Stores.LinearProgramInputStore
+      name: LinearProgramInputStore
+      type: Class
+    - uid: Linear_Programming_Calculator_Desktop.Stores.NavigationStore
+      name: NavigationStore
+      type: Class
+  - uid: Linear_Programming_Calculator_Desktop.ViewModels
+    name: ViewModels
+    type: Namespace
+    items:
+    - uid: Linear_Programming_Calculator_Desktop.ViewModels.ConstraintViewModel
+      name: ConstraintViewModel
+      type: Class
+    - uid: Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel
+      name: EquationInputViewModel
+      type: Class
+    - uid: Linear_Programming_Calculator_Desktop.ViewModels.FieldViewModel
+      name: FieldViewModel
+      type: Class
+    - uid: Linear_Programming_Calculator_Desktop.ViewModels.GomoryViewModel
+      name: GomoryViewModel
+      type: Class
+    - uid: Linear_Programming_Calculator_Desktop.ViewModels.MainViewModel
+      name: MainViewModel
+      type: Class
+    - uid: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel
+      name: ResultsViewModel
+      type: Class
+    - uid: Linear_Programming_Calculator_Desktop.ViewModels.SimplexViewModel
+      name: SimplexViewModel
+      type: Class
+    - uid: Linear_Programming_Calculator_Desktop.ViewModels.StartViewModel
+      name: StartViewModel
+      type: Class
+memberLayout: SamePage

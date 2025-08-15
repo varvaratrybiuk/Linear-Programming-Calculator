@@ -1,0 +1,432 @@
+### YamlMime:ManagedReference
+items:
+- uid: Methods.Models.SimplexStep
+  commentId: T:Methods.Models.SimplexStep
+  id: SimplexStep
+  parent: Methods.Models
+  children:
+  - Methods.Models.SimplexStep.PivotColumn
+  - Methods.Models.SimplexStep.PivotRow
+  - Methods.Models.SimplexStep.Table
+  langs:
+  - csharp
+  - vb
+  name: SimplexStep
+  nameWithType: SimplexStep
+  fullName: Methods.Models.SimplexStep
+  type: Class
+  source:
+    remote:
+      path: Methods/Models/SimplexStep.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: SimplexStep
+    path: ../Methods/Models/SimplexStep.cs
+    startLine: 5
+  assemblies:
+  - Methods
+  namespace: Methods.Models
+  summary: Represents the current state of the simplex table during pivot selection.
+  example: []
+  syntax:
+    content: public class SimplexStep
+    content.vb: Public Class SimplexStep
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Methods.Models.SimplexStep.PivotRow
+  commentId: P:Methods.Models.SimplexStep.PivotRow
+  id: PivotRow
+  parent: Methods.Models.SimplexStep
+  langs:
+  - csharp
+  - vb
+  name: PivotRow
+  nameWithType: SimplexStep.PivotRow
+  fullName: Methods.Models.SimplexStep.PivotRow
+  type: Property
+  source:
+    remote:
+      path: Methods/Models/SimplexStep.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: PivotRow
+    path: ../Methods/Models/SimplexStep.cs
+    startLine: 10
+  assemblies:
+  - Methods
+  namespace: Methods.Models
+  summary: Index of the pivot row in the current simplex table.
+  example: []
+  syntax:
+    content: public int PivotRow { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property PivotRow As Integer
+  overload: Methods.Models.SimplexStep.PivotRow*
+- uid: Methods.Models.SimplexStep.PivotColumn
+  commentId: P:Methods.Models.SimplexStep.PivotColumn
+  id: PivotColumn
+  parent: Methods.Models.SimplexStep
+  langs:
+  - csharp
+  - vb
+  name: PivotColumn
+  nameWithType: SimplexStep.PivotColumn
+  fullName: Methods.Models.SimplexStep.PivotColumn
+  type: Property
+  source:
+    remote:
+      path: Methods/Models/SimplexStep.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: PivotColumn
+    path: ../Methods/Models/SimplexStep.cs
+    startLine: 14
+  assemblies:
+  - Methods
+  namespace: Methods.Models
+  summary: Index of the pivot column in the current simplex table.
+  example: []
+  syntax:
+    content: public int PivotColumn { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property PivotColumn As Integer
+  overload: Methods.Models.SimplexStep.PivotColumn*
+- uid: Methods.Models.SimplexStep.Table
+  commentId: P:Methods.Models.SimplexStep.Table
+  id: Table
+  parent: Methods.Models.SimplexStep
+  langs:
+  - csharp
+  - vb
+  name: Table
+  nameWithType: SimplexStep.Table
+  fullName: Methods.Models.SimplexStep.Table
+  type: Property
+  source:
+    remote:
+      path: Methods/Models/SimplexStep.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: Table
+    path: ../Methods/Models/SimplexStep.cs
+    startLine: 18
+  assemblies:
+  - Methods
+  namespace: Methods.Models
+  summary: Simplex tableau at the current step.
+  example: []
+  syntax:
+    content: public required SimplexTable Table { get; set; }
+    parameters: []
+    return:
+      type: Methods.Models.SimplexTable
+    content.vb: Public Property Table As SimplexTable
+  overload: Methods.Models.SimplexStep.Table*
+references:
+- uid: Methods.Models
+  commentId: N:Methods.Models
+  href: Methods.html
+  name: Methods.Models
+  nameWithType: Methods.Models
+  fullName: Methods.Models
+  spec.csharp:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.Models
+    name: Models
+    href: Methods.Models.html
+  spec.vb:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.Models
+    name: Models
+    href: Methods.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Methods.Models.SimplexStep.PivotRow*
+  commentId: Overload:Methods.Models.SimplexStep.PivotRow
+  href: Methods.Models.SimplexStep.html#Methods_Models_SimplexStep_PivotRow
+  name: PivotRow
+  nameWithType: SimplexStep.PivotRow
+  fullName: Methods.Models.SimplexStep.PivotRow
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Methods.Models.SimplexStep.PivotColumn*
+  commentId: Overload:Methods.Models.SimplexStep.PivotColumn
+  href: Methods.Models.SimplexStep.html#Methods_Models_SimplexStep_PivotColumn
+  name: PivotColumn
+  nameWithType: SimplexStep.PivotColumn
+  fullName: Methods.Models.SimplexStep.PivotColumn
+- uid: Methods.Models.SimplexStep.Table*
+  commentId: Overload:Methods.Models.SimplexStep.Table
+  href: Methods.Models.SimplexStep.html#Methods_Models_SimplexStep_Table
+  name: Table
+  nameWithType: SimplexStep.Table
+  fullName: Methods.Models.SimplexStep.Table
+- uid: Methods.Models.SimplexTable
+  commentId: T:Methods.Models.SimplexTable
+  parent: Methods.Models
+  href: Methods.Models.SimplexTable.html
+  name: SimplexTable
+  nameWithType: SimplexTable
+  fullName: Methods.Models.SimplexTable

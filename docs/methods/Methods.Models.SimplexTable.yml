@@ -1,0 +1,811 @@
+### YamlMime:ManagedReference
+items:
+- uid: Methods.Models.SimplexTable
+  commentId: T:Methods.Models.SimplexTable
+  id: SimplexTable
+  parent: Methods.Models
+  children:
+  - Methods.Models.SimplexTable.Clone
+  - Methods.Models.SimplexTable.ColumnVariables
+  - Methods.Models.SimplexTable.DeltaRow
+  - Methods.Models.SimplexTable.RowVariables
+  - Methods.Models.SimplexTable.ThetaRow
+  - Methods.Models.SimplexTable.Values
+  langs:
+  - csharp
+  - vb
+  name: SimplexTable
+  nameWithType: SimplexTable
+  fullName: Methods.Models.SimplexTable
+  type: Class
+  source:
+    remote:
+      path: Methods/Models/SimplexTable.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: SimplexTable
+    path: ../Methods/Models/SimplexTable.cs
+    startLine: 7
+  assemblies:
+  - Methods
+  namespace: Methods.Models
+  summary: Represents a simplex tableau used during the simplex algorithm iterations.
+  example: []
+  syntax:
+    content: 'public class SimplexTable : ICloneable'
+    content.vb: Public Class SimplexTable Implements ICloneable
+  inheritance:
+  - System.Object
+  implements:
+  - System.ICloneable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Methods.Models.SimplexTable.RowVariables
+  commentId: P:Methods.Models.SimplexTable.RowVariables
+  id: RowVariables
+  parent: Methods.Models.SimplexTable
+  langs:
+  - csharp
+  - vb
+  name: RowVariables
+  nameWithType: SimplexTable.RowVariables
+  fullName: Methods.Models.SimplexTable.RowVariables
+  type: Property
+  source:
+    remote:
+      path: Methods/Models/SimplexTable.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: RowVariables
+    path: ../Methods/Models/SimplexTable.cs
+    startLine: 13
+  assemblies:
+  - Methods
+  namespace: Methods.Models
+  summary: >-
+    Dictionary of row variables, where the key is the variable name (e.g., "x1"),
+
+    and the value is the corresponding coefficient from the objective function.
+  example: []
+  syntax:
+    content: public Dictionary<string, string> RowVariables { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.String}
+    content.vb: Public Property RowVariables As Dictionary(Of String, String)
+  overload: Methods.Models.SimplexTable.RowVariables*
+- uid: Methods.Models.SimplexTable.ColumnVariables
+  commentId: P:Methods.Models.SimplexTable.ColumnVariables
+  id: ColumnVariables
+  parent: Methods.Models.SimplexTable
+  langs:
+  - csharp
+  - vb
+  name: ColumnVariables
+  nameWithType: SimplexTable.ColumnVariables
+  fullName: Methods.Models.SimplexTable.ColumnVariables
+  type: Property
+  source:
+    remote:
+      path: Methods/Models/SimplexTable.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: ColumnVariables
+    path: ../Methods/Models/SimplexTable.cs
+    startLine: 18
+  assemblies:
+  - Methods
+  namespace: Methods.Models
+  summary: >-
+    Dictionary of column variables, where the key is the variable name (e.g., "A0"),
+
+    and the value is the corresponding coefficient from the objective function.
+  example: []
+  syntax:
+    content: public Dictionary<string, string> ColumnVariables { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.String}
+    content.vb: Public Property ColumnVariables As Dictionary(Of String, String)
+  overload: Methods.Models.SimplexTable.ColumnVariables*
+- uid: Methods.Models.SimplexTable.Values
+  commentId: P:Methods.Models.SimplexTable.Values
+  id: Values
+  parent: Methods.Models.SimplexTable
+  langs:
+  - csharp
+  - vb
+  name: Values
+  nameWithType: SimplexTable.Values
+  fullName: Methods.Models.SimplexTable.Values
+  type: Property
+  source:
+    remote:
+      path: Methods/Models/SimplexTable.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: Values
+    path: ../Methods/Models/SimplexTable.cs
+    startLine: 22
+  assemblies:
+  - Methods
+  namespace: Methods.Models
+  summary: Numerical values of the simplex tableau.
+  example: []
+  syntax:
+    content: public Fraction[,] Values { get; set; }
+    parameters: []
+    return:
+      type: Fractions.Fraction[,]
+    content.vb: Public Property Values As Fraction(,)
+  overload: Methods.Models.SimplexTable.Values*
+- uid: Methods.Models.SimplexTable.DeltaRow
+  commentId: P:Methods.Models.SimplexTable.DeltaRow
+  id: DeltaRow
+  parent: Methods.Models.SimplexTable
+  langs:
+  - csharp
+  - vb
+  name: DeltaRow
+  nameWithType: SimplexTable.DeltaRow
+  fullName: Methods.Models.SimplexTable.DeltaRow
+  type: Property
+  source:
+    remote:
+      path: Methods/Models/SimplexTable.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: DeltaRow
+    path: ../Methods/Models/SimplexTable.cs
+    startLine: 26
+  assemblies:
+  - Methods
+  namespace: Methods.Models
+  summary: Delta row values representing the results after computing reduced costs.
+  example: []
+  syntax:
+    content: public List<ExpressionValue> DeltaRow { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{Methods.Models.ExpressionValue}
+    content.vb: Public Property DeltaRow As List(Of ExpressionValue)
+  overload: Methods.Models.SimplexTable.DeltaRow*
+- uid: Methods.Models.SimplexTable.ThetaRow
+  commentId: P:Methods.Models.SimplexTable.ThetaRow
+  id: ThetaRow
+  parent: Methods.Models.SimplexTable
+  langs:
+  - csharp
+  - vb
+  name: ThetaRow
+  nameWithType: SimplexTable.ThetaRow
+  fullName: Methods.Models.SimplexTable.ThetaRow
+  type: Property
+  source:
+    remote:
+      path: Methods/Models/SimplexTable.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: ThetaRow
+    path: ../Methods/Models/SimplexTable.cs
+    startLine: 30
+  assemblies:
+  - Methods
+  namespace: Methods.Models
+  summary: Theta row values used to identify pivot elements during the Gomory method.
+  example: []
+  syntax:
+    content: public List<string> ThetaRow { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Property ThetaRow As List(Of String)
+  overload: Methods.Models.SimplexTable.ThetaRow*
+- uid: Methods.Models.SimplexTable.Clone
+  commentId: M:Methods.Models.SimplexTable.Clone
+  id: Clone
+  parent: Methods.Models.SimplexTable
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: SimplexTable.Clone()
+  fullName: Methods.Models.SimplexTable.Clone()
+  type: Method
+  source:
+    remote:
+      path: Methods/Models/SimplexTable.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: Clone
+    path: ../Methods/Models/SimplexTable.cs
+    startLine: 36
+  assemblies:
+  - Methods
+  namespace: Methods.Models
+  summary: Creates a clone of the current object.
+  example: []
+  syntax:
+    content: public object Clone()
+    return:
+      type: System.Object
+      description: A new instance of the <xref href="Methods.Models.SimplexTable" data-throw-if-not-resolved="false"></xref> object.
+    content.vb: Public Function Clone() As Object
+  overload: Methods.Models.SimplexTable.Clone*
+  implements:
+  - System.ICloneable.Clone
+references:
+- uid: Methods.Models
+  commentId: N:Methods.Models
+  href: Methods.html
+  name: Methods.Models
+  nameWithType: Methods.Models
+  fullName: Methods.Models
+  spec.csharp:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.Models
+    name: Models
+    href: Methods.Models.html
+  spec.vb:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.Models
+    name: Models
+    href: Methods.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Methods.Models.SimplexTable.RowVariables*
+  commentId: Overload:Methods.Models.SimplexTable.RowVariables
+  href: Methods.Models.SimplexTable.html#Methods_Models_SimplexTable_RowVariables
+  name: RowVariables
+  nameWithType: SimplexTable.RowVariables
+  fullName: Methods.Models.SimplexTable.RowVariables
+- uid: System.Collections.Generic.Dictionary{System.String,System.String}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, string>
+  nameWithType: Dictionary<string, string>
+  fullName: System.Collections.Generic.Dictionary<string, string>
+  nameWithType.vb: Dictionary(Of String, String)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, String)
+  name.vb: Dictionary(Of String, String)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Methods.Models.SimplexTable.ColumnVariables*
+  commentId: Overload:Methods.Models.SimplexTable.ColumnVariables
+  href: Methods.Models.SimplexTable.html#Methods_Models_SimplexTable_ColumnVariables
+  name: ColumnVariables
+  nameWithType: SimplexTable.ColumnVariables
+  fullName: Methods.Models.SimplexTable.ColumnVariables
+- uid: Methods.Models.SimplexTable.Values*
+  commentId: Overload:Methods.Models.SimplexTable.Values
+  href: Methods.Models.SimplexTable.html#Methods_Models_SimplexTable_Values
+  name: Values
+  nameWithType: SimplexTable.Values
+  fullName: Methods.Models.SimplexTable.Values
+- uid: Fractions.Fraction[,]
+  isExternal: true
+  name: Fraction[,]
+  nameWithType: Fraction[,]
+  fullName: Fractions.Fraction[,]
+  nameWithType.vb: Fraction(,)
+  fullName.vb: Fractions.Fraction(,)
+  name.vb: Fraction(,)
+  spec.csharp:
+  - uid: Fractions.Fraction
+    name: Fraction
+    isExternal: true
+  - name: '['
+  - name: ','
+  - name: ']'
+  spec.vb:
+  - uid: Fractions.Fraction
+    name: Fraction
+    isExternal: true
+  - name: (
+  - name: ','
+  - name: )
+- uid: Methods.Models.SimplexTable.DeltaRow*
+  commentId: Overload:Methods.Models.SimplexTable.DeltaRow
+  href: Methods.Models.SimplexTable.html#Methods_Models_SimplexTable_DeltaRow
+  name: DeltaRow
+  nameWithType: SimplexTable.DeltaRow
+  fullName: Methods.Models.SimplexTable.DeltaRow
+- uid: System.Collections.Generic.List{Methods.Models.ExpressionValue}
+  commentId: T:System.Collections.Generic.List{Methods.Models.ExpressionValue}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<ExpressionValue>
+  nameWithType: List<ExpressionValue>
+  fullName: System.Collections.Generic.List<Methods.Models.ExpressionValue>
+  nameWithType.vb: List(Of ExpressionValue)
+  fullName.vb: System.Collections.Generic.List(Of Methods.Models.ExpressionValue)
+  name.vb: List(Of ExpressionValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Methods.Models.ExpressionValue
+    name: ExpressionValue
+    href: Methods.Models.ExpressionValue.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Methods.Models.ExpressionValue
+    name: ExpressionValue
+    href: Methods.Models.ExpressionValue.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Methods.Models.SimplexTable.ThetaRow*
+  commentId: Overload:Methods.Models.SimplexTable.ThetaRow
+  href: Methods.Models.SimplexTable.html#Methods_Models_SimplexTable_ThetaRow
+  name: ThetaRow
+  nameWithType: SimplexTable.ThetaRow
+  fullName: Methods.Models.SimplexTable.ThetaRow
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Methods.Models.SimplexTable
+  commentId: T:Methods.Models.SimplexTable
+  parent: Methods.Models
+  href: Methods.Models.SimplexTable.html
+  name: SimplexTable
+  nameWithType: SimplexTable
+  fullName: Methods.Models.SimplexTable
+- uid: Methods.Models.SimplexTable.Clone*
+  commentId: Overload:Methods.Models.SimplexTable.Clone
+  href: Methods.Models.SimplexTable.html#Methods_Models_SimplexTable_Clone
+  name: Clone
+  nameWithType: SimplexTable.Clone
+  fullName: Methods.Models.SimplexTable.Clone
+- uid: System.ICloneable.Clone
+  commentId: M:System.ICloneable.Clone
+  parent: System.ICloneable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  name: Clone()
+  nameWithType: ICloneable.Clone()
+  fullName: System.ICloneable.Clone()
+  spec.csharp:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )

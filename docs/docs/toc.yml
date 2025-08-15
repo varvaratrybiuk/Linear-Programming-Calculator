@@ -1,0 +1,4 @@
+- name: Description of the Linear Programming Calculator
+  href: LPCalculator.md
+- name: Description of Linear Programming Problem Solvers
+  href: LPSolvers.md

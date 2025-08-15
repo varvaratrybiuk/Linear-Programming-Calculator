@@ -1,0 +1,850 @@
+### YamlMime:ManagedReference
+items:
+- uid: Methods.Solvers.SimplexSolver
+  commentId: T:Methods.Solvers.SimplexSolver
+  id: SimplexSolver
+  parent: Methods.Solvers
+  children:
+  - Methods.Solvers.SimplexSolver.#ctor(Methods.MathObjects.LinearProgrammingProblem)
+  - Methods.Solvers.SimplexSolver.CalculateReducedCosts
+  - Methods.Solvers.SimplexSolver.IsOptimal
+  - Methods.Solvers.SimplexSolver.IsUnbounded
+  - Methods.Solvers.SimplexSolver.Pivot
+  - Methods.Solvers.SimplexSolver.SimplexHistory
+  - Methods.Solvers.SimplexSolver.Solve
+  - Methods.Solvers.SimplexSolver.Table
+  langs:
+  - csharp
+  - vb
+  name: SimplexSolver
+  nameWithType: SimplexSolver
+  fullName: Methods.Solvers.SimplexSolver
+  type: Class
+  source:
+    remote:
+      path: Methods/Solvers/SimplexSolver.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: SimplexSolver
+    path: ../Methods/Solvers/SimplexSolver.cs
+    startLine: 14
+  assemblies:
+  - Methods
+  namespace: Methods.Solvers
+  summary: Solver for Linear Programming Problems using the Simplex method.
+  example: []
+  syntax:
+    content: 'public class SimplexSolver : ILinearSolver'
+    content.vb: Public Class SimplexSolver Implements ILinearSolver
+  inheritance:
+  - System.Object
+  implements:
+  - Methods.Interfaces.ILinearSolver
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Methods.Solvers.SimplexSolver.#ctor(Methods.MathObjects.LinearProgrammingProblem)
+  commentId: M:Methods.Solvers.SimplexSolver.#ctor(Methods.MathObjects.LinearProgrammingProblem)
+  id: '#ctor(Methods.MathObjects.LinearProgrammingProblem)'
+  parent: Methods.Solvers.SimplexSolver
+  langs:
+  - csharp
+  - vb
+  name: SimplexSolver(LinearProgrammingProblem)
+  nameWithType: SimplexSolver.SimplexSolver(LinearProgrammingProblem)
+  fullName: Methods.Solvers.SimplexSolver.SimplexSolver(Methods.MathObjects.LinearProgrammingProblem)
+  type: Constructor
+  source:
+    remote:
+      path: Methods/Solvers/SimplexSolver.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: .ctor
+    path: ../Methods/Solvers/SimplexSolver.cs
+    startLine: 14
+  assemblies:
+  - Methods
+  namespace: Methods.Solvers
+  summary: Solver for Linear Programming Problems using the Simplex method.
+  example: []
+  syntax:
+    content: public SimplexSolver(LinearProgrammingProblem problem)
+    parameters:
+    - id: problem
+      type: Methods.MathObjects.LinearProgrammingProblem
+      description: The LPP to be solved.
+    content.vb: Public Sub New(problem As LinearProgrammingProblem)
+  overload: Methods.Solvers.SimplexSolver.#ctor*
+  nameWithType.vb: SimplexSolver.New(LinearProgrammingProblem)
+  fullName.vb: Methods.Solvers.SimplexSolver.New(Methods.MathObjects.LinearProgrammingProblem)
+  name.vb: New(LinearProgrammingProblem)
+- uid: Methods.Solvers.SimplexSolver.SimplexHistory
+  commentId: P:Methods.Solvers.SimplexSolver.SimplexHistory
+  id: SimplexHistory
+  parent: Methods.Solvers.SimplexSolver
+  langs:
+  - csharp
+  - vb
+  name: SimplexHistory
+  nameWithType: SimplexSolver.SimplexHistory
+  fullName: Methods.Solvers.SimplexSolver.SimplexHistory
+  type: Property
+  source:
+    remote:
+      path: Methods/Solvers/SimplexSolver.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: SimplexHistory
+    path: ../Methods/Solvers/SimplexSolver.cs
+    startLine: 19
+  assemblies:
+  - Methods
+  namespace: Methods.Solvers
+  summary: Stores the history of the Simplex solving process.
+  example: []
+  syntax:
+    content: public SimplexHistory SimplexHistory { get; set; }
+    parameters: []
+    return:
+      type: Methods.Models.SimplexHistory
+    content.vb: Public Property SimplexHistory As SimplexHistory
+  overload: Methods.Solvers.SimplexSolver.SimplexHistory*
+- uid: Methods.Solvers.SimplexSolver.Table
+  commentId: P:Methods.Solvers.SimplexSolver.Table
+  id: Table
+  parent: Methods.Solvers.SimplexSolver
+  langs:
+  - csharp
+  - vb
+  name: Table
+  nameWithType: SimplexSolver.Table
+  fullName: Methods.Solvers.SimplexSolver.Table
+  type: Property
+  source:
+    remote:
+      path: Methods/Solvers/SimplexSolver.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: Table
+    path: ../Methods/Solvers/SimplexSolver.cs
+    startLine: 23
+  assemblies:
+  - Methods
+  namespace: Methods.Solvers
+  summary: The current Simplex table used during the solution process.
+  example: []
+  syntax:
+    content: public SimplexTable Table { get; set; }
+    parameters: []
+    return:
+      type: Methods.Models.SimplexTable
+    content.vb: Public Property Table As SimplexTable
+  overload: Methods.Solvers.SimplexSolver.Table*
+- uid: Methods.Solvers.SimplexSolver.Solve
+  commentId: M:Methods.Solvers.SimplexSolver.Solve
+  id: Solve
+  parent: Methods.Solvers.SimplexSolver
+  langs:
+  - csharp
+  - vb
+  name: Solve()
+  nameWithType: SimplexSolver.Solve()
+  fullName: Methods.Solvers.SimplexSolver.Solve()
+  type: Method
+  source:
+    remote:
+      path: Methods/Solvers/SimplexSolver.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: Solve
+    path: ../Methods/Solvers/SimplexSolver.cs
+    startLine: 45
+  assemblies:
+  - Methods
+  namespace: Methods.Solvers
+  summary: Performs the steps required to solve the linear programming problem.
+  remarks: >-
+    First, if the right-hand side (RHS) of any constraint is less than 0, the constraints are converted into canonical form.
+
+    Then, slack and artificial variables (if needed) are added.
+
+    After that, the initial simplex table is initialized.
+
+    The solver proceeds by calculating reduced costs, checking for solution existence, determining if the solution is optimal, and searching for a pivot element.
+
+    Finally, artificial variables are removed if they were added.
+  example: []
+  syntax:
+    content: public void Solve()
+    content.vb: Public Sub Solve()
+  overload: Methods.Solvers.SimplexSolver.Solve*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if artificial variables remain in the basis after solving.
+  implements:
+  - Methods.Interfaces.ILinearSolver.Solve
+- uid: Methods.Solvers.SimplexSolver.CalculateReducedCosts
+  commentId: M:Methods.Solvers.SimplexSolver.CalculateReducedCosts
+  id: CalculateReducedCosts
+  parent: Methods.Solvers.SimplexSolver
+  langs:
+  - csharp
+  - vb
+  name: CalculateReducedCosts()
+  nameWithType: SimplexSolver.CalculateReducedCosts()
+  fullName: Methods.Solvers.SimplexSolver.CalculateReducedCosts()
+  type: Method
+  source:
+    remote:
+      path: Methods/Solvers/SimplexSolver.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: CalculateReducedCosts
+    path: ../Methods/Solvers/SimplexSolver.cs
+    startLine: 299
+  assemblies:
+  - Methods
+  namespace: Methods.Solvers
+  summary: Calculates the reduced costs (delta values) for the current simplex tableau.
+  example: []
+  syntax:
+    content: public void CalculateReducedCosts()
+    content.vb: Public Sub CalculateReducedCosts()
+  overload: Methods.Solvers.SimplexSolver.CalculateReducedCosts*
+  implements:
+  - Methods.Interfaces.ILinearSolver.CalculateReducedCosts
+- uid: Methods.Solvers.SimplexSolver.IsOptimal
+  commentId: M:Methods.Solvers.SimplexSolver.IsOptimal
+  id: IsOptimal
+  parent: Methods.Solvers.SimplexSolver
+  langs:
+  - csharp
+  - vb
+  name: IsOptimal()
+  nameWithType: SimplexSolver.IsOptimal()
+  fullName: Methods.Solvers.SimplexSolver.IsOptimal()
+  type: Method
+  source:
+    remote:
+      path: Methods/Solvers/SimplexSolver.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: IsOptimal
+    path: ../Methods/Solvers/SimplexSolver.cs
+    startLine: 401
+  assemblies:
+  - Methods
+  namespace: Methods.Solvers
+  summary: Determines whether the current solution in the simplex table is optimal.
+  remarks: >-
+    The solution is optimal if all values in the delta row are non-negative when maximizing the objective function,
+
+    or all values are non-positive when minimizing.
+  example: []
+  syntax:
+    content: public bool IsOptimal()
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the solution is optimal; otherwise, <code>false</code>.
+    content.vb: Public Function IsOptimal() As Boolean
+  overload: Methods.Solvers.SimplexSolver.IsOptimal*
+  implements:
+  - Methods.Interfaces.ILinearSolver.IsOptimal
+- uid: Methods.Solvers.SimplexSolver.IsUnbounded
+  commentId: M:Methods.Solvers.SimplexSolver.IsUnbounded
+  id: IsUnbounded
+  parent: Methods.Solvers.SimplexSolver
+  langs:
+  - csharp
+  - vb
+  name: IsUnbounded()
+  nameWithType: SimplexSolver.IsUnbounded()
+  fullName: Methods.Solvers.SimplexSolver.IsUnbounded()
+  type: Method
+  source:
+    remote:
+      path: Methods/Solvers/SimplexSolver.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: IsUnbounded
+    path: ../Methods/Solvers/SimplexSolver.cs
+    startLine: 412
+  assemblies:
+  - Methods
+  namespace: Methods.Solvers
+  summary: Determines whether the LPP has a solution.
+  remarks: Returns true if the basis still contains artificial variables even though the delta row indicates an optimal solution.
+  example: []
+  syntax:
+    content: public bool IsUnbounded()
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the problem has no solution; otherwise, <code>false</code>.
+    content.vb: Public Function IsUnbounded() As Boolean
+  overload: Methods.Solvers.SimplexSolver.IsUnbounded*
+  implements:
+  - Methods.Interfaces.ILinearSolver.IsUnbounded
+- uid: Methods.Solvers.SimplexSolver.Pivot
+  commentId: M:Methods.Solvers.SimplexSolver.Pivot
+  id: Pivot
+  parent: Methods.Solvers.SimplexSolver
+  langs:
+  - csharp
+  - vb
+  name: Pivot()
+  nameWithType: SimplexSolver.Pivot()
+  fullName: Methods.Solvers.SimplexSolver.Pivot()
+  type: Method
+  source:
+    remote:
+      path: Methods/Solvers/SimplexSolver.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: Pivot
+    path: ../Methods/Solvers/SimplexSolver.cs
+    startLine: 432
+  assemblies:
+  - Methods
+  namespace: Methods.Solvers
+  summary: Finds the pivot row and column for the next solving step.
+  remarks: >-
+    The pivot column is determined by the minimum or maximum value, depending on the objective function.
+
+    Then, in the pivot column, the minimum positive row value is found and selected as the pivot row.
+
+    Finally, recalculates all table values accordingly.
+  example: []
+  syntax:
+    content: public void Pivot()
+    content.vb: Public Sub Pivot()
+  overload: Methods.Solvers.SimplexSolver.Pivot*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if the pivot row cannot be determined (all values in the pivot column are less than or equal to 0).
+  implements:
+  - Methods.Interfaces.ILinearSolver.Pivot
+references:
+- uid: Methods.Solvers
+  commentId: N:Methods.Solvers
+  href: Methods.html
+  name: Methods.Solvers
+  nameWithType: Methods.Solvers
+  fullName: Methods.Solvers
+  spec.csharp:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.Solvers
+    name: Solvers
+    href: Methods.Solvers.html
+  spec.vb:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.Solvers
+    name: Solvers
+    href: Methods.Solvers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Methods.Interfaces.ILinearSolver
+  commentId: T:Methods.Interfaces.ILinearSolver
+  parent: Methods.Interfaces
+  href: Methods.Interfaces.ILinearSolver.html
+  name: ILinearSolver
+  nameWithType: ILinearSolver
+  fullName: Methods.Interfaces.ILinearSolver
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Methods.Interfaces
+  commentId: N:Methods.Interfaces
+  href: Methods.html
+  name: Methods.Interfaces
+  nameWithType: Methods.Interfaces
+  fullName: Methods.Interfaces
+  spec.csharp:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.Interfaces
+    name: Interfaces
+    href: Methods.Interfaces.html
+  spec.vb:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.Interfaces
+    name: Interfaces
+    href: Methods.Interfaces.html
+- uid: Methods.Solvers.SimplexSolver.#ctor*
+  commentId: Overload:Methods.Solvers.SimplexSolver.#ctor
+  href: Methods.Solvers.SimplexSolver.html#Methods_Solvers_SimplexSolver__ctor_Methods_MathObjects_LinearProgrammingProblem_
+  name: SimplexSolver
+  nameWithType: SimplexSolver.SimplexSolver
+  fullName: Methods.Solvers.SimplexSolver.SimplexSolver
+  nameWithType.vb: SimplexSolver.New
+  fullName.vb: Methods.Solvers.SimplexSolver.New
+  name.vb: New
+- uid: Methods.MathObjects.LinearProgrammingProblem
+  commentId: T:Methods.MathObjects.LinearProgrammingProblem
+  parent: Methods.MathObjects
+  href: Methods.MathObjects.LinearProgrammingProblem.html
+  name: LinearProgrammingProblem
+  nameWithType: LinearProgrammingProblem
+  fullName: Methods.MathObjects.LinearProgrammingProblem
+- uid: Methods.MathObjects
+  commentId: N:Methods.MathObjects
+  href: Methods.html
+  name: Methods.MathObjects
+  nameWithType: Methods.MathObjects
+  fullName: Methods.MathObjects
+  spec.csharp:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.MathObjects
+    name: MathObjects
+    href: Methods.MathObjects.html
+  spec.vb:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.MathObjects
+    name: MathObjects
+    href: Methods.MathObjects.html
+- uid: Methods.Solvers.SimplexSolver.SimplexHistory*
+  commentId: Overload:Methods.Solvers.SimplexSolver.SimplexHistory
+  href: Methods.Solvers.SimplexSolver.html#Methods_Solvers_SimplexSolver_SimplexHistory
+  name: SimplexHistory
+  nameWithType: SimplexSolver.SimplexHistory
+  fullName: Methods.Solvers.SimplexSolver.SimplexHistory
+- uid: Methods.Models.SimplexHistory
+  commentId: T:Methods.Models.SimplexHistory
+  parent: Methods.Models
+  href: Methods.Models.SimplexHistory.html
+  name: SimplexHistory
+  nameWithType: SimplexHistory
+  fullName: Methods.Models.SimplexHistory
+- uid: Methods.Models
+  commentId: N:Methods.Models
+  href: Methods.html
+  name: Methods.Models
+  nameWithType: Methods.Models
+  fullName: Methods.Models
+  spec.csharp:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.Models
+    name: Models
+    href: Methods.Models.html
+  spec.vb:
+  - uid: Methods
+    name: Methods
+    href: Methods.html
+  - name: .
+  - uid: Methods.Models
+    name: Models
+    href: Methods.Models.html
+- uid: Methods.Solvers.SimplexSolver.Table*
+  commentId: Overload:Methods.Solvers.SimplexSolver.Table
+  href: Methods.Solvers.SimplexSolver.html#Methods_Solvers_SimplexSolver_Table
+  name: Table
+  nameWithType: SimplexSolver.Table
+  fullName: Methods.Solvers.SimplexSolver.Table
+- uid: Methods.Models.SimplexTable
+  commentId: T:Methods.Models.SimplexTable
+  parent: Methods.Models
+  href: Methods.Models.SimplexTable.html
+  name: SimplexTable
+  nameWithType: SimplexTable
+  fullName: Methods.Models.SimplexTable
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: Methods.Solvers.SimplexSolver.Solve*
+  commentId: Overload:Methods.Solvers.SimplexSolver.Solve
+  href: Methods.Solvers.SimplexSolver.html#Methods_Solvers_SimplexSolver_Solve
+  name: Solve
+  nameWithType: SimplexSolver.Solve
+  fullName: Methods.Solvers.SimplexSolver.Solve
+- uid: Methods.Interfaces.ILinearSolver.Solve
+  commentId: M:Methods.Interfaces.ILinearSolver.Solve
+  parent: Methods.Interfaces.ILinearSolver
+  href: Methods.Interfaces.ILinearSolver.html#Methods_Interfaces_ILinearSolver_Solve
+  name: Solve()
+  nameWithType: ILinearSolver.Solve()
+  fullName: Methods.Interfaces.ILinearSolver.Solve()
+  spec.csharp:
+  - uid: Methods.Interfaces.ILinearSolver.Solve
+    name: Solve
+    href: Methods.Interfaces.ILinearSolver.html#Methods_Interfaces_ILinearSolver_Solve
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Methods.Interfaces.ILinearSolver.Solve
+    name: Solve
+    href: Methods.Interfaces.ILinearSolver.html#Methods_Interfaces_ILinearSolver_Solve
+  - name: (
+  - name: )
+- uid: Methods.Solvers.SimplexSolver.CalculateReducedCosts*
+  commentId: Overload:Methods.Solvers.SimplexSolver.CalculateReducedCosts
+  href: Methods.Solvers.SimplexSolver.html#Methods_Solvers_SimplexSolver_CalculateReducedCosts
+  name: CalculateReducedCosts
+  nameWithType: SimplexSolver.CalculateReducedCosts
+  fullName: Methods.Solvers.SimplexSolver.CalculateReducedCosts
+- uid: Methods.Interfaces.ILinearSolver.CalculateReducedCosts
+  commentId: M:Methods.Interfaces.ILinearSolver.CalculateReducedCosts
+  parent: Methods.Interfaces.ILinearSolver
+  href: Methods.Interfaces.ILinearSolver.html#Methods_Interfaces_ILinearSolver_CalculateReducedCosts
+  name: CalculateReducedCosts()
+  nameWithType: ILinearSolver.CalculateReducedCosts()
+  fullName: Methods.Interfaces.ILinearSolver.CalculateReducedCosts()
+  spec.csharp:
+  - uid: Methods.Interfaces.ILinearSolver.CalculateReducedCosts
+    name: CalculateReducedCosts
+    href: Methods.Interfaces.ILinearSolver.html#Methods_Interfaces_ILinearSolver_CalculateReducedCosts
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Methods.Interfaces.ILinearSolver.CalculateReducedCosts
+    name: CalculateReducedCosts
+    href: Methods.Interfaces.ILinearSolver.html#Methods_Interfaces_ILinearSolver_CalculateReducedCosts
+  - name: (
+  - name: )
+- uid: Methods.Solvers.SimplexSolver.IsOptimal*
+  commentId: Overload:Methods.Solvers.SimplexSolver.IsOptimal
+  href: Methods.Solvers.SimplexSolver.html#Methods_Solvers_SimplexSolver_IsOptimal
+  name: IsOptimal
+  nameWithType: SimplexSolver.IsOptimal
+  fullName: Methods.Solvers.SimplexSolver.IsOptimal
+- uid: Methods.Interfaces.ILinearSolver.IsOptimal
+  commentId: M:Methods.Interfaces.ILinearSolver.IsOptimal
+  parent: Methods.Interfaces.ILinearSolver
+  href: Methods.Interfaces.ILinearSolver.html#Methods_Interfaces_ILinearSolver_IsOptimal
+  name: IsOptimal()
+  nameWithType: ILinearSolver.IsOptimal()
+  fullName: Methods.Interfaces.ILinearSolver.IsOptimal()
+  spec.csharp:
+  - uid: Methods.Interfaces.ILinearSolver.IsOptimal
+    name: IsOptimal
+    href: Methods.Interfaces.ILinearSolver.html#Methods_Interfaces_ILinearSolver_IsOptimal
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Methods.Interfaces.ILinearSolver.IsOptimal
+    name: IsOptimal
+    href: Methods.Interfaces.ILinearSolver.html#Methods_Interfaces_ILinearSolver_IsOptimal
+  - name: (
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Methods.Solvers.SimplexSolver.IsUnbounded*
+  commentId: Overload:Methods.Solvers.SimplexSolver.IsUnbounded
+  href: Methods.Solvers.SimplexSolver.html#Methods_Solvers_SimplexSolver_IsUnbounded
+  name: IsUnbounded
+  nameWithType: SimplexSolver.IsUnbounded
+  fullName: Methods.Solvers.SimplexSolver.IsUnbounded
+- uid: Methods.Interfaces.ILinearSolver.IsUnbounded
+  commentId: M:Methods.Interfaces.ILinearSolver.IsUnbounded
+  parent: Methods.Interfaces.ILinearSolver
+  href: Methods.Interfaces.ILinearSolver.html#Methods_Interfaces_ILinearSolver_IsUnbounded
+  name: IsUnbounded()
+  nameWithType: ILinearSolver.IsUnbounded()
+  fullName: Methods.Interfaces.ILinearSolver.IsUnbounded()
+  spec.csharp:
+  - uid: Methods.Interfaces.ILinearSolver.IsUnbounded
+    name: IsUnbounded
+    href: Methods.Interfaces.ILinearSolver.html#Methods_Interfaces_ILinearSolver_IsUnbounded
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Methods.Interfaces.ILinearSolver.IsUnbounded
+    name: IsUnbounded
+    href: Methods.Interfaces.ILinearSolver.html#Methods_Interfaces_ILinearSolver_IsUnbounded
+  - name: (
+  - name: )
+- uid: Methods.Solvers.SimplexSolver.Pivot*
+  commentId: Overload:Methods.Solvers.SimplexSolver.Pivot
+  href: Methods.Solvers.SimplexSolver.html#Methods_Solvers_SimplexSolver_Pivot
+  name: Pivot
+  nameWithType: SimplexSolver.Pivot
+  fullName: Methods.Solvers.SimplexSolver.Pivot
+- uid: Methods.Interfaces.ILinearSolver.Pivot
+  commentId: M:Methods.Interfaces.ILinearSolver.Pivot
+  parent: Methods.Interfaces.ILinearSolver
+  href: Methods.Interfaces.ILinearSolver.html#Methods_Interfaces_ILinearSolver_Pivot
+  name: Pivot()
+  nameWithType: ILinearSolver.Pivot()
+  fullName: Methods.Interfaces.ILinearSolver.Pivot()
+  spec.csharp:
+  - uid: Methods.Interfaces.ILinearSolver.Pivot
+    name: Pivot
+    href: Methods.Interfaces.ILinearSolver.html#Methods_Interfaces_ILinearSolver_Pivot
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Methods.Interfaces.ILinearSolver.Pivot
+    name: Pivot
+    href: Methods.Interfaces.ILinearSolver.html#Methods_Interfaces_ILinearSolver_Pivot
+  - name: (
+  - name: )

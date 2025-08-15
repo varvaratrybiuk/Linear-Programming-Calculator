@@ -1,0 +1,47 @@
+### YamlMime:ManagedReference
+items:
+- uid: Linear_Programming_Calculator_Desktop.DTOs
+  commentId: N:Linear_Programming_Calculator_Desktop.DTOs
+  id: DTOs
+  parent: Linear_Programming_Calculator_Desktop
+  children:
+  - Linear_Programming_Calculator_Desktop.DTOs.LinearProgramResultDto
+  langs:
+  - csharp
+  - vb
+  name: Linear_Programming_Calculator_Desktop.DTOs
+  nameWithType: Linear_Programming_Calculator_Desktop.DTOs
+  fullName: Linear_Programming_Calculator_Desktop.DTOs
+  type: Namespace
+  assemblies:
+  - Linear Programming Calculator Desktop
+references:
+- uid: Linear_Programming_Calculator_Desktop.DTOs.LinearProgramResultDto
+  commentId: T:Linear_Programming_Calculator_Desktop.DTOs.LinearProgramResultDto
+  parent: Linear_Programming_Calculator_Desktop.DTOs
+  href: Linear_Programming_Calculator_Desktop.DTOs.LinearProgramResultDto.html
+  name: LinearProgramResultDto
+  nameWithType: LinearProgramResultDto
+  fullName: Linear_Programming_Calculator_Desktop.DTOs.LinearProgramResultDto
+- uid: Linear_Programming_Calculator_Desktop.DTOs
+  commentId: N:Linear_Programming_Calculator_Desktop.DTOs
+  href: Linear_Programming_Calculator_Desktop.html
+  name: Linear_Programming_Calculator_Desktop.DTOs
+  nameWithType: Linear_Programming_Calculator_Desktop.DTOs
+  fullName: Linear_Programming_Calculator_Desktop.DTOs
+  spec.csharp:
+  - uid: Linear_Programming_Calculator_Desktop
+    name: Linear_Programming_Calculator_Desktop
+    href: Linear_Programming_Calculator_Desktop.html
+  - name: .
+  - uid: Linear_Programming_Calculator_Desktop.DTOs
+    name: DTOs
+    href: Linear_Programming_Calculator_Desktop.DTOs.html
+  spec.vb:
+  - uid: Linear_Programming_Calculator_Desktop
+    name: Linear_Programming_Calculator_Desktop
+    href: Linear_Programming_Calculator_Desktop.html
+  - name: .
+  - uid: Linear_Programming_Calculator_Desktop.DTOs
+    name: DTOs
+    href: Linear_Programming_Calculator_Desktop.DTOs.html

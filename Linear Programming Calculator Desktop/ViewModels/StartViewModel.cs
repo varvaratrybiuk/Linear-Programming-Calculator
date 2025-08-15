@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Linear_Programming_Calculator_Desktop.Models;
 using Linear_Programming_Calculator_Desktop.Attributes;
+using Linear_Programming_Calculator_Desktop.Models;
 using Linear_Programming_Calculator_Desktop.Services;
 using Linear_Programming_Calculator_Desktop.Stores;
 

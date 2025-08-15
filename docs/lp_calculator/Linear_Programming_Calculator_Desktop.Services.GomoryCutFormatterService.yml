@@ -1,0 +1,777 @@
+### YamlMime:ManagedReference
+items:
+- uid: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService
+  commentId: T:Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService
+  id: GomoryCutFormatterService
+  parent: Linear_Programming_Calculator_Desktop.Services
+  children:
+  - Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildEqualitySection(Methods.Models.BranchCut)
+  - Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildFractionPartsSection(Methods.Models.BranchCut)
+  - Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildGomoryCutLines(Methods.Models.BranchCut)
+  - Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildInequalitySection(Methods.Models.BranchCut)
+  - Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildRightHandSideSection(Methods.Models.BranchCut)
+  langs:
+  - csharp
+  - vb
+  name: GomoryCutFormatterService
+  nameWithType: GomoryCutFormatterService
+  fullName: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService
+  type: Class
+  source:
+    remote:
+      path: Linear Programming Calculator Desktop/Services/GomoryCutFormatterService.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: GomoryCutFormatterService
+    path: ../Linear Programming Calculator Desktop/Services/GomoryCutFormatterService.cs
+    startLine: 9
+  assemblies:
+  - Linear Programming Calculator Desktop
+  namespace: Linear_Programming_Calculator_Desktop.Services
+  summary: Service for formatting Gomory cuts into readable string.
+  example: []
+  syntax:
+    content: 'public class GomoryCutFormatterService : IGomoryCutFormatterService'
+    content.vb: Public Class GomoryCutFormatterService Implements IGomoryCutFormatterService
+  inheritance:
+  - System.Object
+  implements:
+  - Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildGomoryCutLines(Methods.Models.BranchCut)
+  commentId: M:Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildGomoryCutLines(Methods.Models.BranchCut)
+  id: BuildGomoryCutLines(Methods.Models.BranchCut)
+  parent: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService
+  langs:
+  - csharp
+  - vb
+  name: BuildGomoryCutLines(BranchCut)
+  nameWithType: GomoryCutFormatterService.BuildGomoryCutLines(BranchCut)
+  fullName: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildGomoryCutLines(Methods.Models.BranchCut)
+  type: Method
+  source:
+    remote:
+      path: Linear Programming Calculator Desktop/Services/GomoryCutFormatterService.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: BuildGomoryCutLines
+    path: ../Linear Programming Calculator Desktop/Services/GomoryCutFormatterService.cs
+    startLine: 11
+  assemblies:
+  - Linear Programming Calculator Desktop
+  namespace: Linear_Programming_Calculator_Desktop.Services
+  summary: Builds the formatted lines representing the given <xref href="Methods.Models.BranchCut" data-throw-if-not-resolved="false"></xref> instance.
+  example: []
+  syntax:
+    content: public List<string> BuildGomoryCutLines(BranchCut branchCut)
+    parameters:
+    - id: branchCut
+      type: Methods.Models.BranchCut
+      description: The branch cut.
+    return:
+      type: System.Collections.Generic.List{System.String}
+      description: A list of strings, each representing a line of the Gomory cut.
+    content.vb: Public Function BuildGomoryCutLines(branchCut As BranchCut) As List(Of String)
+  overload: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildGomoryCutLines*
+  implements:
+  - Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildGomoryCutLines(Methods.Models.BranchCut)
+- uid: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildFractionPartsSection(Methods.Models.BranchCut)
+  commentId: M:Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildFractionPartsSection(Methods.Models.BranchCut)
+  id: BuildFractionPartsSection(Methods.Models.BranchCut)
+  parent: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService
+  langs:
+  - csharp
+  - vb
+  name: BuildFractionPartsSection(BranchCut)
+  nameWithType: GomoryCutFormatterService.BuildFractionPartsSection(BranchCut)
+  fullName: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildFractionPartsSection(Methods.Models.BranchCut)
+  type: Method
+  source:
+    remote:
+      path: Linear Programming Calculator Desktop/Services/GomoryCutFormatterService.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: BuildFractionPartsSection
+    path: ../Linear Programming Calculator Desktop/Services/GomoryCutFormatterService.cs
+    startLine: 25
+  assemblies:
+  - Linear Programming Calculator Desktop
+  namespace: Linear_Programming_Calculator_Desktop.Services
+  summary: Builds the section of the Gomory cut showing fractional parts of the variables.
+  example: []
+  syntax:
+    content: public string BuildFractionPartsSection(BranchCut branchCut)
+    parameters:
+    - id: branchCut
+      type: Methods.Models.BranchCut
+      description: The branch cut.
+    return:
+      type: System.String
+      description: A formatted string representing the fractional parts section.
+    content.vb: Public Function BuildFractionPartsSection(branchCut As BranchCut) As String
+  overload: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildFractionPartsSection*
+  implements:
+  - Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildFractionPartsSection(Methods.Models.BranchCut)
+- uid: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildInequalitySection(Methods.Models.BranchCut)
+  commentId: M:Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildInequalitySection(Methods.Models.BranchCut)
+  id: BuildInequalitySection(Methods.Models.BranchCut)
+  parent: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService
+  langs:
+  - csharp
+  - vb
+  name: BuildInequalitySection(BranchCut)
+  nameWithType: GomoryCutFormatterService.BuildInequalitySection(BranchCut)
+  fullName: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildInequalitySection(Methods.Models.BranchCut)
+  type: Method
+  source:
+    remote:
+      path: Linear Programming Calculator Desktop/Services/GomoryCutFormatterService.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: BuildInequalitySection
+    path: ../Linear Programming Calculator Desktop/Services/GomoryCutFormatterService.cs
+    startLine: 41
+  assemblies:
+  - Linear Programming Calculator Desktop
+  namespace: Linear_Programming_Calculator_Desktop.Services
+  summary: Builds the section of the Gomory cut corresponding to inequality constraints.
+  example: []
+  syntax:
+    content: public string BuildInequalitySection(BranchCut branchCut)
+    parameters:
+    - id: branchCut
+      type: Methods.Models.BranchCut
+    return:
+      type: System.String
+      description: A formatted string representing the inequality section.
+    content.vb: Public Function BuildInequalitySection(branchCut As BranchCut) As String
+  overload: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildInequalitySection*
+  implements:
+  - Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildInequalitySection(Methods.Models.BranchCut)
+- uid: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildEqualitySection(Methods.Models.BranchCut)
+  commentId: M:Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildEqualitySection(Methods.Models.BranchCut)
+  id: BuildEqualitySection(Methods.Models.BranchCut)
+  parent: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService
+  langs:
+  - csharp
+  - vb
+  name: BuildEqualitySection(BranchCut)
+  nameWithType: GomoryCutFormatterService.BuildEqualitySection(BranchCut)
+  fullName: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildEqualitySection(Methods.Models.BranchCut)
+  type: Method
+  source:
+    remote:
+      path: Linear Programming Calculator Desktop/Services/GomoryCutFormatterService.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: BuildEqualitySection
+    path: ../Linear Programming Calculator Desktop/Services/GomoryCutFormatterService.cs
+    startLine: 49
+  assemblies:
+  - Linear Programming Calculator Desktop
+  namespace: Linear_Programming_Calculator_Desktop.Services
+  summary: Builds the section of the Gomory cut corresponding to equality constraints.
+  example: []
+  syntax:
+    content: public string BuildEqualitySection(BranchCut branchCut)
+    parameters:
+    - id: branchCut
+      type: Methods.Models.BranchCut
+      description: The branch cut.
+    return:
+      type: System.String
+      description: A formatted string representing the equality section.
+    content.vb: Public Function BuildEqualitySection(branchCut As BranchCut) As String
+  overload: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildEqualitySection*
+  implements:
+  - Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildEqualitySection(Methods.Models.BranchCut)
+- uid: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildRightHandSideSection(Methods.Models.BranchCut)
+  commentId: M:Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildRightHandSideSection(Methods.Models.BranchCut)
+  id: BuildRightHandSideSection(Methods.Models.BranchCut)
+  parent: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService
+  langs:
+  - csharp
+  - vb
+  name: BuildRightHandSideSection(BranchCut)
+  nameWithType: GomoryCutFormatterService.BuildRightHandSideSection(BranchCut)
+  fullName: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildRightHandSideSection(Methods.Models.BranchCut)
+  type: Method
+  source:
+    remote:
+      path: Linear Programming Calculator Desktop/Services/GomoryCutFormatterService.cs
+      branch: main
+      repo: git@github.com:varvaratrybiuk/Linear-Programming-Calculator.git
+    id: BuildRightHandSideSection
+    path: ../Linear Programming Calculator Desktop/Services/GomoryCutFormatterService.cs
+    startLine: 58
+  assemblies:
+  - Linear Programming Calculator Desktop
+  namespace: Linear_Programming_Calculator_Desktop.Services
+  summary: Builds the section showing the right-hand side (RHS) values of the Gomory cut.
+  example: []
+  syntax:
+    content: public string BuildRightHandSideSection(BranchCut branchCut)
+    parameters:
+    - id: branchCut
+      type: Methods.Models.BranchCut
+      description: The branch cut.
+    return:
+      type: System.String
+      description: A formatted string representing the RHS section.
+    content.vb: Public Function BuildRightHandSideSection(branchCut As BranchCut) As String
+  overload: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildRightHandSideSection*
+  implements:
+  - Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildRightHandSideSection(Methods.Models.BranchCut)
+references:
+- uid: Linear_Programming_Calculator_Desktop.Services
+  commentId: N:Linear_Programming_Calculator_Desktop.Services
+  href: Linear_Programming_Calculator_Desktop.html
+  name: Linear_Programming_Calculator_Desktop.Services
+  nameWithType: Linear_Programming_Calculator_Desktop.Services
+  fullName: Linear_Programming_Calculator_Desktop.Services
+  spec.csharp:
+  - uid: Linear_Programming_Calculator_Desktop
+    name: Linear_Programming_Calculator_Desktop
+    href: Linear_Programming_Calculator_Desktop.html
+  - name: .
+  - uid: Linear_Programming_Calculator_Desktop.Services
+    name: Services
+    href: Linear_Programming_Calculator_Desktop.Services.html
+  spec.vb:
+  - uid: Linear_Programming_Calculator_Desktop
+    name: Linear_Programming_Calculator_Desktop
+    href: Linear_Programming_Calculator_Desktop.html
+  - name: .
+  - uid: Linear_Programming_Calculator_Desktop.Services
+    name: Services
+    href: Linear_Programming_Calculator_Desktop.Services.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService
+  commentId: T:Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService
+  parent: Linear_Programming_Calculator_Desktop.Services
+  href: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.html
+  name: IGomoryCutFormatterService
+  nameWithType: IGomoryCutFormatterService
+  fullName: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Methods.Models.BranchCut
+  commentId: T:Methods.Models.BranchCut
+  parent: Methods.Models
+  name: BranchCut
+  nameWithType: BranchCut
+  fullName: Methods.Models.BranchCut
+- uid: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildGomoryCutLines*
+  commentId: Overload:Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildGomoryCutLines
+  href: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.html#Linear_Programming_Calculator_Desktop_Services_GomoryCutFormatterService_BuildGomoryCutLines_Methods_Models_BranchCut_
+  name: BuildGomoryCutLines
+  nameWithType: GomoryCutFormatterService.BuildGomoryCutLines
+  fullName: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildGomoryCutLines
+- uid: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildGomoryCutLines(Methods.Models.BranchCut)
+  commentId: M:Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildGomoryCutLines(Methods.Models.BranchCut)
+  parent: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService
+  href: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.html#Linear_Programming_Calculator_Desktop_Services_IGomoryCutFormatterService_BuildGomoryCutLines_Methods_Models_BranchCut_
+  name: BuildGomoryCutLines(BranchCut)
+  nameWithType: IGomoryCutFormatterService.BuildGomoryCutLines(BranchCut)
+  fullName: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildGomoryCutLines(Methods.Models.BranchCut)
+  spec.csharp:
+  - uid: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildGomoryCutLines(Methods.Models.BranchCut)
+    name: BuildGomoryCutLines
+    href: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.html#Linear_Programming_Calculator_Desktop_Services_IGomoryCutFormatterService_BuildGomoryCutLines_Methods_Models_BranchCut_
+  - name: (
+  - uid: Methods.Models.BranchCut
+    name: BranchCut
+  - name: )
+  spec.vb:
+  - uid: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildGomoryCutLines(Methods.Models.BranchCut)
+    name: BuildGomoryCutLines
+    href: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.html#Linear_Programming_Calculator_Desktop_Services_IGomoryCutFormatterService_BuildGomoryCutLines_Methods_Models_BranchCut_
+  - name: (
+  - uid: Methods.Models.BranchCut
+    name: BranchCut
+  - name: )
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Methods.Models
+  commentId: N:Methods.Models
+  name: Methods.Models
+  nameWithType: Methods.Models
+  fullName: Methods.Models
+  spec.csharp:
+  - uid: Methods
+    name: Methods
+  - name: .
+  - uid: Methods.Models
+    name: Models
+  spec.vb:
+  - uid: Methods
+    name: Methods
+  - name: .
+  - uid: Methods.Models
+    name: Models
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildFractionPartsSection*
+  commentId: Overload:Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildFractionPartsSection
+  href: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.html#Linear_Programming_Calculator_Desktop_Services_GomoryCutFormatterService_BuildFractionPartsSection_Methods_Models_BranchCut_
+  name: BuildFractionPartsSection
+  nameWithType: GomoryCutFormatterService.BuildFractionPartsSection
+  fullName: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildFractionPartsSection
+- uid: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildFractionPartsSection(Methods.Models.BranchCut)
+  commentId: M:Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildFractionPartsSection(Methods.Models.BranchCut)
+  parent: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService
+  href: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.html#Linear_Programming_Calculator_Desktop_Services_IGomoryCutFormatterService_BuildFractionPartsSection_Methods_Models_BranchCut_
+  name: BuildFractionPartsSection(BranchCut)
+  nameWithType: IGomoryCutFormatterService.BuildFractionPartsSection(BranchCut)
+  fullName: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildFractionPartsSection(Methods.Models.BranchCut)
+  spec.csharp:
+  - uid: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildFractionPartsSection(Methods.Models.BranchCut)
+    name: BuildFractionPartsSection
+    href: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.html#Linear_Programming_Calculator_Desktop_Services_IGomoryCutFormatterService_BuildFractionPartsSection_Methods_Models_BranchCut_
+  - name: (
+  - uid: Methods.Models.BranchCut
+    name: BranchCut
+  - name: )
+  spec.vb:
+  - uid: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildFractionPartsSection(Methods.Models.BranchCut)
+    name: BuildFractionPartsSection
+    href: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.html#Linear_Programming_Calculator_Desktop_Services_IGomoryCutFormatterService_BuildFractionPartsSection_Methods_Models_BranchCut_
+  - name: (
+  - uid: Methods.Models.BranchCut
+    name: BranchCut
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildInequalitySection*
+  commentId: Overload:Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildInequalitySection
+  href: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.html#Linear_Programming_Calculator_Desktop_Services_GomoryCutFormatterService_BuildInequalitySection_Methods_Models_BranchCut_
+  name: BuildInequalitySection
+  nameWithType: GomoryCutFormatterService.BuildInequalitySection
+  fullName: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildInequalitySection
+- uid: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildInequalitySection(Methods.Models.BranchCut)
+  commentId: M:Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildInequalitySection(Methods.Models.BranchCut)
+  parent: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService
+  href: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.html#Linear_Programming_Calculator_Desktop_Services_IGomoryCutFormatterService_BuildInequalitySection_Methods_Models_BranchCut_
+  name: BuildInequalitySection(BranchCut)
+  nameWithType: IGomoryCutFormatterService.BuildInequalitySection(BranchCut)
+  fullName: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildInequalitySection(Methods.Models.BranchCut)
+  spec.csharp:
+  - uid: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildInequalitySection(Methods.Models.BranchCut)
+    name: BuildInequalitySection
+    href: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.html#Linear_Programming_Calculator_Desktop_Services_IGomoryCutFormatterService_BuildInequalitySection_Methods_Models_BranchCut_
+  - name: (
+  - uid: Methods.Models.BranchCut
+    name: BranchCut
+  - name: )
+  spec.vb:
+  - uid: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildInequalitySection(Methods.Models.BranchCut)
+    name: BuildInequalitySection
+    href: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.html#Linear_Programming_Calculator_Desktop_Services_IGomoryCutFormatterService_BuildInequalitySection_Methods_Models_BranchCut_
+  - name: (
+  - uid: Methods.Models.BranchCut
+    name: BranchCut
+  - name: )
+- uid: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildEqualitySection*
+  commentId: Overload:Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildEqualitySection
+  href: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.html#Linear_Programming_Calculator_Desktop_Services_GomoryCutFormatterService_BuildEqualitySection_Methods_Models_BranchCut_
+  name: BuildEqualitySection
+  nameWithType: GomoryCutFormatterService.BuildEqualitySection
+  fullName: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildEqualitySection
+- uid: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildEqualitySection(Methods.Models.BranchCut)
+  commentId: M:Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildEqualitySection(Methods.Models.BranchCut)
+  parent: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService
+  href: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.html#Linear_Programming_Calculator_Desktop_Services_IGomoryCutFormatterService_BuildEqualitySection_Methods_Models_BranchCut_
+  name: BuildEqualitySection(BranchCut)
+  nameWithType: IGomoryCutFormatterService.BuildEqualitySection(BranchCut)
+  fullName: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildEqualitySection(Methods.Models.BranchCut)
+  spec.csharp:
+  - uid: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildEqualitySection(Methods.Models.BranchCut)
+    name: BuildEqualitySection
+    href: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.html#Linear_Programming_Calculator_Desktop_Services_IGomoryCutFormatterService_BuildEqualitySection_Methods_Models_BranchCut_
+  - name: (
+  - uid: Methods.Models.BranchCut
+    name: BranchCut
+  - name: )
+  spec.vb:
+  - uid: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildEqualitySection(Methods.Models.BranchCut)
+    name: BuildEqualitySection
+    href: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.html#Linear_Programming_Calculator_Desktop_Services_IGomoryCutFormatterService_BuildEqualitySection_Methods_Models_BranchCut_
+  - name: (
+  - uid: Methods.Models.BranchCut
+    name: BranchCut
+  - name: )
+- uid: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildRightHandSideSection*
+  commentId: Overload:Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildRightHandSideSection
+  href: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.html#Linear_Programming_Calculator_Desktop_Services_GomoryCutFormatterService_BuildRightHandSideSection_Methods_Models_BranchCut_
+  name: BuildRightHandSideSection
+  nameWithType: GomoryCutFormatterService.BuildRightHandSideSection
+  fullName: Linear_Programming_Calculator_Desktop.Services.GomoryCutFormatterService.BuildRightHandSideSection
+- uid: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildRightHandSideSection(Methods.Models.BranchCut)
+  commentId: M:Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildRightHandSideSection(Methods.Models.BranchCut)
+  parent: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService
+  href: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.html#Linear_Programming_Calculator_Desktop_Services_IGomoryCutFormatterService_BuildRightHandSideSection_Methods_Models_BranchCut_
+  name: BuildRightHandSideSection(BranchCut)
+  nameWithType: IGomoryCutFormatterService.BuildRightHandSideSection(BranchCut)
+  fullName: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildRightHandSideSection(Methods.Models.BranchCut)
+  spec.csharp:
+  - uid: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildRightHandSideSection(Methods.Models.BranchCut)
+    name: BuildRightHandSideSection
+    href: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.html#Linear_Programming_Calculator_Desktop_Services_IGomoryCutFormatterService_BuildRightHandSideSection_Methods_Models_BranchCut_
+  - name: (
+  - uid: Methods.Models.BranchCut
+    name: BranchCut
+  - name: )
+  spec.vb:
+  - uid: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.BuildRightHandSideSection(Methods.Models.BranchCut)
+    name: BuildRightHandSideSection
+    href: Linear_Programming_Calculator_Desktop.Services.IGomoryCutFormatterService.html#Linear_Programming_Calculator_Desktop_Services_IGomoryCutFormatterService_BuildRightHandSideSection_Methods_Models_BranchCut_
+  - name: (
+  - uid: Methods.Models.BranchCut
+    name: BranchCut
+  - name: )

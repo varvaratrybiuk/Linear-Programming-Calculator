@@ -1,0 +1,62 @@
+### YamlMime:ManagedReference
+items:
+- uid: Linear_Programming_Calculator_Desktop.Models
+  commentId: N:Linear_Programming_Calculator_Desktop.Models
+  id: Models
+  parent: Linear_Programming_Calculator_Desktop
+  children:
+  - Linear_Programming_Calculator_Desktop.Models.FormattedLinearProblem
+  - Linear_Programming_Calculator_Desktop.Models.LinearProgramInput
+  - Linear_Programming_Calculator_Desktop.Models.SimplexCell
+  langs:
+  - csharp
+  - vb
+  name: Linear_Programming_Calculator_Desktop.Models
+  nameWithType: Linear_Programming_Calculator_Desktop.Models
+  fullName: Linear_Programming_Calculator_Desktop.Models
+  type: Namespace
+  assemblies:
+  - Linear Programming Calculator Desktop
+references:
+- uid: Linear_Programming_Calculator_Desktop.Models.FormattedLinearProblem
+  commentId: T:Linear_Programming_Calculator_Desktop.Models.FormattedLinearProblem
+  parent: Linear_Programming_Calculator_Desktop.Models
+  href: Linear_Programming_Calculator_Desktop.Models.FormattedLinearProblem.html
+  name: FormattedLinearProblem
+  nameWithType: FormattedLinearProblem
+  fullName: Linear_Programming_Calculator_Desktop.Models.FormattedLinearProblem
+- uid: Linear_Programming_Calculator_Desktop.Models.LinearProgramInput
+  commentId: T:Linear_Programming_Calculator_Desktop.Models.LinearProgramInput
+  parent: Linear_Programming_Calculator_Desktop.Models
+  href: Linear_Programming_Calculator_Desktop.Models.LinearProgramInput.html
+  name: LinearProgramInput
+  nameWithType: LinearProgramInput
+  fullName: Linear_Programming_Calculator_Desktop.Models.LinearProgramInput
+- uid: Linear_Programming_Calculator_Desktop.Models.SimplexCell
+  commentId: T:Linear_Programming_Calculator_Desktop.Models.SimplexCell
+  href: Linear_Programming_Calculator_Desktop.Models.SimplexCell.html
+  name: SimplexCell
+  nameWithType: SimplexCell
+  fullName: Linear_Programming_Calculator_Desktop.Models.SimplexCell
+- uid: Linear_Programming_Calculator_Desktop.Models
+  commentId: N:Linear_Programming_Calculator_Desktop.Models
+  href: Linear_Programming_Calculator_Desktop.html
+  name: Linear_Programming_Calculator_Desktop.Models
+  nameWithType: Linear_Programming_Calculator_Desktop.Models
+  fullName: Linear_Programming_Calculator_Desktop.Models
+  spec.csharp:
+  - uid: Linear_Programming_Calculator_Desktop
+    name: Linear_Programming_Calculator_Desktop
+    href: Linear_Programming_Calculator_Desktop.html
+  - name: .
+  - uid: Linear_Programming_Calculator_Desktop.Models
+    name: Models
+    href: Linear_Programming_Calculator_Desktop.Models.html
+  spec.vb:
+  - uid: Linear_Programming_Calculator_Desktop
+    name: Linear_Programming_Calculator_Desktop
+    href: Linear_Programming_Calculator_Desktop.html
+  - name: .
+  - uid: Linear_Programming_Calculator_Desktop.Models
+    name: Models
+    href: Linear_Programming_Calculator_Desktop.Models.html
