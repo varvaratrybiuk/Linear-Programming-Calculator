@@ -45,6 +45,22 @@ Additionally, you can edit the current problem by pressing _Edit problem_, or st
 
 ## Documentation
 
+Currently, the project documentation is hosted locally and can be accessed via your local server (localhost). 
+To view the documentation, run the following commands:
+
+1. Navigate to the project folder:
+```
+cd "Linear Programming Calculator Desktop"
+```
+or
+```
+cd Methods
+```
+2. Build and serve the documentation locally:
+```
+docfx build docfx.json --serve
+```
+
 ## License
 
 This project is licensed under the [MIT](./LICENSE.md)
