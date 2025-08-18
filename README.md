@@ -38,24 +38,14 @@ You can also **return to the startup window**, press _New Problem_, to edit the 
 
 ![Problem Setup Window](./Images/img2.png)
 
-Finally, when you press _Solve_ button, the application navigates to the **Result window**, where you can view all steps of the problem?solving process.
+Finally, when you press _Solve_ button, the application navigates to the **Result window**, where you can view all steps of the problem solving process.
 Additionally, you can edit the current problem by pressing _Edit problem_, or start a new one by pressing _New problem_.
 
 ![Result Window](./Images/img3.png)
 
 ## Documentation
 
-Currently, the project documentation is hosted locally and can be accessed via your local server (localhost). 
-To view the documentation, run the following commands:
-
-1. Navigate to the project folder:
-```
-cd docs
-```
-2. Build and serve the documentation locally:
-```
-docfx build docfx.json --serve
-```
+The project documentation is available at the following link [here](https://varvaratrybiuk.github.io/Linear-Programming-Calculator/)
 
 ## License
 
