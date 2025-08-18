@@ -28,7 +28,7 @@ items:
   type: Class
   source:
     id: ResultsViewModel
-    path: CommunityToolkit.Mvvm.SourceGenerators\CommunityToolkit.Mvvm.SourceGenerators.RelayCommandGenerator\Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.NewProblem.g.cs
+    path: CommunityToolkit.Mvvm.SourceGenerators\CommunityToolkit.Mvvm.SourceGenerators.RelayCommandGenerator\Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblem.g.cs
     startLine: 6
   assemblies:
   - Linear Programming Calculator Desktop
@@ -473,33 +473,6 @@ items:
   - type: CommunityToolkit.Mvvm.Input.RelayCommandAttribute
     ctor: CommunityToolkit.Mvvm.Input.RelayCommandAttribute.#ctor
     arguments: []
-- uid: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblemCommand
-  commentId: P:Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblemCommand
-  id: EditProblemCommand
-  parent: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel
-  langs:
-  - csharp
-  - vb
-  name: EditProblemCommand
-  nameWithType: ResultsViewModel.EditProblemCommand
-  fullName: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblemCommand
-  type: Property
-  source:
-    id: EditProblemCommand
-    path: CommunityToolkit.Mvvm.SourceGenerators\CommunityToolkit.Mvvm.SourceGenerators.RelayCommandGenerator\Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblem.g.cs
-    startLine: 12
-  assemblies:
-  - Linear Programming Calculator Desktop
-  namespace: Linear_Programming_Calculator_Desktop.ViewModels
-  summary: Gets an <xref href="CommunityToolkit.Mvvm.Input.IRelayCommand" data-throw-if-not-resolved="false"></xref> instance wrapping <xref href="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblem" data-throw-if-not-resolved="false"></xref>.
-  example: []
-  syntax:
-    content: public IRelayCommand EditProblemCommand { get; }
-    parameters: []
-    return:
-      type: CommunityToolkit.Mvvm.Input.IRelayCommand
-    content.vb: Public ReadOnly Property EditProblemCommand As IRelayCommand
-  overload: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblemCommand*
 - uid: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.NewProblemCommand
   commentId: P:Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.NewProblemCommand
   id: NewProblemCommand
@@ -527,6 +500,33 @@ items:
       type: CommunityToolkit.Mvvm.Input.IRelayCommand
     content.vb: Public ReadOnly Property NewProblemCommand As IRelayCommand
   overload: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.NewProblemCommand*
+- uid: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblemCommand
+  commentId: P:Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblemCommand
+  id: EditProblemCommand
+  parent: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel
+  langs:
+  - csharp
+  - vb
+  name: EditProblemCommand
+  nameWithType: ResultsViewModel.EditProblemCommand
+  fullName: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblemCommand
+  type: Property
+  source:
+    id: EditProblemCommand
+    path: CommunityToolkit.Mvvm.SourceGenerators\CommunityToolkit.Mvvm.SourceGenerators.RelayCommandGenerator\Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblem.g.cs
+    startLine: 12
+  assemblies:
+  - Linear Programming Calculator Desktop
+  namespace: Linear_Programming_Calculator_Desktop.ViewModels
+  summary: Gets an <xref href="CommunityToolkit.Mvvm.Input.IRelayCommand" data-throw-if-not-resolved="false"></xref> instance wrapping <xref href="Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblem" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public IRelayCommand EditProblemCommand { get; }
+    parameters: []
+    return:
+      type: CommunityToolkit.Mvvm.Input.IRelayCommand
+    content.vb: Public ReadOnly Property EditProblemCommand As IRelayCommand
+  overload: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblemCommand*
 references:
 - uid: Linear_Programming_Calculator_Desktop.ViewModels
   commentId: N:Linear_Programming_Calculator_Desktop.ViewModels
@@ -2981,30 +2981,30 @@ references:
   name: IRelayCommand
   nameWithType: IRelayCommand
   fullName: CommunityToolkit.Mvvm.Input.IRelayCommand
-- uid: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblem
-  commentId: M:Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblem
-  href: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.html#Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_EditProblem
-  name: EditProblem()
-  nameWithType: ResultsViewModel.EditProblem()
-  fullName: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblem()
+- uid: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.NewProblem
+  commentId: M:Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.NewProblem
+  href: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.html#Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_NewProblem
+  name: NewProblem()
+  nameWithType: ResultsViewModel.NewProblem()
+  fullName: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.NewProblem()
   spec.csharp:
-  - uid: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblem
-    name: EditProblem
-    href: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.html#Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_EditProblem
+  - uid: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.NewProblem
+    name: NewProblem
+    href: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.html#Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_NewProblem
   - name: (
   - name: )
   spec.vb:
-  - uid: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblem
-    name: EditProblem
-    href: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.html#Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_EditProblem
+  - uid: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.NewProblem
+    name: NewProblem
+    href: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.html#Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_NewProblem
   - name: (
   - name: )
-- uid: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblemCommand*
-  commentId: Overload:Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblemCommand
-  href: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.html#Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_EditProblemCommand
-  name: EditProblemCommand
-  nameWithType: ResultsViewModel.EditProblemCommand
-  fullName: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblemCommand
+- uid: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.NewProblemCommand*
+  commentId: Overload:Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.NewProblemCommand
+  href: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.html#Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_NewProblemCommand
+  name: NewProblemCommand
+  nameWithType: ResultsViewModel.NewProblemCommand
+  fullName: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.NewProblemCommand
 - uid: CommunityToolkit.Mvvm.Input
   commentId: N:CommunityToolkit.Mvvm.Input
   isExternal: true
@@ -3042,27 +3042,27 @@ references:
     name: Input
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.input
-- uid: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.NewProblem
-  commentId: M:Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.NewProblem
-  href: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.html#Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_NewProblem
-  name: NewProblem()
-  nameWithType: ResultsViewModel.NewProblem()
-  fullName: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.NewProblem()
+- uid: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblem
+  commentId: M:Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblem
+  href: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.html#Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_EditProblem
+  name: EditProblem()
+  nameWithType: ResultsViewModel.EditProblem()
+  fullName: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblem()
   spec.csharp:
-  - uid: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.NewProblem
-    name: NewProblem
-    href: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.html#Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_NewProblem
+  - uid: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblem
+    name: EditProblem
+    href: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.html#Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_EditProblem
   - name: (
   - name: )
   spec.vb:
-  - uid: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.NewProblem
-    name: NewProblem
-    href: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.html#Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_NewProblem
+  - uid: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblem
+    name: EditProblem
+    href: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.html#Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_EditProblem
   - name: (
   - name: )
-- uid: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.NewProblemCommand*
-  commentId: Overload:Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.NewProblemCommand
-  href: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.html#Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_NewProblemCommand
-  name: NewProblemCommand
-  nameWithType: ResultsViewModel.NewProblemCommand
-  fullName: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.NewProblemCommand
+- uid: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblemCommand*
+  commentId: Overload:Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblemCommand
+  href: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.html#Linear_Programming_Calculator_Desktop_ViewModels_ResultsViewModel_EditProblemCommand
+  name: EditProblemCommand
+  nameWithType: ResultsViewModel.EditProblemCommand
+  fullName: Linear_Programming_Calculator_Desktop.ViewModels.ResultsViewModel.EditProblemCommand

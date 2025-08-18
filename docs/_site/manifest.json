@@ -36,6 +36,36 @@
       "version": ""
     },
     {
+      "type": "Resource",
+      "source_relative_path": "images/img1.jpg",
+      "output": {
+        "resource": {
+          "relative_path": "images/img1.jpg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/img2.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/img2.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/img3.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/img3.png"
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {

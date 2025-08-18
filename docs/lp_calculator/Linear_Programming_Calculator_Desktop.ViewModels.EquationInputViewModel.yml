@@ -25,7 +25,7 @@ items:
   type: Class
   source:
     id: EquationInputViewModel
-    path: CommunityToolkit.Mvvm.SourceGenerators\CommunityToolkit.Mvvm.SourceGenerators.RelayCommandGenerator\Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.Solve.g.cs
+    path: CommunityToolkit.Mvvm.SourceGenerators\CommunityToolkit.Mvvm.SourceGenerators.ObservablePropertyGenerator\Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.g.cs
     startLine: 6
   assemblies:
   - Linear Programming Calculator Desktop
@@ -373,6 +373,33 @@ items:
       type: CommunityToolkit.Mvvm.Input.IRelayCommand
     content.vb: Public ReadOnly Property NewProblemCommand As IRelayCommand
   overload: Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.NewProblemCommand*
+- uid: Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.SolveCommand
+  commentId: P:Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.SolveCommand
+  id: SolveCommand
+  parent: Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel
+  langs:
+  - csharp
+  - vb
+  name: SolveCommand
+  nameWithType: EquationInputViewModel.SolveCommand
+  fullName: Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.SolveCommand
+  type: Property
+  source:
+    id: SolveCommand
+    path: CommunityToolkit.Mvvm.SourceGenerators\CommunityToolkit.Mvvm.SourceGenerators.RelayCommandGenerator\Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.Solve.g.cs
+    startLine: 12
+  assemblies:
+  - Linear Programming Calculator Desktop
+  namespace: Linear_Programming_Calculator_Desktop.ViewModels
+  summary: Gets an <xref href="CommunityToolkit.Mvvm.Input.IRelayCommand" data-throw-if-not-resolved="false"></xref> instance wrapping <xref href="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.Solve" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public IRelayCommand SolveCommand { get; }
+    parameters: []
+    return:
+      type: CommunityToolkit.Mvvm.Input.IRelayCommand
+    content.vb: Public ReadOnly Property SolveCommand As IRelayCommand
+  overload: Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.SolveCommand*
 - uid: Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.IsMaximization
   commentId: P:Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.IsMaximization
   id: IsMaximization
@@ -427,33 +454,6 @@ items:
       type: System.Boolean
     content.vb: Public Property IntegerCheck As Boolean
   overload: Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.IntegerCheck*
-- uid: Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.SolveCommand
-  commentId: P:Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.SolveCommand
-  id: SolveCommand
-  parent: Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel
-  langs:
-  - csharp
-  - vb
-  name: SolveCommand
-  nameWithType: EquationInputViewModel.SolveCommand
-  fullName: Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.SolveCommand
-  type: Property
-  source:
-    id: SolveCommand
-    path: CommunityToolkit.Mvvm.SourceGenerators\CommunityToolkit.Mvvm.SourceGenerators.RelayCommandGenerator\Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.Solve.g.cs
-    startLine: 12
-  assemblies:
-  - Linear Programming Calculator Desktop
-  namespace: Linear_Programming_Calculator_Desktop.ViewModels
-  summary: Gets an <xref href="CommunityToolkit.Mvvm.Input.IRelayCommand" data-throw-if-not-resolved="false"></xref> instance wrapping <xref href="Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.Solve" data-throw-if-not-resolved="false"></xref>.
-  example: []
-  syntax:
-    content: public IRelayCommand SolveCommand { get; }
-    parameters: []
-    return:
-      type: CommunityToolkit.Mvvm.Input.IRelayCommand
-    content.vb: Public ReadOnly Property SolveCommand As IRelayCommand
-  overload: Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.SolveCommand*
 references:
 - uid: System.ComponentModel.INotifyDataErrorInfo
   commentId: T:System.ComponentModel.INotifyDataErrorInfo
@@ -5665,29 +5665,6 @@ references:
     name: Input
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/communitytoolkit.mvvm.input
-- uid: Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.IsMaximization*
-  commentId: Overload:Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.IsMaximization
-  href: Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.html#Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel_IsMaximization
-  name: IsMaximization
-  nameWithType: EquationInputViewModel.IsMaximization
-  fullName: Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.IsMaximization
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
-- uid: Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.IntegerCheck*
-  commentId: Overload:Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.IntegerCheck
-  href: Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.html#Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel_IntegerCheck
-  name: IntegerCheck
-  nameWithType: EquationInputViewModel.IntegerCheck
-  fullName: Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.IntegerCheck
 - uid: Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.Solve
   commentId: M:Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.Solve
   href: Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.html#Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel_Solve
@@ -5712,3 +5689,26 @@ references:
   name: SolveCommand
   nameWithType: EquationInputViewModel.SolveCommand
   fullName: Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.SolveCommand
+- uid: Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.IsMaximization*
+  commentId: Overload:Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.IsMaximization
+  href: Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.html#Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel_IsMaximization
+  name: IsMaximization
+  nameWithType: EquationInputViewModel.IsMaximization
+  fullName: Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.IsMaximization
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.IntegerCheck*
+  commentId: Overload:Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.IntegerCheck
+  href: Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.html#Linear_Programming_Calculator_Desktop_ViewModels_EquationInputViewModel_IntegerCheck
+  name: IntegerCheck
+  nameWithType: EquationInputViewModel.IntegerCheck
+  fullName: Linear_Programming_Calculator_Desktop.ViewModels.EquationInputViewModel.IntegerCheck
